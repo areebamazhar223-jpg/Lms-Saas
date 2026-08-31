@@ -1,0 +1,316 @@
+/* ===============================
+   About Section
+================================ */
+
+.about {
+
+    padding: 100px 6%;
+
+    background: #ffffff;
+
+}
+
+
+
+.about-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 70px;
+
+    align-items: center;
+
+}
+
+
+
+
+
+/* ===============================
+   Content
+================================ */
+
+
+.about-content h1 {
+
+    font-size: 44px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.about-content h1::after {
+
+    content: "";
+
+    display: block;
+
+    width: 70px;
+
+    height: 4px;
+
+    background: #2563eb;
+
+    margin-top: 15px;
+
+    border-radius: 10px;
+
+}
+
+
+
+.about-content p {
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    margin-bottom: 18px;
+
+}
+
+
+
+
+
+/* ===============================
+   Cards
+================================ */
+
+
+.about-cards {
+
+    display: grid;
+
+    grid-template-columns: 1fr;
+
+    gap: 22px;
+
+}
+
+
+
+
+
+.about-card {
+
+
+    background: #f8fafc;
+
+
+    padding: 25px;
+
+
+    border-radius: 18px;
+
+
+    border: 1px solid #e5e7eb;
+
+
+    transition: .3s ease;
+
+
+}
+
+
+
+
+.about-card:hover {
+
+
+    transform: translateY(-6px);
+
+
+    background: white;
+
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, .08);
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   Icon
+================================ */
+
+
+.about-icon {
+
+
+    width: 55px;
+
+
+    height: 55px;
+
+
+    border-radius: 15px;
+
+
+    background: #dbeafe;
+
+
+    color: #2563eb;
+
+
+    display: flex;
+
+
+    align-items: center;
+
+
+    justify-content: center;
+
+
+    margin-bottom: 18px;
+
+
+}
+
+
+
+.about-icon svg {
+
+    width: 28px;
+
+    height: 28px;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   Card Text
+================================ */
+
+
+.about-card h3 {
+
+
+    font-size: 21px;
+
+
+    color: #111827;
+
+
+    margin-bottom: 10px;
+
+
+}
+
+
+
+.about-card p {
+
+
+    color: #64748b;
+
+
+    line-height: 1.7;
+
+
+    font-size: 15px;
+
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:900px) {
+
+
+    .about-container {
+
+
+        grid-template-columns: 1fr;
+
+
+        gap: 40px;
+
+
+    }
+
+
+
+    .about-content {
+
+
+        text-align: center;
+
+
+    }
+
+
+
+    .about-content h1::after {
+
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+
+    }
+
+
+}
+
+
+
+@media(max-width:500px) {
+
+
+    .about {
+
+
+        padding: 70px 20px;
+
+
+    }
+
+
+
+    .about-content h1 {
+
+
+        font-size: 32px;
+
+
+    }
+
+
+
+}

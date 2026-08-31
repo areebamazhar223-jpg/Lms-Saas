@@ -1,0 +1,239 @@
+/* ===============================
+   Students Page
+================================ */
+
+.students {
+
+    min-height: 100vh;
+
+    padding: 40px;
+
+    background: #f8fafc;
+
+}
+
+
+
+/* Heading */
+
+.students h1 {
+
+    font-size: 36px;
+
+    color: #111827;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+/* ===============================
+   Table
+================================ */
+
+
+.students-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+}
+
+
+
+/* Header */
+
+.students-table thead {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+
+
+.students-table th {
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* Body */
+
+.students-table td {
+
+    padding: 17px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #475569;
+
+    font-weight: 500;
+
+}
+
+
+
+.students-table tbody tr {
+
+    transition: .3s;
+
+}
+
+
+
+.students-table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+
+.students-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+
+/* ===============================
+   Progress
+================================ */
+
+
+.students-table td:nth-child(5) {
+
+    color: #2563eb;
+
+    font-weight: 700;
+
+}
+
+
+
+/* ===============================
+   Status
+================================ */
+
+
+.students-table td:last-child {
+
+    font-weight: 600;
+
+}
+
+
+
+.students-table td:last-child::first-letter {
+
+    color: #16a34a;
+
+}
+
+
+
+/* ===============================
+   Empty State
+================================ */
+
+
+.students-table td[colspan="6"] {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+}
+
+
+
+/* ===============================
+   Loading
+================================ */
+
+
+.students>h2 {
+
+    text-align: center;
+
+    margin-top: 100px;
+
+    color: #64748b;
+
+}
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:900px) {
+
+
+    .students {
+
+        padding: 25px;
+
+    }
+
+
+    .students-table {
+
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px) {
+
+
+    .students {
+
+        padding: 20px;
+
+    }
+
+
+    .students h1 {
+
+        font-size: 28px;
+
+    }
+
+
+}

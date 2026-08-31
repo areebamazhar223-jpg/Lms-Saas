@@ -1,0 +1,310 @@
+.about {
+
+    padding: 100px 7%;
+
+    background: #f8fafc;
+
+}
+
+
+.about-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 60px;
+
+}
+
+
+
+
+/* Left Section */
+
+
+.about-left {
+
+    flex: 1;
+
+}
+
+
+
+.about-tag {
+
+    display: inline-block;
+
+    padding: 8px 18px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.about-left h2 {
+
+    font-size: 42px;
+
+    line-height: 1.2;
+
+    color: #1e293b;
+
+    margin-bottom: 20px;
+
+}
+
+
+
+.about-left h2 span {
+
+    color: #4f46e5;
+
+}
+
+
+
+.about-left p {
+
+    color: #64748b;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    max-width: 550px;
+
+}
+
+
+
+
+
+/* Features */
+
+
+.about-features {
+
+    margin-top: 35px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 20px;
+
+}
+
+
+
+.feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background: white;
+
+    padding: 15px 18px;
+
+    border-radius: 14px;
+
+    color: #334155;
+
+    font-weight: 600;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+
+    transition: .3s;
+
+}
+
+
+
+.feature svg {
+
+    color: #4f46e5;
+
+}
+
+
+
+.feature:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+
+
+
+
+/* Right Cards */
+
+
+.about-right {
+
+    flex: 1;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 25px;
+
+}
+
+
+
+
+
+.about-card {
+
+    background: white;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+    transition: .3s;
+
+    border: 1px solid #f1f5f9;
+
+}
+
+
+
+.about-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .12);
+
+}
+
+
+
+.about-card h3 {
+
+    font-size: 38px;
+
+    color: #4f46e5;
+
+    margin-bottom: 10px;
+
+}
+
+
+
+.about-card p {
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+}
+
+
+
+
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:900px) {
+
+
+    .about-container {
+
+        flex-direction: column;
+
+    }
+
+
+
+    .about-left h2 {
+
+        font-size: 34px;
+
+    }
+
+
+
+    .about-right {
+
+        width: 100%;
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px) {
+
+
+    .about {
+
+        padding: 70px 20px;
+
+    }
+
+
+
+    .about-features {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .about-right {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .about-left h2 {
+
+        font-size: 28px;
+
+    }
+
+
+}

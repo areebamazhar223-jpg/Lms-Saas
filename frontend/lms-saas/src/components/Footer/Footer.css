@@ -1,0 +1,484 @@
+/* =========================================
+   FOOTER
+========================================= */
+
+.footer {
+    width: 100%;
+    margin-top: 80px;
+
+    background: #0f172a;
+    color: #ffffff;
+}
+
+
+/* =========================================
+   FOOTER CONTAINER
+========================================= */
+
+.footer-container {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+    padding: 70px 28px 55px;
+
+    display: grid;
+
+    grid-template-columns:
+        1.6fr 1fr 1fr 1.4fr;
+
+    gap: 55px;
+}
+
+
+/* =========================================
+   FOOTER BOX
+========================================= */
+
+.footer-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* =========================================
+   LEARNSMART BRAND
+========================================= */
+
+.footer-brand-logo {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+
+    margin-bottom: 20px;
+
+    text-decoration: none;
+}
+
+
+.footer-logo-image {
+    width: 55px;
+    height: 55px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 11px;
+}
+
+
+.footer-logo-text {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+}
+
+
+.footer-logo-name {
+    color: #ffffff;
+
+    font-size: 23px;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+
+.footer-logo-tagline {
+    margin-top: 6px;
+
+    color: #60a5fa;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.footer-description {
+    max-width: 350px;
+
+    margin: 0 0 23px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================
+   SOCIAL ICONS
+========================================= */
+
+.social-icons {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.social-icons a {
+    width: 37px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #334155;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #cbd5e1;
+
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+
+.social-icons a:hover {
+    background: #2563eb;
+
+    border-color: #2563eb;
+
+    color: #ffffff;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================
+   FOOTER HEADINGS
+========================================= */
+
+.footer-box h3 {
+    position: relative;
+
+    margin: 4px 0 22px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+.footer-box h3::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -8px;
+
+    width: 28px;
+    height: 2px;
+
+    background: #2563eb;
+
+    border-radius: 2px;
+}
+
+
+/* =========================================
+   FOOTER LINKS
+========================================= */
+
+.footer-box>a {
+    margin-bottom: 12px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    text-decoration: none;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.footer-box>a:hover {
+    color: #60a5fa;
+
+    transform: translateX(4px);
+}
+
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+.footer-newsletter p {
+    max-width: 300px;
+
+    margin: 0 0 18px;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* =========================================
+   NEWSLETTER INPUT
+========================================= */
+
+.newsletter-input {
+    width: 100%;
+    max-width: 330px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 4px;
+
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 9px;
+}
+
+
+.newsletter-input input {
+    width: 100%;
+    min-width: 0;
+
+    height: 42px;
+
+    padding: 0 11px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 13px;
+}
+
+
+.newsletter-input input::placeholder {
+    color: #64748b;
+}
+
+
+.newsletter-input button {
+    flex-shrink: 0;
+
+    height: 40px;
+
+    padding: 0 14px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+
+.newsletter-input button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================
+   FOOTER BOTTOM
+========================================= */
+
+.footer-bottom {
+    width: 100%;
+
+    border-top: 1px solid #1e293b;
+}
+
+
+.footer-bottom-container {
+    width: 100%;
+    max-width: 1280px;
+
+    min-height: 68px;
+
+    margin: 0 auto;
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+.footer-bottom strong {
+    color: #94a3b8;
+}
+
+
+.footer-slogan {
+    color: #64748b;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .footer-container {
+        grid-template-columns:
+            1.5fr 1fr 1fr;
+
+        gap: 40px;
+    }
+
+    .footer-newsletter {
+        grid-column: span 3;
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .footer-container {
+        grid-template-columns: 1fr;
+
+        gap: 38px;
+
+        padding: 55px 22px 45px;
+    }
+
+
+    .footer-newsletter {
+        grid-column: auto;
+    }
+
+
+    .footer-description {
+        max-width: 100%;
+    }
+
+
+    .newsletter-input {
+        max-width: 100%;
+    }
+
+
+    .footer-bottom-container {
+        min-height: auto;
+
+        padding: 20px 22px;
+
+        flex-direction: column;
+
+        justify-content: center;
+
+        text-align: center;
+
+        gap: 8px;
+    }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .footer-logo-image {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    .footer-logo-name {
+        font-size: 21px;
+    }
+
+
+    .footer-description {
+        font-size: 13px;
+    }
+
+
+    .newsletter-input {
+        flex-direction: column;
+
+        padding: 6px;
+
+        background: transparent;
+
+        border: none;
+    }
+
+
+    .newsletter-input input {
+        width: 100%;
+
+        margin-bottom: 8px;
+
+        padding: 0 12px;
+
+        background: #1e293b;
+
+        border: 1px solid #334155;
+
+        border-radius: 8px;
+    }
+
+
+    .newsletter-input button {
+        width: 100%;
+    }
+
+}

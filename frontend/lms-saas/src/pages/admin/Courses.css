@@ -1,0 +1,526 @@
+/* ===============================
+   COURSES PAGE
+================================ */
+
+
+.courses {
+
+    padding: 35px;
+
+    background: #f8fafc;
+
+    min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+
+/* ===============================
+   HEADER
+================================ */
+
+
+.courses-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.courses-header h1 {
+
+    font-size: 32px;
+
+    color: #0f172a;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.courses-header p {
+
+    color: #64748b;
+
+    font-size: 15px;
+
+}
+
+
+
+
+
+
+/* ===============================
+   ACTIONS
+================================ */
+
+
+.courses-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+
+
+.search-input {
+
+    width: 260px;
+
+    padding: 12px 16px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    background: white;
+
+    font-size: 14px;
+
+}
+
+
+
+.search-input:focus {
+
+    border-color: #5b4bff;
+
+}
+
+
+
+
+
+
+.add-course-btn {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: #5b4bff;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+
+
+.add-course-btn:hover {
+
+    background: #4838f5;
+
+}
+
+
+
+
+
+
+/* ===============================
+   SUMMARY CARD
+================================ */
+
+
+.courses-summary {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .05);
+
+}
+
+
+
+.courses-summary h3 {
+
+    color: #64748b;
+
+    font-size: 16px;
+
+}
+
+
+
+.courses-summary span {
+
+    font-size: 35px;
+
+    font-weight: 700;
+
+    color: #5b4bff;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   TABLE
+================================ */
+
+
+.table-container {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+
+}
+
+
+
+
+.courses-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+
+.courses-table th {
+
+    text-align: left;
+
+    padding: 15px;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+}
+
+
+
+.courses-table td {
+
+    padding: 15px;
+
+    color: #334155;
+
+    border-bottom: 1px solid #f1f5f9;
+
+}
+
+
+
+
+
+.courses-table tbody tr {
+
+    transition: .2s;
+
+}
+
+
+
+.courses-table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   STATUS
+================================ */
+
+
+.status-badge {
+
+    padding: 6px 12px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+
+.status-badge--active {
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   ACTION BUTTONS
+================================ */
+
+
+.action-buttons {
+
+    display: flex;
+
+    gap: 10px;
+
+}
+
+
+
+
+.edit-btn,
+.delete-btn {
+
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    border: none;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+}
+
+
+
+.edit-btn {
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+}
+
+
+
+.edit-btn:hover {
+
+    background: #5b4bff;
+
+    color: white;
+
+}
+
+
+
+
+
+.delete-btn {
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+}
+
+
+
+.delete-btn:hover {
+
+    background: #dc2626;
+
+    color: white;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   EMPTY STATE
+================================ */
+
+
+.empty-state {
+
+    text-align: center;
+
+    padding: 50px;
+
+}
+
+
+
+.empty-state h3 {
+
+    font-size: 22px;
+
+    color: #334155;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.empty-state p {
+
+    color: #64748b;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+
+
+@media(max-width:900px) {
+
+
+    .courses-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
+
+    }
+
+
+
+    .courses-actions {
+
+        width: 100%;
+
+    }
+
+
+
+    .search-input {
+
+        width: 100%;
+
+    }
+
+
+
+}
+
+
+
+
+@media(max-width:600px) {
+
+
+    .courses {
+
+        padding: 20px;
+
+    }
+
+
+
+    .courses-header h1 {
+
+        font-size: 25px;
+
+    }
+
+
+
+    .courses-actions {
+
+        flex-direction: column;
+
+        width: 100%;
+
+    }
+
+
+
+    .add-course-btn {
+
+        width: 100%;
+
+        justify-content: center;
+
+    }
+
+
+}

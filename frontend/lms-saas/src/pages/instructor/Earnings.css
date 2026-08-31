@@ -1,0 +1,247 @@
+/* ===============================
+   Earnings Page
+================================ */
+
+.earnings {
+
+    min-height: 100vh;
+    padding: 40px;
+    background: #f8fafc;
+
+}
+
+
+
+/* Heading */
+
+.earnings h1 {
+
+    font-size: 36px;
+    color: #111827;
+    margin-bottom: 35px;
+
+}
+
+
+
+/* ===============================
+   Summary Cards
+================================ */
+
+
+.earnings-summary {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-bottom: 40px;
+
+}
+
+
+
+.summary-card {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+    transition: .3s;
+
+}
+
+
+
+.summary-card:hover {
+
+    transform: translateY(-5px);
+
+}
+
+
+
+.summary-card h3 {
+
+    color: #64748b;
+
+    font-size: 16px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.summary-card p {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    color: #2563eb;
+
+}
+
+
+
+/* ===============================
+   Table
+================================ */
+
+
+.earnings-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+
+}
+
+
+
+.earnings-table thead {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+
+
+.earnings-table th {
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 15px;
+
+}
+
+
+
+.earnings-table td {
+
+    padding: 18px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #475569;
+
+    font-weight: 500;
+
+}
+
+
+
+.earnings-table tbody tr {
+
+    transition: .3s;
+
+}
+
+
+
+.earnings-table tbody tr:hover {
+
+    background: #f1f5f9;
+
+}
+
+
+
+.earnings-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+
+
+/* ===============================
+   Loading
+================================ */
+
+
+.earnings>h2 {
+
+    text-align: center;
+
+    margin-top: 100px;
+
+    color: #64748b;
+
+}
+
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:900px) {
+
+
+    .earnings-summary {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .earnings {
+
+        padding: 25px;
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px) {
+
+
+    .earnings {
+
+        padding: 20px;
+
+    }
+
+
+    .earnings h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .earnings-table {
+
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+
+    }
+
+
+}

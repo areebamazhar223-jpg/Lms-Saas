@@ -1,0 +1,138 @@
+.pricing {
+    padding: 80px 20px;
+    background: #f8fafc;
+    min-height: 100vh;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.pricing-header h1 {
+    font-size: 42px;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.pricing-header p {
+    font-size: 18px;
+    color: #64748b;
+}
+
+.pricing-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.pricing-card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+    position: relative;
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+}
+
+.pricing-card h2 {
+    font-size: 28px;
+    color: #1e293b;
+    margin-bottom: 15px;
+}
+
+.pricing-card h3 {
+    font-size: 42px;
+    color: #2563eb;
+    margin-bottom: 25px;
+}
+
+.pricing-card h3 span {
+    font-size: 18px;
+    color: #64748b;
+}
+
+.pricing-card ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.pricing-card ul li {
+    padding: 10px 0;
+    color: #475569;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.pricing-card button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pricing-card button:hover {
+    background: #1d4ed8;
+}
+
+.featured {
+    border: 3px solid #2563eb;
+    transform: scale(1.05);
+}
+
+.featured:hover {
+    transform: scale(1.08);
+}
+
+.badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2563eb;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+@media (max-width: 992px) {
+    .pricing-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pricing-header h1 {
+        font-size: 32px;
+    }
+
+    .pricing-header p {
+        font-size: 16px;
+    }
+
+    .featured {
+        transform: scale(1);
+    }
+
+    .featured:hover {
+        transform: translateY(-10px);
+    }
+}

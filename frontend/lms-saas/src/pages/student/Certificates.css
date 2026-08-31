@@ -1,0 +1,273 @@
+/* ===============================
+   Certificates Page
+================================ */
+
+.certificates-page {
+
+    min-height: 100vh;
+    padding: 50px 30px;
+    background: #f8fafc;
+    font-family: "Inter", sans-serif;
+
+}
+
+
+
+/* ===============================
+   Header
+================================ */
+
+.certificate-header {
+
+    max-width: 1200px;
+    margin: 0 auto 35px;
+
+}
+
+
+.certificate-header h1 {
+
+    font-size: 36px;
+    color: #111827;
+    margin-bottom: 10px;
+
+}
+
+
+.certificate-header p {
+
+    color: #64748b;
+    font-size: 16px;
+
+}
+
+
+
+/* ===============================
+   Table
+================================ */
+
+
+.certificate-table {
+
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+
+    background: white;
+
+    border-collapse: collapse;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+
+}
+
+
+
+/* Table Header */
+
+.certificate-table thead {
+
+    background: #2563eb;
+    color: white;
+
+}
+
+
+.certificate-table th {
+
+    padding: 18px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+
+
+/* Table Body */
+
+.certificate-table td {
+
+    padding: 18px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #475569;
+    font-size: 15px;
+
+}
+
+
+.certificate-table tbody tr {
+
+    transition: .3s;
+
+}
+
+
+.certificate-table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+
+.certificate-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+
+
+/* ===============================
+   Status Badge
+================================ */
+
+
+.issued-status {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 8px 14px;
+
+    border-radius: 20px;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+
+/* ===============================
+   Download Button
+================================ */
+
+
+.download-btn {
+
+    padding: 10px 18px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+.download-btn:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* ===============================
+   Empty State
+================================ */
+
+
+.certificate-table td[colspan="5"] {
+
+    text-align: center;
+
+    padding: 50px;
+
+    color: #64748b;
+
+    font-size: 18px;
+
+}
+
+
+
+
+/* ===============================
+   Loading
+================================ */
+
+
+.certificates-page h2 {
+
+    text-align: center;
+
+    margin-top: 100px;
+
+    color: #2563eb;
+
+}
+
+
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:900px) {
+
+
+    .certificates-page {
+
+        padding: 30px 15px;
+
+        overflow-x: auto;
+
+    }
+
+
+    .certificate-table {
+
+        min-width: 800px;
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px) {
+
+
+    .certificate-header h1 {
+
+        font-size: 28px;
+
+    }
+
+
+}

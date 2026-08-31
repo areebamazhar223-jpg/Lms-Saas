@@ -1,0 +1,250 @@
+/* ===============================
+   INSTRUCTORS PAGE
+================================ */
+
+
+.instructors {
+
+    min-height: 100vh;
+
+    background: #f8fafc;
+
+    padding: 35px;
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+
+
+
+/* ===============================
+   TITLE
+================================ */
+
+
+.instructors h1 {
+
+    font-size: 32px;
+
+    color: #0f172a;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   TABLE
+================================ */
+
+
+.instructors-table {
+
+    width: 100%;
+
+    background: white;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    border-collapse: collapse;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+
+}
+
+
+
+
+
+.instructors-table th {
+
+
+    text-align: left;
+
+    padding: 16px 20px;
+
+    background: #f8fafc;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    border-bottom: 1px solid #e2e8f0;
+
+}
+
+
+
+
+
+.instructors-table td {
+
+    padding: 16px 20px;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+}
+
+
+
+
+
+
+
+.instructors-table tbody tr {
+
+    transition: .25s;
+
+}
+
+
+
+.instructors-table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   STATUS BADGE
+================================ */
+
+
+.status.active {
+
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   EMPTY STATE
+================================ */
+
+
+.instructors-table td[colspan="5"] {
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   LOADING
+================================ */
+
+
+.instructors h2 {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #5b4bff;
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+
+@media(max-width:800px) {
+
+
+    .instructors {
+
+        padding: 20px;
+
+    }
+
+
+
+    .instructors h1 {
+
+        font-size: 26px;
+
+    }
+
+
+
+    .instructors-table {
+
+        display: block;
+
+        overflow-x: auto;
+
+    }
+
+
+    .instructors-table th,
+    .instructors-table td {
+
+        white-space: nowrap;
+
+    }
+
+
+}

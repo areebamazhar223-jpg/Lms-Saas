@@ -1,0 +1,221 @@
+/* ===============================
+   Edit Course Page
+================================ */
+
+.edit-course {
+
+    min-height: 100vh;
+
+    padding: 50px 20px;
+
+    background: #f8fafc;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+}
+
+
+
+
+/* ===============================
+   Card
+================================ */
+
+
+.edit-course-card {
+
+    width: 100%;
+
+    max-width: 700px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+
+}
+
+
+
+.edit-course-card h1 {
+
+    text-align: center;
+
+    font-size: 34px;
+
+    color: #111827;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+/* ===============================
+   Form
+================================ */
+
+
+.form-group {
+
+    margin-bottom: 22px;
+
+}
+
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    color: #374151;
+
+    font-size: 15px;
+
+}
+
+
+
+.form-group input,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: .3s;
+
+    font-family: inherit;
+
+}
+
+
+
+.form-group textarea {
+
+    resize: vertical;
+
+}
+
+
+
+.form-group input:focus,
+.form-group textarea:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, .15);
+
+}
+
+
+
+/* ===============================
+   Update Button
+================================ */
+
+
+.update-btn {
+
+    width: 100%;
+
+    padding: 15px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+.update-btn:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* ===============================
+   Loading
+================================ */
+
+
+.edit-course+h2 {
+
+    text-align: center;
+
+    margin-top: 100px;
+
+    color: #64748b;
+
+}
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:600px) {
+
+
+    .edit-course {
+
+        padding: 30px 15px;
+
+    }
+
+
+    .edit-course-card {
+
+        padding: 25px;
+
+    }
+
+
+    .edit-course-card h1 {
+
+        font-size: 28px;
+
+    }
+
+
+}

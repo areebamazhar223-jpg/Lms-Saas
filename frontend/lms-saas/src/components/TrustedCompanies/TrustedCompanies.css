@@ -1,0 +1,171 @@
+/* TrustedCompanies.css */
+
+.trusted-companies {
+
+    padding: 70px 7%;
+
+    background: #f8fafc;
+
+}
+
+
+
+.trusted-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+    text-align: center;
+
+}
+
+
+
+/* Title */
+
+
+.trusted-title {
+
+    font-size: 16px;
+
+    color: #64748b;
+
+    font-weight: 600;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+
+
+/* Companies Grid */
+
+
+.company-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 20px;
+
+}
+
+
+
+
+
+/* Company Card */
+
+
+.company-card {
+
+    height: 80px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #334155;
+
+    transition: .3s ease;
+
+}
+
+
+
+.company-card:hover {
+
+    transform: translateY(-6px);
+
+    color: #2563eb;
+
+    box-shadow: 0 15px 35px rgba(15, 23, 42, .10);
+
+}
+
+
+
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:1000px) {
+
+
+    .company-grid {
+
+        grid-template-columns: repeat(3, 1fr);
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:600px) {
+
+
+    .trusted-companies {
+
+        padding: 60px 5%;
+
+    }
+
+
+
+    .company-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+
+    .company-card {
+
+        height: 70px;
+
+        font-size: 18px;
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:400px) {
+
+
+    .company-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+}

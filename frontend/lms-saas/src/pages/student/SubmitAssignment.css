@@ -1,0 +1,211 @@
+.submit-assignment-page {
+    min-height: 100vh;
+    background: #f5f7fb;
+    padding: 50px 20px;
+}
+
+.submit-assignment-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 35px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+.submit-assignment-header {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.submit-assignment-header h1 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #1f2937;
+}
+
+.submit-assignment-header p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.success-message {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: #e8f8ee;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.error-message {
+    margin-bottom: 20px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    background: #fef2f2;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.submit-assignment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.form-group textarea,
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1f2937;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group textarea {
+    min-height: 220px;
+    resize: vertical;
+    padding: 15px;
+    line-height: 1.6;
+    font-family: inherit;
+}
+
+.form-group input {
+    height: 50px;
+    padding: 0 15px;
+}
+
+.form-group textarea:focus,
+.form-group input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-group textarea::placeholder,
+.form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.form-group small {
+    color: #6b7280;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.assignment-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.cancel-btn,
+.submit-btn {
+    min-width: 150px;
+    height: 48px;
+    border: none;
+    border-radius: 10px;
+    padding: 0 22px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cancel-btn {
+    background: #e5e7eb;
+    color: #374151;
+}
+
+.cancel-btn:hover {
+    background: #d1d5db;
+}
+
+.submit-btn {
+    background: #4f46e5;
+    color: #ffffff;
+}
+
+.submit-btn:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+.cancel-btn:disabled,
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 768px) {
+    .submit-assignment-page {
+        padding: 30px 15px;
+    }
+
+    .submit-assignment-container {
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    .submit-assignment-header h1 {
+        font-size: 27px;
+    }
+
+    .assignment-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-btn,
+    .submit-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .submit-assignment-page {
+        padding: 20px 10px;
+    }
+
+    .submit-assignment-container {
+        padding: 22px 15px;
+    }
+
+    .submit-assignment-header h1 {
+        font-size: 24px;
+    }
+
+    .submit-assignment-header p {
+        font-size: 14px;
+    }
+
+    .form-group textarea {
+        min-height: 180px;
+    }
+}

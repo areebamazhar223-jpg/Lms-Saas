@@ -1,0 +1,188 @@
+.add-lesson-page {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #f4f7fb;
+}
+
+.add-lesson-card {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 35px;
+    background: #ffffff;
+    border: 1px solid #e3e8ef;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.add-lesson-card h1 {
+    margin: 0 0 30px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #172033;
+}
+
+.add-lesson-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #344054;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 15px;
+    border: 1px solid #d0d5dd;
+    border-radius: 10px;
+    background: #fff;
+    color: #172033;
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+    background: #f9fafb;
+}
+
+.form-group input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 7px;
+    background: #4f46e5;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-group small {
+    margin-top: 2px;
+    color: #667085;
+    font-size: 13px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: #f8f9fc;
+    border: 1px solid #e4e7ec;
+    border-radius: 10px;
+}
+
+.checkbox-group input {
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: #4f46e5;
+}
+
+.checkbox-group label {
+    color: #344054;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.lesson-btn {
+    width: 100%;
+    margin-top: 5px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #4f46e5;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.lesson-btn:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+.lesson-btn:active {
+    transform: translateY(0);
+}
+
+.lesson-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+    .add-lesson-page {
+        padding: 25px 15px;
+    }
+
+    .add-lesson-card {
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    .add-lesson-card h1 {
+        font-size: 25px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .add-lesson-page {
+        padding: 15px 10px;
+    }
+
+    .add-lesson-card {
+        padding: 20px 15px;
+    }
+
+    .add-lesson-card h1 {
+        font-size: 22px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        font-size: 14px;
+    }
+
+    .lesson-btn {
+        font-size: 15px;
+    }
+}

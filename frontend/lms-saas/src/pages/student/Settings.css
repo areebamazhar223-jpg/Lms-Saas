@@ -1,0 +1,302 @@
+/* ===============================
+   Settings Page
+================================ */
+
+.settings {
+
+    min-height: 100vh;
+
+    padding: 60px 40px;
+
+    background: #f8fafc;
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+
+/* ===============================
+   Heading
+================================ */
+
+.settings h1 {
+
+    max-width: 800px;
+
+    margin: 0 auto 35px;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+}
+
+
+
+
+
+/* ===============================
+   Card
+================================ */
+
+
+.settings-card {
+
+
+    max-width: 800px;
+
+    margin: auto;
+
+
+    background: white;
+
+
+    padding: 40px;
+
+
+    border-radius: 24px;
+
+
+    border: 1px solid #e5e7eb;
+
+
+    box-shadow:
+
+        0 15px 40px rgba(0, 0, 0, .08);
+
+
+}
+
+
+
+
+
+/* ===============================
+   Form
+================================ */
+
+
+.settings-form {
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+
+}
+
+
+
+
+
+/* ===============================
+   Form Group
+================================ */
+
+
+.form-group {
+
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+
+}
+
+
+
+.form-group label {
+
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #374151;
+
+
+}
+
+
+
+
+.form-group input {
+
+
+    width: 100%;
+
+
+    padding: 15px 16px;
+
+
+    border: 1px solid #e5e7eb;
+
+
+    border-radius: 12px;
+
+
+    outline: none;
+
+
+    font-size: 15px;
+
+
+    color: #111827;
+
+
+    background: white;
+
+
+    transition: .3s;
+
+
+}
+
+
+
+
+
+.form-group input:focus {
+
+
+    border-color: #4f46e5;
+
+
+    box-shadow:
+
+        0 0 0 4px rgba(79, 70, 229, .12);
+
+
+}
+
+
+
+
+
+.form-group input::placeholder {
+
+
+    color: #9ca3af;
+
+
+}
+
+
+
+
+
+/* ===============================
+   Button
+================================ */
+
+
+.save-btn {
+
+
+    width: 100%;
+
+
+    padding: 15px;
+
+
+    border: none;
+
+
+    border-radius: 12px;
+
+
+    background: #4f46e5;
+
+
+    color: white;
+
+
+    font-size: 16px;
+
+
+    font-weight: 600;
+
+
+    cursor: pointer;
+
+
+    transition: .3s;
+
+
+}
+
+
+
+
+
+.save-btn:hover {
+
+
+    background: #3730a3;
+
+
+    transform: translateY(-2px);
+
+
+}
+
+
+
+
+
+.save-btn:active {
+
+
+    transform: translateY(0);
+
+
+}
+
+
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:700px) {
+
+
+    .settings {
+
+
+        padding: 30px 15px;
+
+    }
+
+
+
+    .settings h1 {
+
+
+        font-size: 28px;
+
+    }
+
+
+
+    .settings-card {
+
+
+        padding: 25px;
+
+    }
+
+
+}

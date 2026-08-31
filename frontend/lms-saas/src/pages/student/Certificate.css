@@ -1,0 +1,359 @@
+/* ===============================
+   Certificate Page
+================================ */
+
+.certificate-page {
+
+    min-height: 100vh;
+    background: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    font-family: "Inter", sans-serif;
+
+}
+
+
+
+/* ===============================
+   Certificate Card
+================================ */
+
+.certificate-card {
+
+    width: 100%;
+    max-width: 1000px;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+
+}
+
+
+
+.certificate-border {
+
+    border: 8px solid #2563eb;
+    padding: 50px;
+    text-align: center;
+    position: relative;
+
+}
+
+
+
+/* Inner Border */
+
+.certificate-border::before {
+
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border: 2px solid #93c5fd;
+
+}
+
+
+
+/* ===============================
+   Titles
+================================ */
+
+
+.top-title {
+
+    font-size: 24px;
+    color: #2563eb;
+    margin-bottom: 25px;
+    position: relative;
+
+}
+
+
+
+.certificate-border h1 {
+
+    font-size: 42px;
+    color: #111827;
+    font-family: "Georgia", serif;
+    margin-bottom: 20px;
+    position: relative;
+
+}
+
+
+
+.sub-title {
+
+    color: #64748b;
+    font-size: 18px;
+    position: relative;
+
+}
+
+
+
+
+/* ===============================
+   Student Name
+================================ */
+
+
+.student-name {
+
+    margin: 25px 0;
+    font-size: 36px;
+    color: #1d4ed8;
+    font-family: "Georgia", serif;
+    position: relative;
+
+}
+
+
+
+.course-text {
+
+    color: #64748b;
+    font-size: 18px;
+    position: relative;
+
+}
+
+
+
+.course-name {
+
+    font-size: 30px;
+    margin: 20px 0;
+    color: #111827;
+    position: relative;
+
+}
+
+
+
+
+/* ===============================
+   Info Section
+================================ */
+
+
+.certificate-info {
+
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 50px;
+    position: relative;
+
+}
+
+
+
+.certificate-info div {
+
+    width: 50%;
+
+}
+
+
+
+.certificate-info h4 {
+
+    color: #2563eb;
+    margin-bottom: 8px;
+
+}
+
+
+
+.certificate-info p {
+
+    color: #475569;
+
+}
+
+
+
+
+/* ===============================
+   Footer
+================================ */
+
+
+.certificate-footer {
+
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid #e5e7eb;
+    position: relative;
+
+}
+
+
+
+.certificate-footer h4 {
+
+    color: #2563eb;
+    margin-bottom: 8px;
+
+}
+
+
+
+.certificate-footer p {
+
+    color: #475569;
+    font-size: 14px;
+
+}
+
+
+
+
+/* ===============================
+   Download Button
+================================ */
+
+
+.download-btn {
+
+    margin-top: 40px;
+
+    padding: 14px 30px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+.download-btn:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+
+/* ===============================
+   Loading
+================================ */
+
+
+.loading {
+
+    min-height: 70vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    font-size: 28px;
+
+    color: #2563eb;
+
+}
+
+
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:768px) {
+
+
+    .certificate-border {
+
+        padding: 30px 20px;
+
+    }
+
+
+    .certificate-border h1 {
+
+        font-size: 30px;
+
+    }
+
+
+    .student-name {
+
+        font-size: 28px;
+
+    }
+
+
+    .certificate-info,
+    .certificate-footer {
+
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+    }
+
+
+    .certificate-info div {
+
+        width: 100%;
+
+    }
+
+
+}
+
+
+
+@media print {
+
+
+    .download-btn {
+
+        display: none;
+
+    }
+
+
+    .certificate-page {
+
+        background: white;
+
+    }
+
+
+    .certificate-card {
+
+        box-shadow: none;
+
+    }
+
+
+}

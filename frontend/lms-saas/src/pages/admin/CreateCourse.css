@@ -1,0 +1,182 @@
+.create-course {
+    min-height: 100vh;
+    padding: 40px 20px;
+    background: #f5f7fb;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.create-card {
+    width: 100%;
+    max-width: 760px;
+    background: #ffffff;
+    padding: 35px 40px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e8ebf0;
+}
+
+.create-card h1 {
+    margin: 0 0 30px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #172033;
+}
+
+.create-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.create-card label {
+    margin-top: 12px;
+    margin-bottom: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #273248;
+}
+
+.create-card input,
+.create-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border: 1px solid #d9deea;
+    border-radius: 10px;
+    background: #fff;
+    color: #172033;
+    font-size: 15px;
+    outline: none;
+    transition: 0.2s ease;
+}
+
+.create-card input {
+    height: 50px;
+}
+
+.create-card textarea {
+    min-height: 130px;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.6;
+}
+
+.create-card input::placeholder,
+.create-card textarea::placeholder {
+    color: #9aa3b2;
+}
+
+.create-card input:focus,
+.create-card textarea:focus {
+    border-color: #5b5bf7;
+    box-shadow: 0 0 0 3px rgba(91, 91, 247, 0.1);
+}
+
+.create-card input[type="file"] {
+    height: auto;
+    padding: 11px 12px;
+    cursor: pointer;
+    background: #f9fafc;
+}
+
+.create-card input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 9px 15px;
+    border: none;
+    border-radius: 7px;
+    background: #5b5bf7;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.create-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #edf0f5;
+}
+
+.cancel-btn,
+.create-btn {
+    min-width: 140px;
+    height: 48px;
+    padding: 0 22px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.cancel-btn {
+    background: #fff;
+    color: #4b5565;
+    border: 1px solid #d7dce5;
+}
+
+.cancel-btn:hover {
+    background: #f3f4f7;
+}
+
+.create-btn {
+    border: none;
+    background: #5b5bf7;
+    color: #fff;
+}
+
+.create-btn:hover {
+    background: #4848df;
+    transform: translateY(-1px);
+}
+
+.create-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 700px) {
+    .create-course {
+        padding: 25px 15px;
+    }
+
+    .create-card {
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    .create-card h1 {
+        font-size: 25px;
+        margin-bottom: 22px;
+    }
+
+    .create-actions {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-btn,
+    .create-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .create-card {
+        padding: 20px 15px;
+    }
+
+    .create-card h1 {
+        font-size: 22px;
+    }
+
+    .create-card input,
+    .create-card textarea {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,247 @@
+/* ===============================
+   SETTINGS PAGE
+================================ */
+
+
+.settings {
+
+    min-height: 100vh;
+
+    background: #f8fafc;
+
+    padding: 35px;
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   TITLE
+================================ */
+
+
+.settings h1 {
+
+    font-size: 32px;
+
+    color: #0f172a;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   CARD
+================================ */
+
+
+.settings-card {
+
+    max-width: 650px;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 22px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   FORM
+================================ */
+
+
+.settings-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+}
+
+
+
+
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+
+
+
+.form-group label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+}
+
+
+
+
+
+
+
+.form-group input {
+
+
+    width: 100%;
+
+    padding: 14px 15px;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-size: 14px;
+
+    color: #334155;
+
+    transition: .3s;
+
+    box-sizing: border-box;
+
+}
+
+
+
+
+
+.form-group input:focus {
+
+
+    border-color: #5b4bff;
+
+    box-shadow: 0 0 0 3px rgba(91, 75, 255, .12);
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   BUTTON
+================================ */
+
+
+.save-btn {
+
+
+    width: max-content;
+
+    padding: 13px 28px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #5b4bff;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+
+
+.save-btn:hover {
+
+    background: #4838f5;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+
+@media(max-width:700px) {
+
+
+    .settings {
+
+        padding: 20px;
+
+    }
+
+
+
+    .settings h1 {
+
+        font-size: 26px;
+
+    }
+
+
+
+    .settings-card {
+
+        padding: 25px;
+
+    }
+
+
+
+    .save-btn {
+
+        width: 100%;
+
+    }
+
+
+}

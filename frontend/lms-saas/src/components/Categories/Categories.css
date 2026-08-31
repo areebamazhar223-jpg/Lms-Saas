@@ -1,0 +1,263 @@
+.categories {
+
+    padding: 100px 7%;
+
+    background: #ffffff;
+
+}
+
+
+
+.categories-container {
+
+    max-width: 1200px;
+
+    margin: auto;
+
+}
+
+
+
+
+
+
+/* Header */
+
+.categories-header {
+
+    text-align: center;
+
+    margin-bottom: 60px;
+
+}
+
+
+
+.categories-header span {
+
+    display: inline-block;
+
+    color: #4f46e5;
+
+    background: #eef2ff;
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.categories-header h2 {
+
+    font-size: 40px;
+
+    color: #1e293b;
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.categories-header p {
+
+    color: #64748b;
+
+    font-size: 17px;
+
+}
+
+
+
+
+
+
+
+/* Grid */
+
+.categories-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+
+}
+
+
+
+
+
+
+
+/* Card */
+
+.category-card {
+
+    background: #ffffff;
+
+    padding: 35px 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    border: 1px solid #e2e8f0;
+
+    transition: .3s ease;
+
+    cursor: pointer;
+
+}
+
+
+
+.category-card:hover {
+
+    transform: translateY(-10px);
+
+    border-color: #4f46e5;
+
+    box-shadow: 0 15px 35px rgba(79, 70, 229, .15);
+
+}
+
+
+
+
+
+
+
+/* Icon */
+
+.category-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 20px;
+
+    background: #eef2ff;
+
+    color: #4f46e5;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    transition: .3s;
+
+}
+
+
+
+.category-card:hover .category-icon {
+
+    background: #4f46e5;
+
+    color: white;
+
+    transform: rotate(5deg);
+
+}
+
+
+
+
+
+
+
+
+/* Text */
+
+.category-card h3 {
+
+    font-size: 22px;
+
+    color: #1e293b;
+
+    margin-bottom: 12px;
+
+}
+
+
+
+.category-card p {
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+}
+
+
+
+
+
+
+
+
+/* Responsive */
+
+
+@media(max-width:1000px) {
+
+
+    .categories-grid {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+
+}
+
+
+
+
+
+@media(max-width:650px) {
+
+
+    .categories {
+
+        padding: 70px 20px;
+
+    }
+
+
+
+    .categories-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+
+    .categories-header h2 {
+
+        font-size: 30px;
+
+    }
+
+
+}

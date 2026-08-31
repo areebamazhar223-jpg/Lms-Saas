@@ -1,0 +1,320 @@
+/* ===============================
+   Instructor My Courses
+================================ */
+
+.my-courses {
+
+    min-height: 100vh;
+
+    padding: 40px;
+
+    background: #f8fafc;
+
+}
+
+
+
+/* Heading */
+
+.my-courses h1 {
+
+    font-size: 36px;
+
+    color: #111827;
+
+    margin-bottom: 35px;
+
+}
+
+
+
+/* ===============================
+   Table Card
+================================ */
+
+
+.courses-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+
+}
+
+
+
+/* Table Header */
+
+.courses-table thead {
+
+    background: #2563eb;
+
+    color: white;
+
+}
+
+
+
+.courses-table th {
+
+    padding: 18px;
+
+    text-align: left;
+
+    font-size: 15px;
+
+}
+
+
+
+/* Table Body */
+
+.courses-table td {
+
+    padding: 18px;
+
+    color: #475569;
+
+    font-weight: 500;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+
+
+.courses-table tbody tr {
+
+    transition: .3s;
+
+}
+
+
+
+.courses-table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+
+.courses-table tbody tr:last-child td {
+
+    border-bottom: none;
+
+}
+
+
+
+/* ===============================
+   Status
+================================ */
+
+
+.status {
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+    padding: 7px 15px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+
+/* ===============================
+   Buttons
+================================ */
+
+
+.courses-table button {
+
+    border: none;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    margin-right: 8px;
+
+    transition: .3s;
+
+}
+
+
+
+/* Edit */
+
+.edit-btn {
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+}
+
+
+
+.edit-btn:hover {
+
+    background: #bfdbfe;
+
+}
+
+
+
+/* Add Lesson */
+
+.lesson-btn {
+
+    background: #ede9fe;
+
+    color: #7c3aed;
+
+}
+
+
+
+.lesson-btn:hover {
+
+    background: #ddd6fe;
+
+}
+
+
+
+/* Delete */
+
+.delete-btn {
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+}
+
+
+
+.delete-btn:hover {
+
+    background: #fecaca;
+
+}
+
+
+
+/* ===============================
+   Empty State
+================================ */
+
+
+.courses-table td[colspan] {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+}
+
+
+
+/* ===============================
+   Loading
+================================ */
+
+
+.my-courses>h2 {
+
+    text-align: center;
+
+    margin-top: 100px;
+
+    color: #64748b;
+
+}
+
+
+
+/* ===============================
+   Responsive
+================================ */
+
+
+@media(max-width:900px) {
+
+
+    .my-courses {
+
+        padding: 25px;
+
+    }
+
+
+    .courses-table {
+
+        display: block;
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+
+    }
+
+
+}
+
+
+
+@media(max-width:600px) {
+
+
+    .my-courses {
+
+        padding: 20px;
+
+    }
+
+
+    .my-courses h1 {
+
+        font-size: 28px;
+
+    }
+
+
+    .courses-table button {
+
+        display: block;
+
+        width: 100%;
+
+        margin-bottom: 8px;
+
+    }
+
+
+}

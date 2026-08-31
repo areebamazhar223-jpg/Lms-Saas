@@ -1,0 +1,368 @@
+/* ===============================
+   ENROLLMENTS PAGE
+================================ */
+
+
+.enrollments {
+
+    min-height: 100vh;
+
+    background: #f8fafc;
+
+    padding: 35px;
+
+    font-family: "Inter", sans-serif;
+
+}
+
+
+
+
+
+/* ===============================
+   HEADER
+================================ */
+
+
+.enrollment-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+.enrollment-header h1 {
+
+    font-size: 32px;
+
+    color: #0f172a;
+
+    margin-bottom: 8px;
+
+}
+
+
+
+.enrollment-header p {
+
+    color: #64748b;
+
+    font-size: 15px;
+
+}
+
+
+
+.enrollment-header strong {
+
+    color: #5b4bff;
+
+    margin-left: 6px;
+
+    font-size: 20px;
+
+}
+
+
+
+
+
+
+
+
+/* ===============================
+   TABLE CONTAINER
+================================ */
+
+
+.table-container {
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 20px;
+
+    overflow-x: auto;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   TABLE
+================================ */
+
+
+.enrollment-table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+
+}
+
+
+
+.enrollment-table th {
+
+    padding: 15px;
+
+    text-align: left;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #e2e8f0;
+
+}
+
+
+
+.enrollment-table td {
+
+    padding: 15px;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    border-bottom: 1px solid #f1f5f9;
+
+}
+
+
+
+
+
+.enrollment-table tbody tr {
+
+    transition: .2s;
+
+}
+
+
+
+.enrollment-table tbody tr:hover {
+
+    background: #f8fafc;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   PROGRESS BAR
+================================ */
+
+
+.progress-box {
+
+    width: 120px;
+
+    height: 8px;
+
+    background: #e2e8f0;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    display: inline-block;
+
+    vertical-align: middle;
+
+    margin-right: 10px;
+
+}
+
+
+
+
+
+.progress-bar {
+
+    height: 100%;
+
+    background: #5b4bff;
+
+    border-radius: 20px;
+
+    transition: .4s;
+
+}
+
+
+
+
+
+.enrollment-table td span {
+
+    font-size: 13px;
+
+    color: #475569;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   STATUS BADGES
+================================ */
+
+
+.completed,
+.learning {
+
+    padding: 6px 14px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+}
+
+
+
+.completed {
+
+    background: #dcfce7;
+
+    color: #16a34a;
+
+}
+
+
+
+.learning {
+
+    background: #fef3c7;
+
+    color: #d97706;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   LOADING
+================================ */
+
+
+.loading {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: #5b4bff;
+
+    font-size: 22px;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   EMPTY DATA
+================================ */
+
+
+.enrollment-table td[colspan="8"] {
+
+    text-align: center;
+
+    padding: 40px;
+
+    color: #64748b;
+
+    font-size: 16px;
+
+}
+
+
+
+
+
+
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+
+@media(max-width:800px) {
+
+
+    .enrollments {
+
+        padding: 20px;
+
+    }
+
+
+
+    .enrollment-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+    }
+
+
+
+    .enrollment-header h1 {
+
+        font-size: 25px;
+
+    }
+
+
+
+    .table-container {
+
+        padding: 15px;
+
+    }
+
+
+}

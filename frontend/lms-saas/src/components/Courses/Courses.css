@@ -31,7 +31,7 @@ HEADER
     padding: 7px 15px;
     border-radius: 30px;
     background: #eef4ff;
-    color: #2563eb;
+    color: #30684a;
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 1.5px;
@@ -40,7 +40,7 @@ HEADER
 
 .courses__heading {
     margin: 0;
-    color: #0f172a;
+    color: #1d3124;
     font-size: clamp(32px, 4vw, 46px);
     line-height: 1.15;
     font-weight: 800;
@@ -50,7 +50,7 @@ HEADER
 .courses__subhead {
     max-width: 650px;
     margin: 18px auto 0;
-    color: #64748b;
+    color: #30684a;
     font-size: 16px;
     line-height: 1.8;
 }
@@ -78,7 +78,7 @@ COURSE CARD
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 8px 25px rgba(29, 49, 36, 0.06);
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease,
@@ -88,7 +88,7 @@ COURSE CARD
 .course-card:hover {
     transform: translateY(-7px);
     border-color: #cbd5e1;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 18px 40px rgba(29, 49, 36, 0.12);
 }
 
 /* =========================================
@@ -127,13 +127,13 @@ POPULAR BADGE
     align-items: center;
     padding: 7px 12px;
     border-radius: 8px;
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     font-size: 11px;
     font-weight: 800;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 5px 15px rgba(48, 104, 74, 0.3);
 }
 
 /* =========================================
@@ -157,7 +157,7 @@ CATEGORY
     gap: 7px;
     width: fit-content;
     margin-bottom: 11px;
-    color: #2563eb;
+    color: #30684a;
     font-size: 12px;
     font-weight: 700;
 }
@@ -169,7 +169,7 @@ TITLE
 .course-card__title {
     min-height: 52px;
     margin: 0;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 19px;
     line-height: 1.4;
     font-weight: 750;
@@ -182,7 +182,7 @@ INSTRUCTOR
 .course-card__instructor {
     display: block;
     margin-top: 9px;
-    color: #64748b;
+    color: #30684a;
     font-size: 13px;
     line-height: 1.5;
 }
@@ -206,7 +206,7 @@ COURSE META
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    color: #64748b;
+    color: #30684a;
     font-size: 12px;
     font-weight: 600;
 }
@@ -216,7 +216,7 @@ COURSE META
 }
 
 .course-card__meta-item svg {
-    color: #94a3b8;
+    color: #96ae97;
 }
 
 /* =========================================
@@ -237,7 +237,7 @@ PRICE
 ========================================= */
 
 .course-card__price {
-    color: #0f172a;
+    color: #1d3124;
     font-size: 20px;
     font-weight: 800;
 }
@@ -253,7 +253,7 @@ VIEW COURSE
     padding: 9px 13px;
     border-radius: 8px;
     background: #eff6ff;
-    color: #2563eb;
+    color: #30684a;
     font-size: 13px;
     font-weight: 750;
     text-decoration: none;
@@ -268,7 +268,7 @@ VIEW COURSE
 }
 
 .course-card__link:hover {
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
 }
 
@@ -288,9 +288,9 @@ VIEW ALL COURSES
     width: fit-content;
     margin: 45px auto 0;
     padding: 13px 24px;
-    border: 1px solid #2563eb;
+    border: 1px solid #30684a;
     border-radius: 9px;
-    color: #2563eb;
+    color: #30684a;
     background: #ffffff;
     font-size: 14px;
     font-weight: 750;
@@ -307,10 +307,10 @@ VIEW ALL COURSES
 }
 
 .courses__view-all:hover {
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.2);
+    box-shadow: 0 8px 20px rgba(48, 104, 74, 0.2);
 }
 
 .courses__view-all:hover span {
@@ -328,7 +328,7 @@ LOADING
     align-items: center;
     justify-content: center;
     gap: 15px;
-    color: #64748b;
+    color: #30684a;
 }
 
 .courses__loading p {
@@ -341,7 +341,7 @@ LOADING
     width: 42px;
     height: 42px;
     border: 4px solid #dbeafe;
-    border-top-color: #2563eb;
+    border-top-color: #30684a;
     border-radius: 50%;
     animation: coursesSpin 0.8s linear infinite;
 }
@@ -376,7 +376,7 @@ ERROR
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     font-size: 13px;
     font-weight: 700;
@@ -385,7 +385,7 @@ ERROR
 }
 
 .courses__error button:hover {
-    background: #1d4ed8;
+    background: #30684a;
 }
 
 /* =========================================
@@ -404,13 +404,13 @@ EMPTY STATE
 
 .courses__empty h3 {
     margin: 0 0 10px;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 21px;
 }
 
 .courses__empty p {
     margin: 0 0 15px;
-    color: #64748b;
+    color: #30684a;
     font-size: 14px;
 }
 
@@ -428,7 +428,7 @@ EMPTY STATE
     padding: 7px 12px;
     border-radius: 20px;
     background: #eff6ff;
-    color: #2563eb;
+    color: #30684a;
     font-size: 12px;
     font-weight: 700;
 }

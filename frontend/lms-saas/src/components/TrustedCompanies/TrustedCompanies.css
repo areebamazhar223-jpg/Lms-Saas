@@ -1,171 +1,32 @@
-/* TrustedCompanies.css */
-
-.trusted-companies {
-
-    padding: 70px 7%;
-
-    background: #f8fafc;
-
-}
-
-
-
-.trusted-container {
-
-    max-width: 1200px;
-
-    margin: auto;
-
-    text-align: center;
-
-}
-
-
-
-/* Title */
-
-
-.trusted-title {
-
-    font-size: 16px;
-
-    color: #64748b;
-
-    font-weight: 600;
-
-    margin-bottom: 35px;
-
-}
-
-
-
-
-
-/* Companies Grid */
-
-
-.company-grid {
-
-    display: grid;
-
-    grid-template-columns: repeat(6, 1fr);
-
-    gap: 20px;
-
-}
-
-
-
-
-
-/* Company Card */
-
-
+.trusted-companies { padding: 32px 24px 40px; border-bottom: 1px solid #ecefec; background: #fff; }
+.trusted-container { max-width: 1120px; margin: 0 auto; text-align: center; }
+.trusted-title { margin: 0 0 24px; color: #747b75; font-size: 15px; font-weight: 500; }
+.company-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); align-items: center; }
 .company-card {
-
-    height: 80px;
-
-    background: #ffffff;
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 16px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    font-size: 22px;
-
-    font-weight: 700;
-
-    color: #334155;
-
-    transition: .3s ease;
-
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 14px;
+  border: 0;
+  border-right: 1px solid #e6e9e6;
+  border-radius: 0;
+  background: transparent;
+  color: #747b75;
+  font-size: clamp(16px, 2vw, 23px);
+  font-weight: 700;
+  letter-spacing: -.04em;
+  transition: color 160ms ease;
 }
-
-
-
-.company-card:hover {
-
-    transform: translateY(-6px);
-
-    color: #2563eb;
-
-    box-shadow: 0 15px 35px rgba(15, 23, 42, .10);
-
+.company-card:last-child { border-right: 0; }
+.company-card:hover { color: #3e4840; }
+@media (max-width: 760px) {
+  .trusted-companies { padding: 28px 20px 32px; }
+  .company-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 18px; }
+  .company-card:nth-child(3) { border-right: 0; }
 }
-
-
-
-
-
-
-
-/* Responsive */
-
-
-@media(max-width:1000px) {
-
-
-    .company-grid {
-
-        grid-template-columns: repeat(3, 1fr);
-
-    }
-
-
-}
-
-
-
-
-
-@media(max-width:600px) {
-
-
-    .trusted-companies {
-
-        padding: 60px 5%;
-
-    }
-
-
-
-    .company-grid {
-
-        grid-template-columns: repeat(2, 1fr);
-
-    }
-
-
-
-    .company-card {
-
-        height: 70px;
-
-        font-size: 18px;
-
-    }
-
-
-}
-
-
-
-
-
-@media(max-width:400px) {
-
-
-    .company-grid {
-
-        grid-template-columns: 1fr;
-
-    }
-
-
+@media (max-width: 420px) {
+  .company-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .company-card:nth-child(3) { border-right: 1px solid #e6e9e6; }
+  .company-card:nth-child(even) { border-right: 0; }
 }

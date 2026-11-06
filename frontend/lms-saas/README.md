@@ -1,5 +1,15 @@
 # React + Vite
 
+## Watermelon UI (Next.js)
+
+To start a new Next.js project from a Watermelon UI template, replace `[CODE]` with the preset code provided by Watermelon UI and run:
+
+```bash
+npx shadcn@latest init --preset [CODE] --template next
+```
+
+This command initializes a Next.js project; this repository's existing frontend is built with React and Vite.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

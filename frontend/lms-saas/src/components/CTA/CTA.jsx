@@ -1,38 +1,33 @@
-import "./CTA.css";
 
-function CTA() {
+import { Link } from 'react-router-dom';
+import learnerImage from '../../assets/hero-learner.png';
+import './CTA.css';
+
+export default function CTA() {
   return (
     <section className="cta">
-      <div className="cta__container">
+      <div className="cta-pattern" aria-hidden="true" />
 
-        <span className="cta__badge">
-          START YOUR JOURNEY
-        </span>
+      <div className="cta-inner">
 
-        <h2>
-          Unlock Your Potential With
-          <span> EduCore LMS</span>
-        </h2>
+        <div className="cta-content">
+          <h2>Ready to Upgrade Your Skills?</h2>
 
-        <p>
-          Join thousands of students learning from industry experts.
-          Build real-world skills, earn certificates, and achieve your
-          career goals with confidence.
-        </p>
+          <p>
+            Get access to practical courses, expert mentorship,
+            and real-world projects to kickstart your professional journey.
+          </p>
 
-        <div className="cta__buttons">
-          <button className="cta__primary">
-            Get Started
-          </button>
+          <Link className="cta-action" to="/signup">
+            Start Learning · FREE
+          </Link>
+        </div>
 
-          <button className="cta__secondary">
-            Browse Courses
-          </button>
+        <div className="cta-visual" aria-hidden="true">
+          <img src={learnerImage} alt="" />
         </div>
 
       </div>
     </section>
   );
 }
-
-export default CTA;

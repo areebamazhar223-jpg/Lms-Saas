@@ -128,6 +128,8 @@ function AIAssistant() {
           className="ai-floating-button"
           onClick={() => setIsOpen(true)}
           aria-label="Open AI Assistant"
+          aria-expanded={isOpen}
+          aria-controls="learnsmart-ai-panel"
         >
           <Bot size={27} />
 
@@ -140,7 +142,7 @@ function AIAssistant() {
       =============================== */}
 
       {isOpen && (
-        <div className="ai-assistant-container">
+        <div className="ai-assistant-container" id="learnsmart-ai-panel" role="dialog" aria-label="LearnSmart AI Assistant">
 
           {/* Header */}
 
@@ -153,7 +155,7 @@ function AIAssistant() {
               </div>
 
               <div>
-                <h3>AI Course Assistant</h3>
+                <h3>LearnSmart Assistant</h3>
 
                 <span>
                   <span className="status-dot"></span>

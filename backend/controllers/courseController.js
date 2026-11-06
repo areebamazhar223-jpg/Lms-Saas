@@ -1,6 +1,7 @@
 import Course from "../models/Course.js";
 import fs from "fs";
 import path from "path";
+import { presentCourse } from "../services/coursePricing.js";
 
 
 // ===============================
@@ -64,6 +65,14 @@ export const createCourse = async (req, res) => {
 
       price: Number(price),
 
+      discountPrice: req.body.discountPrice ? Number(req.body.discountPrice) : null,
+
+      certificatePrice: req.body.certificatePrice ? Number(req.body.certificatePrice) : null,
+
+      certificateDiscountPrice: req.body.certificateDiscountPrice ? Number(req.body.certificateDiscountPrice) : null,
+
+      certificateFree: req.body.certificateFree === true || req.body.certificateFree === "true",
+
       category,
 
       duration,
@@ -86,7 +95,7 @@ export const createCourse = async (req, res) => {
 
       message: "Course Created Successfully",
 
-      course
+      course: presentCourse(course)
 
     });
 
@@ -141,6 +150,11 @@ export const getAllCourses = async (req,res)=>{
         createdAt:-1
       });
 
+    const catalogCourses = courses.filter((course) => {
+      const normalizedTitle = String(course.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      return !(normalizedTitle.includes("nodejs") && normalizedTitle.includes("backend"));
+    });
+
 
 
 
@@ -148,7 +162,7 @@ export const getAllCourses = async (req,res)=>{
 
       success:true,
 
-      courses
+      courses: catalogCourses.map(presentCourse)
 
     });
 
@@ -222,7 +236,7 @@ res.json({
 
 success:true,
 
-course
+  course: presentCourse(course)
 
 });
 
@@ -354,6 +368,22 @@ course.price=req.body.price;
 
 }
 
+if(req.body.discountPrice !== undefined){
+course.discountPrice = req.body.discountPrice === "" ? null : Number(req.body.discountPrice);
+}
+
+if(req.body.certificatePrice !== undefined){
+course.certificatePrice = req.body.certificatePrice === "" ? null : Number(req.body.certificatePrice);
+}
+
+if(req.body.certificateDiscountPrice !== undefined){
+course.certificateDiscountPrice = req.body.certificateDiscountPrice === "" ? null : Number(req.body.certificateDiscountPrice);
+}
+
+if(req.body.certificateFree !== undefined){
+course.certificateFree = req.body.certificateFree === true || req.body.certificateFree === "true";
+}
+
 
 
 
@@ -381,7 +411,7 @@ success:true,
 
 message:"Course Updated Successfully",
 
-course
+course: presentCourse(course)
 
 });
 

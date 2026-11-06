@@ -5,9 +5,14 @@ import {
   Plus,
   Pencil,
   Trash2,
+  BookOpen,
+  GraduationCap,
+  Sparkles,
 } from "lucide-react";
 
 import api from "../../services/api";
+import { getCourseFallbackImage } from "../../services/courseArtwork";
+import { getCourseImageUrl } from "../../services/media";
 import "./Courses.css";
 
 
@@ -22,6 +27,8 @@ function Courses() {
   const [search, setSearch] = useState("");
 
   const [loading, setLoading] = useState(true);
+  const [deletingId, setDeletingId] = useState("");
+  const [notice, setNotice] = useState(null);
 
 
 
@@ -72,45 +79,19 @@ function Courses() {
   // ===============================
 
 
-  const handleDelete = async(id)=>{
-
-
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this course?"
-    );
-
-
-    if(!confirmDelete) return;
-
-
-
-    try{
-
-
-      const {data} = await api.delete(
-        `/admin/course/${id}`
-      );
-
-
-      alert(data.message);
-
-
-      fetchCourses();
-
-
-
-    }catch(error){
-
-
-      alert(
-        error.response?.data?.message ||
-        "Delete Failed"
-      );
-
-
+  const handleDelete = async (course) => {
+    if (!window.confirm(`Delete “${course.title}”? This action cannot be undone.`)) return;
+    setDeletingId(course._id);
+    setNotice(null);
+    try {
+      await api.delete(`/admin/course/${course._id}`);
+      setCourses((current) => current.filter((item) => item._id !== course._id));
+      setNotice({ type: "success", text: `“${course.title}” was deleted.` });
+    } catch (error) {
+      setNotice({ type: "error", text: error.response?.data?.message || "Could not delete this course. Please try again." });
+    } finally {
+      setDeletingId("");
     }
-
-
   };
 
 
@@ -131,6 +112,9 @@ function Courses() {
 
   );
 
+  const totalLearners = courses.reduce((total, course) => total + (Array.isArray(course.students) ? course.students.length : Number(course.students || 0)), 0);
+  const freeCourses = courses.filter((course) => Number(course.price || 0) === 0).length;
+
 
 
 
@@ -138,13 +122,7 @@ function Courses() {
 
   if(loading){
 
-    return (
-
-      <h2>
-        Loading Courses...
-      </h2>
-
-    );
+    return <div className="courses-loading" role="status">Loading courses…</div>;
 
   }
 
@@ -169,7 +147,7 @@ function Courses() {
 
 
           <h1>
-            Courses Management
+            Manage Courses
           </h1>
 
 
@@ -233,6 +211,8 @@ function Courses() {
 
 
       </div>
+
+      {notice && <div className={`courses-notice courses-notice--${notice.type}`} role={notice.type === "error" ? "alert" : "status"}>{notice.text}</div>}
 
 
 
@@ -339,8 +319,16 @@ function Courses() {
 
 
 
-                <td>
-                  {course.title}
+                <td className="admin-course-cell-wrap">
+                  <div className="admin-course-cell">
+                    <img
+                      src={course.thumbnail ? getCourseImageUrl(course.thumbnail) : getCourseFallbackImage(course)}
+                      alt=""
+                      loading="lazy"
+                      onError={(event) => { event.currentTarget.onerror = null; event.currentTarget.src = getCourseFallbackImage(course); }}
+                    />
+                    <div><strong>{course.title || "Untitled course"}</strong><span>{course.duration || "Self-paced"}</span></div>
+                  </div>
                 </td>
 
 
@@ -375,7 +363,7 @@ function Courses() {
 
                 <td>
 
-                  Rs. {course.price}
+                  {Number(course.price || 0) > 0 ? `Rs. ${Number(course.price).toLocaleString("en-PK")}` : "Free"}
 
                 </td>
 
@@ -386,9 +374,9 @@ function Courses() {
                 <td>
 
 
-                  <span className="status-badge status-badge--active">
+                  <span className={`status-badge ${course.status === "Draft" ? "status-badge--draft" : "status-badge--active"}`}>
 
-                    Active
+                    {course.status || "Published"}
 
                   </span>
 
@@ -407,9 +395,10 @@ function Courses() {
 
 
 
-                  <button
-
+                  <button type="button"
                     className="edit-btn"
+                    title="Edit course"
+                    aria-label={`Edit ${course.title}`}
 
                     onClick={()=>
                       navigate(
@@ -432,19 +421,21 @@ function Courses() {
 
 
 
-                  <button
-
+                  <button type="button"
                     className="delete-btn"
+                    title="Delete course"
+                    aria-label={`Delete ${course.title}`}
+                    disabled={deletingId === course._id}
 
                     onClick={()=>
-                      handleDelete(course._id)
+                      handleDelete(course)
                     }
 
                   >
 
                     <Trash2 size={16}/>
 
-                    Delete
+                    {deletingId === course._id ? "Deleting…" : "Delete"}
 
 
                   </button>

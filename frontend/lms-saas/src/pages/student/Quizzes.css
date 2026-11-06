@@ -21,7 +21,7 @@
 .quizzes-label {
     display: inline-block;
     margin-bottom: 8px;
-    color: #4f46e5;
+    color: #30684a;
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
@@ -30,14 +30,14 @@
 
 .quizzes-header h1 {
     margin: 0 0 8px;
-    color: #111827;
+    color: #1d3124;
     font-size: 38px;
     font-weight: 800;
 }
 
 .quizzes-header p {
     margin: 0;
-    color: #6b7280;
+    color: #30684a;
     font-size: 16px;
     line-height: 1.6;
 }
@@ -50,10 +50,10 @@
     background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
-    color: #4f46e5;
+    color: #30684a;
     font-weight: 700;
     white-space: nowrap;
-    box-shadow: 0 4px 15px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 4px 15px rgba(29, 49, 36, 0.05);
 }
 
 .quizzes-grid {
@@ -70,13 +70,13 @@
     background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 8px 25px rgba(29, 49, 36, 0.06);
     transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .quiz-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.11);
+    box-shadow: 0 15px 35px rgba(29, 49, 36, 0.11);
 }
 
 .quiz-card-top {
@@ -93,12 +93,12 @@
     align-items: center;
     justify-content: center;
     background: #eef2ff;
-    color: #4f46e5;
+    color: #30684a;
     border-radius: 13px;
 }
 
 .quiz-number {
-    color: #6b7280;
+    color: #30684a;
     font-size: 13px;
     font-weight: 700;
 }
@@ -110,7 +110,7 @@
 
 .quiz-card-content h2 {
     margin: 0 0 10px;
-    color: #111827;
+    color: #1d3124;
     font-size: 21px;
     font-weight: 750;
 }
@@ -118,7 +118,7 @@
 .quiz-description {
     min-height: 50px;
     margin: 0 0 20px;
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
     line-height: 1.65;
 }
@@ -134,13 +134,13 @@
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #4b5563;
+    color: #30684a;
     font-size: 13px;
     font-weight: 600;
 }
 
 .quiz-meta svg {
-    color: #4f46e5;
+    color: #30684a;
 }
 
 .quiz-course {
@@ -150,13 +150,13 @@
     padding: 9px 11px;
     background: #f9fafb;
     border-radius: 9px;
-    color: #4b5563;
+    color: #30684a;
     font-size: 13px;
     font-weight: 600;
 }
 
 .quiz-course svg {
-    color: #4f46e5;
+    color: #30684a;
     flex-shrink: 0;
 }
 
@@ -173,7 +173,7 @@
     gap: 8px;
     border: none;
     border-radius: 11px;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     font-size: 14px;
     font-weight: 700;
@@ -182,7 +182,7 @@
 }
 
 .start-quiz-btn:hover {
-    background: #4338ca;
+    background: #30684a;
     transform: translateY(-1px);
 }
 
@@ -192,7 +192,7 @@
     border: 1px solid #e5e7eb;
     border-radius: 18px;
     text-align: center;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 8px 25px rgba(29, 49, 36, 0.05);
 }
 
 .no-quizzes-icon {
@@ -203,20 +203,20 @@
     align-items: center;
     justify-content: center;
     background: #eef2ff;
-    color: #4f46e5;
+    color: #30684a;
     border-radius: 50%;
 }
 
 .no-quizzes h2 {
     margin: 0 0 10px;
-    color: #111827;
+    color: #1d3124;
     font-size: 24px;
 }
 
 .no-quizzes p {
     margin: 0 auto 25px;
     max-width: 500px;
-    color: #6b7280;
+    color: #30684a;
     line-height: 1.6;
 }
 
@@ -225,7 +225,7 @@
     padding: 12px 22px;
     border: none;
     border-radius: 10px;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     font-weight: 700;
     cursor: pointer;
@@ -233,7 +233,7 @@
 
 .no-quizzes button:hover,
 .quizzes-error button:hover {
-    background: #4338ca;
+    background: #30684a;
 }
 
 .quizzes-loading {
@@ -248,14 +248,14 @@
 
 .quizzes-loading h2 {
     margin: 0;
-    color: #111827;
+    color: #1d3124;
 }
 
 .quizzes-spinner {
     width: 45px;
     height: 45px;
     border: 4px solid #e5e7eb;
-    border-top-color: #4f46e5;
+    border-top-color: #30684a;
     border-radius: 50%;
     animation: quizzesSpin 0.8s linear infinite;
 }
@@ -284,12 +284,12 @@
 
 .quizzes-error h2 {
     margin: 0 0 10px;
-    color: #111827;
+    color: #1d3124;
 }
 
 .quizzes-error p {
     margin: 0 0 20px;
-    color: #6b7280;
+    color: #30684a;
 }
 
 @media (max-width: 1000px) {

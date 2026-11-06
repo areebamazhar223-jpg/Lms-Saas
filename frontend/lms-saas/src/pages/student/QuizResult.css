@@ -28,19 +28,19 @@ TOP BAR
     gap: 8px;
     border: none;
     background: #ffffff;
-    color: #374151;
+    color: #30684a;
     padding: 11px 17px;
     border-radius: 10px;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+    box-shadow: 0 3px 12px rgba(29, 49, 36, 0.06);
     transition: all 0.2s ease;
 }
 
 .result-back-btn:hover {
     background: #eef2ff;
-    color: #4f46e5;
+    color: #30684a;
     transform: translateX(-2px);
 }
 
@@ -50,7 +50,7 @@ TOP BAR
 
 .quiz-result-heading span {
     display: block;
-    color: #6366f1;
+    color: #30684a;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -60,7 +60,7 @@ TOP BAR
 
 .quiz-result-heading h1 {
     margin: 0;
-    color: #111827;
+    color: #1d3124;
     font-size: 28px;
     font-weight: 750;
 }
@@ -74,7 +74,7 @@ RESULT CARD
     border-radius: 24px;
     padding: 45px 50px;
     text-align: center;
-    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 12px 40px rgba(29, 49, 36, 0.08);
     border: 1px solid #e5e7eb;
 }
 
@@ -104,7 +104,7 @@ RESULT ICON
 
 .quiz-result-card h2 {
     margin: 0;
-    color: #111827;
+    color: #1d3124;
     font-size: 30px;
     font-weight: 750;
 }
@@ -112,7 +112,7 @@ RESULT ICON
 .result-message {
     max-width: 560px;
     margin: 12px auto 30px;
-    color: #6b7280;
+    color: #30684a;
     font-size: 15px;
     line-height: 1.6;
 }
@@ -159,7 +159,7 @@ SCORE CIRCLE
 }
 
 .score-content strong {
-    color: #111827;
+    color: #1d3124;
     font-size: 42px;
     line-height: 1;
     font-weight: 800;
@@ -167,19 +167,19 @@ SCORE CIRCLE
 
 .score-content span {
     margin-top: 8px;
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
     font-weight: 600;
 }
 
 .marks-text {
-    color: #6b7280;
+    color: #30684a;
     font-size: 15px;
     margin-bottom: 22px;
 }
 
 .marks-text strong {
-    color: #111827;
+    color: #1d3124;
     font-weight: 750;
 }
 
@@ -200,13 +200,13 @@ PASSING INFO
 }
 
 .passing-info span {
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
     font-weight: 600;
 }
 
 .passing-info strong {
-    color: #4f46e5;
+    color: #30684a;
     font-size: 15px;
 }
 
@@ -267,8 +267,8 @@ RESULT STATS
 
 .total-stat {
     background: #eef2ff;
-    color: #4f46e5;
-    border-color: #c7d2fe;
+    color: #30684a;
+    border-color: #e5efe6;
 }
 
 /* ======================================
@@ -313,20 +313,20 @@ ACTIONS
 
 .retry-quiz-btn {
     border: none;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
 }
 
 .retry-quiz-btn:hover {
-    background: #4338ca;
+    background: #30684a;
     transform: translateY(-2px);
-    box-shadow: 0 7px 18px rgba(79, 70, 229, 0.25);
+    box-shadow: 0 7px 18px rgba(48, 104, 74, 0.25);
 }
 
 .courses-result-btn {
     border: 1px solid #d1d5db;
     background: #ffffff;
-    color: #374151;
+    color: #30684a;
 }
 
 .courses-result-btn:hover {
@@ -352,13 +352,13 @@ LOADING
 
 .quiz-result-loading h2 {
     margin: 20px 0 8px;
-    color: #111827;
+    color: #1d3124;
     font-size: 24px;
 }
 
 .quiz-result-loading p {
     margin: 0;
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
 }
 
@@ -366,7 +366,7 @@ LOADING
     width: 48px;
     height: 48px;
     border: 4px solid #e5e7eb;
-    border-top-color: #4f46e5;
+    border-top-color: #30684a;
     border-radius: 50%;
     animation: quizResultSpin 0.8s linear infinite;
 }
@@ -398,7 +398,7 @@ ERROR
     border-radius: 20px;
     padding: 40px;
     text-align: center;
-    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.07);
+    box-shadow: 0 10px 35px rgba(29, 49, 36, 0.07);
 }
 
 .quiz-result-error-card svg {
@@ -408,20 +408,20 @@ ERROR
 
 .quiz-result-error-card h2 {
     margin: 0 0 10px;
-    color: #111827;
+    color: #1d3124;
     font-size: 24px;
 }
 
 .quiz-result-error-card p {
     margin: 0 0 25px;
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
     line-height: 1.6;
 }
 
 .quiz-result-error-card button {
     border: none;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     padding: 12px 20px;
     border-radius: 9px;
@@ -434,7 +434,7 @@ ERROR
 }
 
 .quiz-result-error-card button:hover {
-    background: #4338ca;
+    background: #30684a;
 }
 
 /* ======================================

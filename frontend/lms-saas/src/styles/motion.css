@@ -1,0 +1,129 @@
+@keyframes app-motion-enter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes app-motion-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+:is(
+  .learnsmart-home > section,
+  .all-course-page,
+  [class*="-page"],
+  [class$="-dashboard"],
+  .lms-shell
+) {
+  animation: app-motion-enter 480ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+:is(
+  .popular-course-card,
+  .all-course-card,
+  .home-course-card,
+  .blog-card,
+  .feature-card,
+  .faq__item,
+  .pricing-option,
+  .dashboard-stat,
+  .dashboard-stat-card
+) {
+  animation: app-motion-pop 440ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+}
+
+:is(
+  .popular-course-card,
+  .all-course-card,
+  .home-course-card,
+  .blog-card,
+  .feature-card,
+  .faq__item,
+  .pricing-option,
+  .dashboard-stat,
+  .dashboard-stat-card
+):nth-child(2) { animation-delay: 45ms; }
+
+:is(
+  .popular-course-card,
+  .all-course-card,
+  .home-course-card,
+  .blog-card,
+  .feature-card,
+  .faq__item,
+  .pricing-option,
+  .dashboard-stat,
+  .dashboard-stat-card
+):nth-child(3) { animation-delay: 90ms; }
+
+:is(
+  .popular-course-card,
+  .all-course-card,
+  .home-course-card,
+  .blog-card,
+  .feature-card,
+  .faq__item,
+  .pricing-option,
+  .dashboard-stat,
+  .dashboard-stat-card
+):nth-child(4) { animation-delay: 135ms; }
+
+:is(.popular-course-card, .all-course-card, .home-course-card, .blog-card, .feature-card, .pricing-option) {
+  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+}
+
+:is(.popular-course-card, .all-course-card, .home-course-card, .blog-card, .feature-card, .pricing-option):hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 38px rgba(22, 39, 29, 0.15);
+}
+
+:is(.popular-course-image, .all-course-image, .home-course-card__image, .blog-image) img {
+  transition: transform 360ms cubic-bezier(0.2, 0.7, 0.25, 1);
+}
+
+:is(.popular-course-card, .all-course-card, .home-course-card, .blog-card):hover :is(.popular-course-image, .all-course-image, .home-course-card__image, .blog-image) img {
+  transform: scale(1.045);
+}
+
+button:not(:disabled),
+a.btn,
+a[role="button"] {
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+button:not(:disabled):hover,
+a.btn:hover,
+a[role="button"]:hover {
+  transform: translateY(-1px);
+}
+
+button:not(:disabled):active,
+a.btn:active,
+a[role="button"]:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

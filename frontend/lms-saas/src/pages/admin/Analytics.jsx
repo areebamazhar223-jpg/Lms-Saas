@@ -333,7 +333,7 @@ function Analytics() {
 
                 dataKey="students"
 
-                fill="#5B4BFF"
+                fill="#30684a"
 
                 radius={[8,8,0,0]}
 

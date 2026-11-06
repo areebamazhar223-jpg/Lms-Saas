@@ -21,18 +21,13 @@ import quizRoutes from "./routes/quizRoutes.js";
 import assignmentRoutes from "./routes/assignmentRoutes.js";
 import assignmentSubmissionRoutes from "./routes/assignmentSubmissionRoutes.js";
 import aiRoutes from "./routes/aiRoutes.js";
+import paymentRoutes from "./routes/paymentRoutes.js";
 
 // ===============================
 // ENVIRONMENT CONFIG
 // ===============================
 
 dotenv.config();
-
-// ===============================
-// DATABASE
-// ===============================
-
-connectDB();
 
 // ===============================
 // APP
@@ -45,10 +40,10 @@ const app = express();
 // ===============================
 
 app.use(
-cors({
-origin: "http://localhost:5173",
-credentials: true,
-})
+  cors({
+    origin: true,
+    credentials: true,
+  })
 );
 
 // ===============================
@@ -58,9 +53,9 @@ credentials: true,
 app.use(express.json());
 
 app.use(
-express.urlencoded({
-extended: true,
-})
+  express.urlencoded({
+    extended: true,
+  })
 );
 
 // ===============================
@@ -68,97 +63,51 @@ extended: true,
 // ===============================
 
 app.use(
-"/uploads",
-express.static(
-path.join(process.cwd(), "uploads")
-)
+  "/uploads",
+  express.static(path.join(process.cwd(), "uploads"))
 );
 
 // ===============================
 // API ROUTES
 // ===============================
 
-// Authentication
-app.use(
-"/api/auth",
-authRoutes
-);
+app.use("/api", async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
-// Courses
-app.use(
-"/api/courses",
-courseRoutes
-);
+app.use("/api/auth", authRoutes);
+app.use("/api/courses", courseRoutes);
+app.use("/api/admin", adminRoutes);
+app.use("/api/instructor", instructorRoutes);
+app.use("/api/student", studentRoutes);
+app.use("/api/enrollment", enrollmentRoutes);
+app.use("/api/lessons", lessonRoutes);
+app.use("/api/reviews", reviewRoutes);
+app.use("/api/assignments", assignmentRoutes);
+app.use("/api/assignment-submissions", assignmentSubmissionRoutes);
+app.use("/api/quiz", quizRoutes);
+app.use("/api/ai", aiRoutes);
 
-// Admin
-app.use(
-"/api/admin",
-adminRoutes
-);
+// ===============================
+// PAYMENT ROUTES
+// ===============================
 
-// Instructor
-app.use(
-"/api/instructor",
-instructorRoutes
-);
-
-// Student
-app.use(
-"/api/student",
-studentRoutes
-);
-
-// Enrollment
-app.use(
-"/api/enrollment",
-enrollmentRoutes
-);
-
-// Lessons
-app.use(
-"/api/lessons",
-lessonRoutes
-);
-
-// Reviews
-app.use(
-"/api/reviews",
-reviewRoutes
-);
-
-// Assignments
-app.use(
-"/api/assignments",
-assignmentRoutes
-);
-
-// Assignment Submissions
-app.use(
-"/api/assignment-submissions",
-assignmentSubmissionRoutes
-);
-
-// Quizzes
-app.use(
-"/api/quiz",
-quizRoutes
-);
-
-// AI Chatbot
-app.use(
-"/api/ai",
-aiRoutes
-);
+app.use("/api/payment", paymentRoutes);
 
 // ===============================
 // TEST ROUTE
 // ===============================
 
 app.get("/", (req, res) => {
-res.status(200).json({
-success: true,
-message: "🚀 LMS Backend is Running Successfully",
-});
+  res.status(200).json({
+    success: true,
+    message: "🚀 LMS Backend is Running Successfully",
+  });
 });
 
 // ===============================
@@ -166,10 +115,10 @@ message: "🚀 LMS Backend is Running Successfully",
 // ===============================
 
 app.use((req, res) => {
-res.status(404).json({
-success: false,
-message: "API Route Not Found",
-});
+  res.status(404).json({
+    success: false,
+    message: "API Route Not Found",
+  });
 });
 
 // ===============================
@@ -177,25 +126,26 @@ message: "API Route Not Found",
 // ===============================
 
 app.use((err, req, res, next) => {
-console.error("SERVER ERROR:", err);
+  console.error("SERVER ERROR:", err);
 
-res.status(500).json({
-success: false,
-message:
-err.message ||
-"Internal Server Error",
-});
+  res.status(500).json({
+    success: false,
+    message: err.message || "Internal Server Error",
+  });
 });
 
 // ===============================
 // SERVER START
 // ===============================
 
-const PORT =
-process.env.PORT || 5000;
+// Local development
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-console.log(
-`✅ Server running on http://localhost:${PORT}`
-);
-});
+  app.listen(PORT, () => {
+    console.log(`✅ Server running on http://localhost:${PORT}`);
+  });
+}
+
+// Export for Vercel
+export default app;

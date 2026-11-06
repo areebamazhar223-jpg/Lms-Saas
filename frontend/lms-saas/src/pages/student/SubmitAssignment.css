@@ -23,12 +23,12 @@
     margin: 0 0 10px;
     font-size: 32px;
     font-weight: 700;
-    color: #1f2937;
+    color: #1d3124;
 }
 
 .submit-assignment-header p {
     margin: 0;
-    color: #6b7280;
+    color: #30684a;
     font-size: 16px;
 }
 
@@ -69,7 +69,7 @@
 .form-group label {
     font-size: 16px;
     font-weight: 600;
-    color: #374151;
+    color: #30684a;
 }
 
 .form-group textarea,
@@ -79,7 +79,7 @@
     border: 1px solid #d1d5db;
     border-radius: 10px;
     background: #ffffff;
-    color: #1f2937;
+    color: #1d3124;
     font-size: 15px;
     outline: none;
     transition: 0.2s ease;
@@ -100,8 +100,8 @@
 
 .form-group textarea:focus,
 .form-group input:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    border-color: #30684a;
+    box-shadow: 0 0 0 3px rgba(48, 104, 74, 0.1);
 }
 
 .form-group textarea::placeholder,
@@ -110,7 +110,7 @@
 }
 
 .form-group small {
-    color: #6b7280;
+    color: #30684a;
     font-size: 13px;
     line-height: 1.5;
 }
@@ -140,7 +140,7 @@
 
 .cancel-btn {
     background: #e5e7eb;
-    color: #374151;
+    color: #30684a;
 }
 
 .cancel-btn:hover {
@@ -148,12 +148,12 @@
 }
 
 .submit-btn {
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
 }
 
 .submit-btn:hover {
-    background: #4338ca;
+    background: #30684a;
     transform: translateY(-1px);
 }
 

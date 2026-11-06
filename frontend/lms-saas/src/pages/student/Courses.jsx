@@ -1,4 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Search } from "lucide-react";
 import api from "../../services/api";
 import "./Courses.css";
 
@@ -8,12 +10,27 @@ const BASE_URL = "http://localhost:5000";
 
 function Courses() {
 
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const initialSearch = searchParams.get("search") || "";
+
 
   const [courses, setCourses] = useState([]);
 
   const [myCourses, setMyCourses] = useState([]);
 
   const [loading, setLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
+  const [submittedSearch, setSubmittedSearch] = useState(initialSearch);
+
+  const filteredCourses = useMemo(() => {
+    const query = submittedSearch.trim().toLowerCase();
+    if (!query) return courses;
+    return courses.filter((course) =>
+      [course.title, course.description, course.category, course.instructor?.name]
+        .some((value) => String(value || "").toLowerCase().includes(query))
+    );
+  }, [courses, submittedSearch]);
 
 
 
@@ -211,7 +228,17 @@ function Courses() {
   // ===============================
 
 
-  const handleEnroll = async(courseId)=>{
+  const handleEnroll = async(course)=>{
+
+    if (!course?._id) {
+      alert("Course information is missing.");
+      return;
+    }
+
+    if ((course.pricing?.currentPrice ?? Number(course.price)) > 0) {
+      navigate("/checkout", { state: { course } });
+      return;
+    }
 
 
     try{
@@ -220,7 +247,7 @@ function Courses() {
       const {data} = await api.post(
         "/enrollment",
         {
-          courseId
+          courseId: course._id
         }
       );
 
@@ -354,6 +381,12 @@ function Courses() {
 
       </div>
 
+      <form className="courses-search" onSubmit={(event) => { event.preventDefault(); setSubmittedSearch(searchTerm); }} role="search">
+        <label className="sr-only" htmlFor="student-course-search">Search courses</label>
+        <input id="student-course-search" type="search" value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)} placeholder="Search by course, topic, or instructor" />
+        <button type="submit"><Search size={18} aria-hidden="true" /> Search</button>
+      </form>
+
 
 
 
@@ -368,17 +401,18 @@ function Courses() {
 
       {
 
-      courses.length > 0 ?
+      filteredCourses.length > 0 ?
 
 
       (
 
-        courses.map((course)=>(
+        filteredCourses.map((course, index)=>(
 
 
           <div
             className="course-card"
             key={course._id}
+            style={{ "--course-index": index }}
           >
 
 
@@ -560,7 +594,7 @@ function Courses() {
 
                   onClick={()=>
 
-                    handleEnroll(course._id)
+                    handleEnroll(course)
 
                   }
 
@@ -606,13 +640,11 @@ function Courses() {
         <div className="no-course">
 
 
-          <h2>
-            No Courses Available
-          </h2>
+          <h2>{submittedSearch ? "No matching courses" : "No Courses Available"}</h2>
 
 
           <p>
-            Instructor has not added any course yet.
+            {submittedSearch ? "Try a different course title, topic, or instructor." : "Instructor has not added any course yet."}
           </p>
 
 

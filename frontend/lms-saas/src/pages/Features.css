@@ -1,0 +1,28 @@
+.features-page { min-height: 100vh; color: #1d3124; background: #fff; }
+.features-hero { position: relative; isolation: isolate; min-height: 430px; padding: 84px max(24px, calc((100vw - 1120px) / 2)); display: flex; flex-direction: column; align-items: flex-start; justify-content: center; overflow: hidden; background: linear-gradient(120deg, #073d30 0%, #075b46 60%, #137558 100%); color: #fff; }
+.features-hero__glow { position: absolute; z-index: -1; top: -180px; right: -40px; width: 500px; aspect-ratio: 1; border: 1px solid #ffffff20; border-radius: 50%; box-shadow: 0 0 0 55px #ffffff08, 0 0 0 110px #ffffff05; }
+.features-eyebrow { display: inline-flex; align-items: center; gap: 8px; color: #f4a27f; font-size: 11px; font-weight: 800; letter-spacing: .15em; }
+.features-hero h1 { max-width: 750px; margin: 20px 0 14px; color: #fff; font-size: clamp(38px, 6vw, 68px); font-weight: 750; letter-spacing: -.055em; line-height: 1.08; }
+.features-hero h1 span { color: #ffad87; }
+.features-hero > p { max-width: 610px; margin: 0; color: #d9e9e2; font-size: clamp(15px, 2vw, 18px); line-height: 1.75; }
+.features-hero__actions { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.features-primary, .features-secondary { min-height: 48px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; border-radius: 8px; font-size: 14px; font-weight: 700; text-decoration: none; transition: transform .18s ease, background .18s ease; }
+.features-primary { background: #ff855d; color: #fff; }
+.features-primary:hover { transform: translateY(-2px); background: #f16f49; color: #fff; }
+.features-secondary { border: 1px solid #ffffff55; color: #fff; }
+.features-secondary:hover { background: #ffffff14; color: #fff; }
+.features-grid-section { width: min(100% - 48px, 1160px); margin: 0 auto; padding: 76px 0 90px; }
+.features-section-heading { max-width: 690px; margin: 0 auto 36px; text-align: center; }
+.features-section-heading h2 { margin: 10px 0; color: #1d3124; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.04em; line-height: 1.15; }
+.features-section-heading > p { margin: 0; color: #65746a; font-size: 15px; line-height: 1.7; }
+.features-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.feature-card { position: relative; min-height: 225px; padding: 23px; border: 1px solid #e4ece6; border-radius: 13px; background: linear-gradient(145deg, #fff, #fbfdfb); box-shadow: 0 8px 24px #173b2910; transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+.feature-card:hover { transform: translateY(-4px); border-color: #b8d2c0; box-shadow: 0 16px 32px #173b2917; }
+.feature-card__icon { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 12px; background: #edf5ef; color: #075b46; }
+.feature-card__number { position: absolute; top: 25px; right: 22px; color: #c4d1c7; font-size: 12px; font-weight: 800; letter-spacing: .08em; }
+.feature-card h3 { margin: 21px 0 8px; color: #1d3124; font-size: 17px; font-weight: 700; letter-spacing: -.02em; }
+.feature-card p { max-width: 250px; margin: 0; color: #68786d; font-size: 13px; line-height: 1.65; }
+.feature-card__check { position: absolute; right: 22px; bottom: 20px; color: #f08762; }
+@media (max-width: 1000px) { .features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .features-hero { min-height: 390px; } }
+@media (max-width: 600px) { .features-hero { min-height: 390px; padding: 60px 22px; } .features-hero__glow { right: -300px; } .features-hero__actions { width: 100%; align-items: stretch; flex-direction: column; } .features-primary, .features-secondary { width: 100%; } .features-grid-section { width: min(100% - 36px, 500px); padding: 56px 0 64px; } .features-section-heading { margin-bottom: 25px; text-align: left; } .features-grid { grid-template-columns: 1fr; gap: 12px; } .feature-card { min-height: 190px; padding: 20px; } }
+@media (prefers-reduced-motion: reduce) { .feature-card, .features-primary, .features-secondary { transition: none; } }

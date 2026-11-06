@@ -3,6 +3,7 @@ import PDFDocument from "pdfkit";
 
 import Enrollment from "../models/Enrollment.js";
 import User from "../models/User.js";
+import { getCoursePricing } from "../services/coursePricing.js";
 
 
 
@@ -239,12 +240,12 @@ export const studentCertificates = async(req,res)=>{
 try{
 
 
-const certificates =
+const completedEnrollments =
 await Enrollment.find({
 
 student:req.user._id,
 
-certificateIssued:true
+completed:true
 
 })
 .populate({
@@ -256,6 +257,14 @@ path:"instructor",
 select:"name"
 }
 
+});
+
+const certificates = completedEnrollments.map((enrollment) => {
+  const item = enrollment.toObject();
+  return {
+    ...item,
+    certificatePricing: getCoursePricing(item.course),
+  };
 });
 
 

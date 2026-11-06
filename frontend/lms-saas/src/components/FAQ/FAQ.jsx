@@ -7,19 +7,19 @@ const faqData = [
     id: 1,
     question: "How do I enroll in a course?",
     answer:
-      "Simply create an account, choose your preferred course, and complete the enrollment process to start learning immediately.",
+      "Create an account, open a course, and choose Enroll. Paid courses continue through checkout; free courses use the free enrollment flow.",
   },
   {
     id: 2,
     question: "Will I receive a certificate after completing a course?",
     answer:
-      "Yes. Every completed course includes an industry-recognized certificate that you can share on your resume or LinkedIn profile.",
+      "Certificate availability and any certificate fee are listed on each course before you enroll.",
   },
   {
     id: 3,
     question: "Can I access my courses after purchase?",
     answer:
-      "Yes. You will have lifetime access to all purchased courses, including future updates.",
+      "Course access is available through your LearnSmart account. Sign in and open My Courses to continue learning.",
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ const faqData = [
     id: 5,
     question: "How can I contact instructors or support?",
     answer:
-      "You can reach our instructors through the student dashboard or contact our support team 24/7 via email and live chat.",
+      "Use the Contact page to reach the LearnSmart team with questions about courses or your account.",
   },
 ];
 

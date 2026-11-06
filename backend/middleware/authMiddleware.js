@@ -46,9 +46,6 @@ export const protect = async (req, res, next) => {
     }
 
 
-    console.log("TOKEN RECEIVED:", token);
-
-
     // ===============================
     // Verify JWT
     // ===============================
@@ -57,9 +54,6 @@ export const protect = async (req, res, next) => {
       token,
       process.env.JWT_SECRET
     );
-
-
-    console.log("DECODED TOKEN:", decoded);
 
 
     // ===============================

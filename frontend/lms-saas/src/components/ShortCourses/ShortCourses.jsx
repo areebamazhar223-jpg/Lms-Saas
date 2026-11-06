@@ -1,118 +1,65 @@
-import React from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import api from "../../services/api";
+import { getCourseImageUrl } from "../../services/media";
+import { getCourseDescription, getCourseFallbackImage } from "../../services/courseArtwork";
 import "./ShortCourses.css";
 
-import digitalMarketing from "../../assets/courses/digital-marketing.jpg";
-import excelDataAnalysis from "../../assets/courses/excel-data-analysis.jpg";
-import figmaUIUX from "../../assets/courses/figma-uiux.jpg";
-import canva from "../../assets/courses/canva.jpg";
-import chatgptProductivity from "../../assets/courses/chatgpt-productivity.jpg";
-
-const shortCourses=[ {
-    id: 1,
-        title: "Digital Marketing Basics",
-        description: "Learn digital marketing, SEO, social media marketing and online business basics.",
-        duration: "3 Hours",
-        level: "Beginner",
-        image: digitalMarketing,
-}
-
-,
-{
-id: 2,
-    title: "Excel for Data Analysis",
-    description: "Learn Excel formulas, charts, data handling and practical analysis skills.",
-    duration: "4 Hours",
-    level: "Beginner",
-    image: excelDataAnalysis,
-}
-
-,
-{
-id: 3,
-    title: "Figma UI/UX Basics",
-    description: "Learn UI design, wireframes, prototypes and essential Figma tools.",
-    duration: "3 Hours",
-    level: "Beginner",
-    image: figmaUIUX,
-}
-
-,
-{
-id: 4,
-    title: "Canva for Beginners",
-    description: "Create professional graphics, presentations and social media designs.",
-    duration: "2 Hours",
-    level: "Beginner",
-    image: canva,
-}
-
-,
-{
-id: 5,
-    title: "ChatGPT for Productivity",
-    description: "Use ChatGPT for study, research, content creation and everyday productivity.",
-    duration: "2 Hours",
-    level: "Beginner",
-    image: chatgptProductivity,
-}
-
-,
-];
-
 function ShortCourses() {
-    return (<section className="short-courses" > <div className="short-courses-container" > {
-            /* Section Header */
-        }
+  const [courses, setCourses] = useState([]);
+  useEffect(() => {
+    api.get("/courses").then(({ data }) => {
+      setCourses((data.courses || []).filter((course) => course.pricing?.isShortCourse).slice(0, 3));
+    }).catch(() => setCourses([]));
+  }, []);
 
-        <div className="short-courses-header" > <div className="short-courses-heading" > <span className="short-courses-label" > QUICK LEARNING </span> <h2>Short Courses</h2> <p> Learn practical and in-demand skills through short, focused courses. </p> </div> <button className="view-all-short-courses" > View All Short Courses </button> </div> {
-            /* Courses Grid */
-        }
+  return (
+    <section className="short-courses">
+      <div className="short-courses-container">
+        <div className="short-courses-header">
+          <div className="short-courses-heading">
+            <span className="short-courses-label">QUICK WINS · ALWAYS FREE</span>
+            <h2>Short courses, zero cost</h2>
+            <p>Get started with focused lessons and a free certificate when you complete a short course.</p>
+          </div>
+        </div>
 
-        <div className="short-courses-grid" > {
-            shortCourses.map((course)=> (<div className="short-course-card" key= {
-                        course.id
-                    }
-
-                    > {
-                        /* Thumbnail */
-                    }
-
-                    <div className="short-course-image" > <img src= {
-                        course.image
-                    }
-
-                    alt= {
-                        course.title
-                    }
-
-                    /> </div> {
-                        /* Course Content */
-                    }
-
-                    <div className="short-course-content" > <span className="short-course-level" > {
-                        course.level
-                    }
-
-                    </span> <h3> {
-                        course.title
-                    }
-
-                    </h3> <p> {
-                        course.description
-                    }
-
-                    </p> {
-                        /* Bottom */
-                    }
-
-                    <div className="short-course-footer" > <span className="short-course-duration" > ⏱ {
-                        course.duration
-                    }
-
-                    </span> <button className="start-course-btn" > Start Course </button> </div> </div> </div>))
-        }
-
-        </div> </div> </section>);
+        {courses.length > 0 && (
+          <div className="short-courses-grid">
+            {courses.map((course) => (
+              <article className="short-course-card" key={course._id}>
+                <Link to={`/courses/${course._id}`} className="short-course-image">
+                  <img
+                    src={course.thumbnail ? getCourseImageUrl(course.thumbnail) : getCourseFallbackImage(course)}
+                    alt={course.title}
+                    loading="lazy"
+                    decoding="async"
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = getCourseFallbackImage(course);
+                    }}
+                  />
+                  <span className="free-course-badge">FREE</span>
+                </Link>
+                <div className="short-course-content">
+                  <span className="short-course-level">{course.category || "Short course"}</span>
+                  <h3>{course.title}</h3>
+                  <p>{getCourseDescription(course.description)}</p>
+                  <div className="short-course-footer">
+                    <span className="short-course-duration">{course.duration || "Self-paced"} · Certificate included</span>
+                    <Link to={`/courses/${course._id}`} className="start-course-btn">Explore</Link>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+        <div className="short-courses-cta-wrap">
+          <Link to="/courses?category=short-courses" className="view-all-short-courses">View all short courses</Link>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default ShortCourses;

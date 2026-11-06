@@ -1,5 +1,6 @@
 import Enrollment from "../models/Enrollment.js";
 import Course from "../models/Course.js";
+import { getCoursePricing } from "../services/coursePricing.js";
 
 
 // ===============================
@@ -61,6 +62,13 @@ message:"Course not found"
 
 });
 
+}
+
+if (getCoursePricing(course).currentPrice > 0) {
+return res.status(402).json({
+success:false,
+message:"This course requires payment. Continue through checkout."
+});
 }
 
 
@@ -398,9 +406,14 @@ message:"Not Allowed"
 
 
 
-enrollment.completed=true;
+const course = await Course.findById(enrollment.course);
+if (!course) {
+return res.status(404).json({ success:false, message:"Course not found" });
+}
 
-enrollment.certificateIssued=true;
+const certificatePricing = getCoursePricing(course);
+enrollment.completed=true;
+enrollment.certificateIssued=certificatePricing.certificateFree;
 
 enrollment.progress=100;
 
@@ -417,7 +430,12 @@ success:true,
 
 message:"Course Completed Successfully",
 
-enrollment
+enrollment,
+certificatePricing: {
+free: certificatePricing.certificateFree,
+originalPrice: certificatePricing.certificateOriginalPrice,
+currentPrice: certificatePricing.certificateCurrentPrice,
+}
 
 });
 

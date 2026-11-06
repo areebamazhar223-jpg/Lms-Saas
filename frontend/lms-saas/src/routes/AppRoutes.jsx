@@ -9,12 +9,18 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import ResetPassword from "../pages/ResetPassword";
+import ForgotPassword from "../pages/ForgotPassword";
 import About from "../pages/About";
+import HowItWorks from "../pages/HowItWorks";
+import Features from "../pages/Features";
 import Contact from "../pages/Contact";
 import Pricing from "../pages/Pricing";
 import AllCourse from "../pages/AllCourse";
 import CourseDetails from "../pages/CourseDetails";
 import NotFound from "../pages/NotFound";
+import Checkout from "../pages/Checkout";
+import MyPayments from "../pages/MyPayments";
+import PaymentSuccess from "../pages/PaymentSuccess";
 
 // =========================================
 // ADMIN
@@ -91,8 +97,6 @@ import QuizResult from "../pages/student/QuizResult";
 
 const AppRoutes = () => {
 return ( <Routes>
-
-```
   {/* =====================================
       PUBLIC ROUTES
   ===================================== */}
@@ -100,8 +104,12 @@ return ( <Routes>
   <Route path="/" element={<Home />} />
   <Route path="/login" element={<Login />} />
   <Route path="/signup" element={<Signup />} />
+  <Route path="/signup/instructor" element={<Signup defaultRole="instructor" />} />
   <Route path="/reset-password" element={<ResetPassword />} />
+  <Route path="/forgot-password" element={<ForgotPassword />} />
   <Route path="/about" element={<About />} />
+  <Route path="/how-it-works" element={<HowItWorks />} />
+  <Route path="/features" element={<Features />} />
   <Route path="/contact" element={<Contact />} />
   <Route path="/pricing" element={<Pricing />} />
 
@@ -388,6 +396,33 @@ return ( <Routes>
     element={
       <ProtectedRoutes role="student">
         <StudentSettings />
+      </ProtectedRoutes>
+    }
+  />
+
+  <Route
+    path="/checkout"
+    element={
+      <ProtectedRoutes role="student">
+        <Checkout />
+      </ProtectedRoutes>
+    }
+  />
+
+  <Route
+    path="/student/my-payments"
+    element={
+      <ProtectedRoutes role="student">
+        <MyPayments />
+      </ProtectedRoutes>
+    }
+  />
+
+  <Route
+    path="/payment-success"
+    element={
+      <ProtectedRoutes role="student">
+        <PaymentSuccess />
       </ProtectedRoutes>
     }
   />

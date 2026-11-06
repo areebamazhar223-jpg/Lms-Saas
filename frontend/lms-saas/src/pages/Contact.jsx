@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import "./Contact.css";
 
 function Contact() {
@@ -50,6 +52,8 @@ function Contact() {
   };
 
   return (
+    <div className="contact-shell">
+    <Navbar />
     <section className="contact">
       <div className="contact-container">
 
@@ -132,6 +136,8 @@ function Contact() {
 
       </div>
     </section>
+    <Footer />
+    </div>
   );
 }
 

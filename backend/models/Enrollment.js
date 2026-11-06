@@ -34,6 +34,11 @@ certificateIssued: {
   default: false,
 },
 
+certificatePurchased: {
+  type: Boolean,
+  default: false,
+},
+
 },
 {
 timestamps: true,

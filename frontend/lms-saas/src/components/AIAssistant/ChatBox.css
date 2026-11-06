@@ -17,7 +17,7 @@
 .chatbox-header {
     min-height: 72px;
     padding: 14px 18px;
-    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    background: linear-gradient(135deg, #30684a, #30684a);
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -106,12 +106,12 @@
 
 .bot-message .message-icon {
     background: #dbeafe;
-    color: #2563eb;
+    color: #30684a;
 }
 
 .user-message .message-icon {
     background: #e0e7ff;
-    color: #4f46e5;
+    color: #30684a;
 }
 
 .message-content {
@@ -124,13 +124,13 @@
 
 .bot-message .message-content {
     background: #ffffff;
-    color: #334155;
+    color: #30684a;
     border: 1px solid #e2e8f0;
     border-top-left-radius: 4px;
 }
 
 .user-message .message-content {
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     border-top-right-radius: 4px;
 }
@@ -181,17 +181,17 @@
     padding: 0 13px;
     outline: none;
     font-size: 13px;
-    color: #1e293b;
+    color: #1d3124;
     background: #f8fafc;
 }
 
 .chatbox-input-area input:focus {
-    border-color: #2563eb;
+    border-color: #30684a;
     background: #ffffff;
 }
 
 .chatbox-input-area input::placeholder {
-    color: #94a3b8;
+    color: #96ae97;
 }
 
 .chatbox-input-area input:disabled {
@@ -204,7 +204,7 @@
     height: 42px;
     border: none;
     border-radius: 10px;
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -214,7 +214,7 @@
 }
 
 .chatbox-input-area button:hover:not(:disabled) {
-    background: #1d4ed8;
+    background: #30684a;
     transform: translateY(-1px);
 }
 
@@ -234,3 +234,4 @@
         border-radius: 16px;
     }
 }
+.chatbox{background:#1d3124;color:#f5f7ff;border-color:rgba(255,255,255,.14)}.chatbox-header{background:linear-gradient(110deg,#1d3124,#30684a 65%,#30684a)}.chatbox-messages{background:#1d3124}.bot-message .message-content{background:#1d3124;color:#e9edff;border:1px solid rgba(255,255,255,.12)}.user-message .message-content{background:linear-gradient(110deg,#30684a,#96ae97);color:white}

@@ -37,7 +37,7 @@
     height: 58px;
     border-radius: 14px;
     background: #e8f0ff;
-    color: #2563eb;
+    color: #30684a;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,27 +47,27 @@
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: #2563eb;
+    color: #30684a;
     margin-bottom: 5px;
 }
 
 .quiz-result-header h1 {
     margin: 0;
-    color: #1f2937;
+    color: #1d3124;
     font-size: 30px;
     font-weight: 700;
 }
 
 .quiz-result-header p {
     margin: 7px 0 0;
-    color: #6b7280;
+    color: #30684a;
     font-size: 15px;
 }
 
 .quiz-result-back-btn {
     border: none;
     background: #ffffff;
-    color: #374151;
+    color: #30684a;
     padding: 11px 18px;
     border-radius: 9px;
     font-size: 14px;
@@ -78,7 +78,7 @@
 }
 
 .quiz-result-back-btn:hover {
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
 }
 
@@ -98,12 +98,12 @@
 .quiz-result-info-card h2 {
     margin: 0 0 8px;
     font-size: 21px;
-    color: #1f2937;
+    color: #1d3124;
 }
 
 .quiz-result-info-card p {
     margin: 0;
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
 }
 
@@ -129,14 +129,14 @@
 
 .quiz-result-stat span {
     display: block;
-    color: #6b7280;
+    color: #30684a;
     font-size: 13px;
     margin-bottom: 8px;
 }
 
 .quiz-result-stat strong {
     display: block;
-    color: #111827;
+    color: #1d3124;
     font-size: 27px;
     font-weight: 700;
 }
@@ -161,12 +161,12 @@
 .quiz-results-card-header h2 {
     margin: 0;
     font-size: 20px;
-    color: #1f2937;
+    color: #1d3124;
 }
 
 .quiz-results-card-header p {
     margin: 6px 0 0;
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
 }
 
@@ -187,7 +187,7 @@
 
 .quiz-results-table th {
     background: #f9fafb;
-    color: #6b7280;
+    color: #30684a;
     font-size: 13px;
     font-weight: 700;
     text-align: left;
@@ -198,7 +198,7 @@
 .quiz-results-table td {
     padding: 17px 20px;
     border-bottom: 1px solid #f0f1f3;
-    color: #374151;
+    color: #30684a;
     font-size: 14px;
 }
 
@@ -224,7 +224,7 @@
     width: 42px;
     height: 42px;
     border-radius: 50%;
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -236,7 +236,7 @@
 
 .quiz-student-details strong {
     display: block;
-    color: #1f2937;
+    color: #1d3124;
     font-size: 14px;
     margin-bottom: 3px;
 }
@@ -253,12 +253,12 @@
 
 .quiz-score {
     font-weight: 700;
-    color: #1f2937;
+    color: #1d3124;
 }
 
 .quiz-percentage {
     font-weight: 700;
-    color: #2563eb;
+    color: #30684a;
 }
 
 /* =========================================
@@ -294,7 +294,7 @@
 .quiz-view-result-btn {
     border: none;
     background: #eef4ff;
-    color: #2563eb;
+    color: #30684a;
     padding: 8px 14px;
     border-radius: 8px;
     font-size: 13px;
@@ -304,7 +304,7 @@
 }
 
 .quiz-view-result-btn:hover {
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
 }
 
@@ -335,13 +335,13 @@
 
 .quiz-no-results h2 {
     margin: 0 0 8px;
-    color: #1f2937;
+    color: #1d3124;
     font-size: 21px;
 }
 
 .quiz-no-results p {
     margin: 0;
-    color: #6b7280;
+    color: #30684a;
     font-size: 14px;
 }
 
@@ -362,7 +362,7 @@
     width: 42px;
     height: 42px;
     border: 4px solid #e5e7eb;
-    border-top-color: #2563eb;
+    border-top-color: #30684a;
     border-radius: 50%;
     animation: quizResultSpin 0.8s linear infinite;
     margin-bottom: 15px;
@@ -370,7 +370,7 @@
 
 .quiz-result-loading h2 {
     margin: 0;
-    color: #374151;
+    color: #30684a;
     font-size: 18px;
 }
 
@@ -402,12 +402,12 @@
 
 .quiz-result-error p {
     margin: 0 0 20px;
-    color: #6b7280;
+    color: #30684a;
 }
 
 .quiz-result-error button {
     border: none;
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     padding: 11px 20px;
     border-radius: 8px;
@@ -416,7 +416,7 @@
 }
 
 .quiz-result-error button:hover {
-    background: #1d4ed8;
+    background: #30684a;
 }
 
 /* =========================================

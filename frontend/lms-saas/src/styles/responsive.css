@@ -1,0 +1,64 @@
+/* Shared safeguards for pages and components across narrow viewports. */
+@media (max-width: 1024px) {
+  .container {
+    width: min(100% - 40px, 1280px);
+  }
+
+  .lms-main,
+  .lms-content,
+  .lms-page {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  .lms-table-wrapper,
+  .table-wrapper,
+  .table-responsive,
+  .table-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .lms-table {
+    min-width: 620px;
+  }
+
+  .lms-page-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .lms-page-header > :is(div, section) {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  :where(input, select, textarea) {
+    max-width: 100%;
+  }
+
+  :where(img, video, iframe, canvas) {
+    max-width: 100%;
+  }
+
+  :where(button, .btn) {
+    max-width: 100%;
+  }
+
+  .lms-content {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+}

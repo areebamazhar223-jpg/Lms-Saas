@@ -30,7 +30,7 @@
 
     font-size: 32px;
 
-    color: #0f172a;
+    color: #1d3124;
 
     margin-bottom: 30px;
 
@@ -106,7 +106,7 @@
 
     font-weight: 600;
 
-    color: #334155;
+    color: #30684a;
 
 }
 
@@ -131,7 +131,7 @@
 
     font-size: 14px;
 
-    color: #334155;
+    color: #30684a;
 
     transition: .3s;
 
@@ -146,9 +146,9 @@
 .form-group input:focus {
 
 
-    border-color: #5b4bff;
+    border-color: #30684a;
 
-    box-shadow: 0 0 0 3px rgba(91, 75, 255, .12);
+    box-shadow: 0 0 0 3px rgba(48, 104, 74, .12);
 
 }
 
@@ -175,7 +175,7 @@
 
     border-radius: 12px;
 
-    background: #5b4bff;
+    background: #30684a;
 
     color: white;
 
@@ -193,7 +193,7 @@
 
 .save-btn:hover {
 
-    background: #4838f5;
+    background: #30684a;
 
     transform: translateY(-2px);
 

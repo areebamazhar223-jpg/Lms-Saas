@@ -1,14 +1,33 @@
 import mongoose from "mongoose";
 
+let connectionPromise;
+
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI);
+    // Check MongoDB URI
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI is not defined");
+    }
+
+    // Avoid unnecessary multiple connections
+    if (mongoose.connection.readyState === 1) {
+      return;
+    }
+
+    if (connectionPromise) {
+      await connectionPromise;
+      return;
+    }
+
+    connectionPromise = mongoose.connect(process.env.MONGO_URI);
+    const conn = await connectionPromise;
 
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    connectionPromise = undefined;
   } catch (error) {
-    console.error("❌ MongoDB Connection Failed");
-    console.error(error.message);
-    process.exit(1);
+    connectionPromise = undefined;
+    console.error("❌ MongoDB Connection Failed:", error.message);
+    throw error;
   }
 };
 

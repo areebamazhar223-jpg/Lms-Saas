@@ -12,14 +12,14 @@
     background: #ffffff;
     border: 1px solid #e3e8ef;
     border-radius: 18px;
-    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(29, 49, 36, 0.08);
 }
 
 .add-lesson-card h1 {
     margin: 0 0 30px;
     font-size: 30px;
     font-weight: 700;
-    color: #172033;
+    color: #1d3124;
 }
 
 .add-lesson-card form {
@@ -37,7 +37,7 @@
 .form-group label {
     font-size: 14px;
     font-weight: 600;
-    color: #344054;
+    color: #30684a;
 }
 
 .form-group input,
@@ -48,7 +48,7 @@
     border: 1px solid #d0d5dd;
     border-radius: 10px;
     background: #fff;
-    color: #172033;
+    color: #1d3124;
     font-size: 15px;
     font-family: inherit;
     outline: none;
@@ -57,8 +57,8 @@
 
 .form-group input:focus,
 .form-group textarea:focus {
-    border-color: #4f46e5;
-    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    border-color: #30684a;
+    box-shadow: 0 0 0 3px rgba(48, 104, 74, 0.1);
 }
 
 .form-group textarea {
@@ -77,7 +77,7 @@
     padding: 9px 14px;
     border: none;
     border-radius: 7px;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     font-size: 13px;
     font-weight: 600;
@@ -86,7 +86,7 @@
 
 .form-group small {
     margin-top: 2px;
-    color: #667085;
+    color: #30684a;
     font-size: 13px;
 }
 
@@ -105,11 +105,11 @@
     height: 17px;
     margin: 0;
     cursor: pointer;
-    accent-color: #4f46e5;
+    accent-color: #30684a;
 }
 
 .checkbox-group label {
-    color: #344054;
+    color: #30684a;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -121,7 +121,7 @@
     padding: 14px 20px;
     border: none;
     border-radius: 10px;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     font-size: 16px;
     font-weight: 600;
@@ -130,7 +130,7 @@
 }
 
 .lesson-btn:hover {
-    background: #4338ca;
+    background: #30684a;
     transform: translateY(-1px);
 }
 

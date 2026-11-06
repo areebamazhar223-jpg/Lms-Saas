@@ -71,6 +71,29 @@ const courseSchema = new mongoose.Schema(
 
   },
 
+  discountPrice: {
+    type: Number,
+    min: 0,
+    default: null,
+  },
+
+  certificatePrice: {
+    type: Number,
+    min: 0,
+    default: null,
+  },
+
+  certificateDiscountPrice: {
+    type: Number,
+    min: 0,
+    default: null,
+  },
+
+  certificateFree: {
+    type: Boolean,
+    default: false,
+  },
+
 
 
   category: {

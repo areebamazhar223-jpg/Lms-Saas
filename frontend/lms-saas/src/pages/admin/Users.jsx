@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Search, UsersRound, GraduationCap, ShieldCheck, Pencil, Trash2 } from "lucide-react";
 import api from "../../services/api";
 import "./Users.css";
 
@@ -88,29 +89,39 @@ function Users() {
       user.email.toLowerCase().includes(search.toLowerCase())
   );
 
+  const studentCount = users.filter((user) => user.role === "student").length;
+  const instructorCount = users.filter((user) => user.role === "instructor").length;
+  const adminCount = users.filter((user) => user.role === "admin").length;
+
   if (loading) {
-    return <h2>Loading users...</h2>;
+    return <div className="users users-loading" role="status">Loading users…</div>;
   }
 
   return (
     <div className="users">
       <div className="users-header">
-        <h1>Users Management</h1>
+        <div className="users-heading-copy">
+          <span className="users-eyebrow">ADMINISTRATION</span>
+          <h1>User Management</h1>
+          <p>Manage accounts, roles, and access for your learning community.</p>
+        </div>
 
-        <input
-          type="text"
-          placeholder="🔍 Search user..."
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          className="search-input"
-        />
+        <label className="users-search">
+          <Search size={17} aria-hidden="true" />
+          <span className="sr-only">Search users</span>
+          <input type="search" placeholder="Search by name or email" value={search} onChange={(e) => setSearch(e.target.value)} />
+        </label>
       </div>
 
-      <p className="total-users">
-        Total Users: <strong>{filteredUsers.length}</strong>
-      </p>
+      <div className="user-stat-grid" aria-label="User totals">
+        <article className="user-stat-card"><span className="user-stat-icon user-stat-icon--green"><UsersRound size={19} /></span><div><span>Total users</span><strong>{users.length}</strong></div></article>
+        <article className="user-stat-card"><span className="user-stat-icon user-stat-icon--orange"><GraduationCap size={19} /></span><div><span>Students</span><strong>{studentCount}</strong></div></article>
+        <article className="user-stat-card"><span className="user-stat-icon user-stat-icon--mint"><UsersRound size={19} /></span><div><span>Instructors</span><strong>{instructorCount}</strong></div></article>
+        <article className="user-stat-card"><span className="user-stat-icon user-stat-icon--dark"><ShieldCheck size={19} /></span><div><span>Admins</span><strong>{adminCount}</strong></div></article>
+      </div>
 
       <div className="table-container">
+        <div className="users-table-heading"><div><h2>All users</h2><p>{filteredUsers.length} {filteredUsers.length === 1 ? "account" : "accounts"} shown</p></div></div>
         <table className="users-table">
           <thead>
             <tr>
@@ -127,7 +138,12 @@ function Users() {
               filteredUsers.map((user, index) => (
                 <tr key={user._id}>
                   <td>{index + 1}</td>
-                  <td>{user.name}</td>
+                  <td>
+                    <div className="user-identity">
+                      <span className="user-avatar" aria-hidden="true">{(user.name || "U").trim().split(/\s+/).slice(0, 2).map((part) => part[0]?.toUpperCase()).join("")}</span>
+                      <strong>{user.name || "Unnamed user"}</strong>
+                    </div>
+                  </td>
                   <td>{user.email}</td>
                   <td>
                     <span className={`role-badge ${user.role}`}>
@@ -135,21 +151,24 @@ function Users() {
                     </span>
                   </td>
                   <td>
-                    <button className="edit-btn" onClick={() => handleEdit(user)}>
-                      ✏️ Edit
+                    <button type="button" className="edit-btn" onClick={() => handleEdit(user)} aria-label={`Edit ${user.name}`} title="Edit user">
+                      <Pencil size={15} /> <span>Edit</span>
                     </button>
                     <button
+                      type="button"
                       className="delete-btn"
                       onClick={() => handleDelete(user._id)}
+                      aria-label={`Delete ${user.name}`}
+                      title="Delete user"
                     >
-                      🗑 Delete
+                      <Trash2 size={15} /> <span>Delete</span>
                     </button>
                   </td>
                 </tr>
               ))
             ) : (
               <tr className="empty-row">
-                <td colSpan="5">No users found</td>
+                <td colSpan="5"><div><strong>No users found</strong><span>Try another name or email address.</span></div></td>
               </tr>
             )}
           </tbody>

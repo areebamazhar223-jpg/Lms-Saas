@@ -24,13 +24,13 @@
     background: #ffffff;
     border: 1px solid #e5e8ef;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(20, 30, 50, 0.04);
+    box-shadow: 0 5px 20px rgba(29, 49, 36, 0.04);
 }
 
 .assignments-label {
     display: block;
     margin-bottom: 6px;
-    color: #4f46e5;
+    color: #30684a;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -39,14 +39,14 @@
 
 .assignments-header h1 {
     margin: 0;
-    color: #172033;
+    color: #1d3124;
     font-size: 30px;
     font-weight: 700;
 }
 
 .assignments-header p {
     margin: 8px 0 0;
-    color: #667085;
+    color: #30684a;
     font-size: 14px;
 }
 
@@ -58,14 +58,14 @@
     border: 1px solid #e1e5ed;
     border-radius: 9px;
     background: #f8f9fc;
-    color: #344054;
+    color: #30684a;
     font-size: 14px;
     font-weight: 600;
     white-space: nowrap;
 }
 
 .assignment-count svg {
-    color: #4f46e5;
+    color: #30684a;
 }
 
 /* ================================
@@ -89,14 +89,14 @@
     background: #ffffff;
     border: 1px solid #e5e8ef;
     border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(20, 30, 50, 0.04);
+    box-shadow: 0 5px 20px rgba(29, 49, 36, 0.04);
     transition: 0.25s ease;
 }
 
 .assignment-card:hover {
     transform: translateY(-4px);
     border-color: #d6d9f8;
-    box-shadow: 0 12px 30px rgba(20, 30, 50, 0.08);
+    box-shadow: 0 12px 30px rgba(29, 49, 36, 0.08);
 }
 
 /* ================================
@@ -118,7 +118,7 @@
     height: 52px;
     border-radius: 12px;
     background: #eef0ff;
-    color: #4f46e5;
+    color: #30684a;
 }
 
 .assignment-status {
@@ -148,21 +148,21 @@
 
 .assignment-card-content h2 {
     margin: 0 0 7px;
-    color: #172033;
+    color: #1d3124;
     font-size: 19px;
     line-height: 1.4;
 }
 
 .assignment-course {
     margin: 0 0 12px;
-    color: #4f46e5;
+    color: #30684a;
     font-size: 13px;
     font-weight: 600;
 }
 
 .assignment-description {
     margin: 0;
-    color: #667085;
+    color: #30684a;
     font-size: 14px;
     line-height: 1.7;
 }
@@ -189,19 +189,19 @@
 
 .assignment-detail-item svg {
     flex-shrink: 0;
-    color: #4f46e5;
+    color: #30684a;
 }
 
 .assignment-detail-item span {
     display: block;
     margin-bottom: 3px;
-    color: #98a2b3;
+    color: #96ae97;
     font-size: 11px;
 }
 
 .assignment-detail-item strong {
     display: block;
-    color: #344054;
+    color: #30684a;
     font-size: 13px;
 }
 
@@ -218,7 +218,7 @@
     padding: 12px 18px;
     border: none;
     border-radius: 8px;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     font-size: 14px;
     font-weight: 700;
@@ -227,7 +227,7 @@
 }
 
 .view-assignment-btn:hover {
-    background: #4338ca;
+    background: #30684a;
     transform: translateY(-1px);
 }
 
@@ -241,7 +241,7 @@
     border: 1px solid #e5e8ef;
     border-radius: 15px;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(20, 30, 50, 0.04);
+    box-shadow: 0 5px 20px rgba(29, 49, 36, 0.04);
 }
 
 .no-assignments-icon {
@@ -253,19 +253,19 @@
     margin: 0 auto 18px;
     border-radius: 50%;
     background: #eef0ff;
-    color: #4f46e5;
+    color: #30684a;
 }
 
 .no-assignments h2 {
     margin: 0 0 8px;
-    color: #172033;
+    color: #1d3124;
     font-size: 22px;
 }
 
 .no-assignments p {
     margin: 0 auto 22px;
     max-width: 450px;
-    color: #667085;
+    color: #30684a;
     font-size: 14px;
     line-height: 1.7;
 }
@@ -274,7 +274,7 @@
     padding: 11px 20px;
     border: none;
     border-radius: 8px;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     font-size: 14px;
     font-weight: 600;
@@ -282,7 +282,7 @@
 }
 
 .no-assignments button:hover {
-    background: #4338ca;
+    background: #30684a;
 }
 
 /* ================================
@@ -300,7 +300,7 @@
 
 .assignments-loading h2 {
     margin: 0;
-    color: #172033;
+    color: #1d3124;
     font-size: 20px;
 }
 
@@ -308,7 +308,7 @@
     width: 42px;
     height: 42px;
     border: 4px solid #e5e7eb;
-    border-top-color: #4f46e5;
+    border-top-color: #30684a;
     border-radius: 50%;
     animation: assignmentsSpin 0.8s linear infinite;
 }
@@ -335,20 +335,20 @@
 
 .assignments-error h2 {
     margin: 0 0 10px;
-    color: #172033;
+    color: #1d3124;
     font-size: 24px;
 }
 
 .assignments-error p {
     margin: 0 0 20px;
-    color: #667085;
+    color: #30684a;
 }
 
 .assignments-error button {
     padding: 11px 22px;
     border: none;
     border-radius: 8px;
-    background: #4f46e5;
+    background: #30684a;
     color: #ffffff;
     font-size: 14px;
     font-weight: 600;
@@ -356,7 +356,7 @@
 }
 
 .assignments-error button:hover {
-    background: #4338ca;
+    background: #30684a;
 }
 
 /* ================================

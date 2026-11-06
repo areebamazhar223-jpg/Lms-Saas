@@ -18,7 +18,7 @@
     height: 55px;
     border-radius: 50%;
     border: 5px solid #e2e8f0;
-    border-top: 5px solid #2563eb;
+    border-top: 5px solid #30684a;
     animation: spin 0.9s linear infinite;
 }
 
@@ -28,7 +28,7 @@
 .loader-container p {
     font-size: 16px;
     font-weight: 600;
-    color: #475569;
+    color: #30684a;
     letter-spacing: 0.5px;
 }
 

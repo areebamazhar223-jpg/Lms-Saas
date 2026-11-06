@@ -20,7 +20,7 @@
 
     font-size: 36px;
 
-    color: #111827;
+    color: #1d3124;
 
     margin-bottom: 35px;
 
@@ -55,7 +55,7 @@
 
 .courses-table thead {
 
-    background: #2563eb;
+    background: #30684a;
 
     color: white;
 
@@ -81,7 +81,7 @@
 
     padding: 18px;
 
-    color: #475569;
+    color: #30684a;
 
     font-weight: 500;
 
@@ -169,7 +169,7 @@
 
     background: #dbeafe;
 
-    color: #2563eb;
+    color: #30684a;
 
 }
 
@@ -177,7 +177,7 @@
 
 .edit-btn:hover {
 
-    background: #bfdbfe;
+    background: #e5efe6;
 
 }
 
@@ -189,7 +189,7 @@
 
     background: #ede9fe;
 
-    color: #7c3aed;
+    color: #30684a;
 
 }
 
@@ -197,7 +197,7 @@
 
 .lesson-btn:hover {
 
-    background: #ddd6fe;
+    background: #e5efe6;
 
 }
 
@@ -234,7 +234,7 @@
 
     padding: 30px;
 
-    color: #64748b;
+    color: #30684a;
 
     font-size: 16px;
 
@@ -253,7 +253,7 @@
 
     margin-top: 100px;
 
-    color: #64748b;
+    color: #30684a;
 
 }
 

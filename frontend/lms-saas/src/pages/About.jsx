@@ -3,7 +3,8 @@ import {
   Users,
   Globe
 } from "lucide-react";
-
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import "./About.css";
 
 
@@ -30,6 +31,8 @@ const features = [
 
 return(
 
+<>
+<Navbar />
 <section className="about">
 
 
@@ -43,15 +46,15 @@ About Our LMS
 </h1>
 
 <p>
-Welcome to our Learning Management System. 
-Our platform connects students and instructors 
+Welcome to our Learning Management System.
+Our platform connects students and instructors
 through high-quality online learning experiences.
 </p>
 
 
 <p>
-Students can explore professional courses while 
-instructors can share their knowledge with learners 
+Students can explore professional courses while
+instructors can share their knowledge with learners
 around the world.
 </p>
 
@@ -66,7 +69,7 @@ around the world.
 {
 features.map((item,index)=>(
 
-<div 
+<div
 className="about-card"
 key={index}
 >
@@ -101,6 +104,8 @@ key={index}
 
 
 </section>
+<Footer />
+</>
 
 )
 

@@ -21,7 +21,7 @@
     margin: 0 0 30px;
     font-size: 30px;
     font-weight: 700;
-    color: #172033;
+    color: #1d3124;
 }
 
 .create-card form {
@@ -35,7 +35,7 @@
     margin-bottom: 2px;
     font-size: 15px;
     font-weight: 600;
-    color: #273248;
+    color: #1d3124;
 }
 
 .create-card input,
@@ -46,7 +46,7 @@
     border: 1px solid #d9deea;
     border-radius: 10px;
     background: #fff;
-    color: #172033;
+    color: #1d3124;
     font-size: 15px;
     outline: none;
     transition: 0.2s ease;
@@ -70,8 +70,8 @@
 
 .create-card input:focus,
 .create-card textarea:focus {
-    border-color: #5b5bf7;
-    box-shadow: 0 0 0 3px rgba(91, 91, 247, 0.1);
+    border-color: #30684a;
+    box-shadow: 0 0 0 3px rgba(48, 104, 74, 0.1);
 }
 
 .create-card input[type="file"] {
@@ -86,7 +86,7 @@
     padding: 9px 15px;
     border: none;
     border-radius: 7px;
-    background: #5b5bf7;
+    background: #30684a;
     color: #fff;
     font-size: 13px;
     font-weight: 600;
@@ -116,7 +116,7 @@
 
 .cancel-btn {
     background: #fff;
-    color: #4b5565;
+    color: #30684a;
     border: 1px solid #d7dce5;
 }
 
@@ -126,12 +126,12 @@
 
 .create-btn {
     border: none;
-    background: #5b5bf7;
+    background: #30684a;
     color: #fff;
 }
 
 .create-btn:hover {
-    background: #4848df;
+    background: #30684a;
     transform: translateY(-1px);
 }
 

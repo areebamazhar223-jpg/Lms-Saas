@@ -15,6 +15,13 @@ import generativeAiImg from "../../assets/courses/generativeai.jpg";
 import dataScienceImg from "../../assets/courses/Datasciences.jpg";
 import promptImg from "../../assets/courses/prompt.jpg";
 import uiuxImg from "../../assets/courses/uiux.jpg";
+import cyberSecurityImg from "../../assets/courses/cyber-security-course.png";
+import cloudComputingImg from "../../assets/courses/cloud-computing-course.png";
+import mobileAppImg from "../../assets/courses/mobile-app-development-course.png";
+import shopifyDropshippingImg from "../../assets/courses/shopify-dropshipping-course.png";
+import fullStackImg from "../../assets/courses/full-stack-software-engineering-course.png";
+import dataAnalyticsImg from "../../assets/courses/data-analytics-applied-ai-course.png";
+import dataScienceImgUpdated from "../../assets/courses/data-science-course.png";
 
 function CreateCourse() {
   const navigate = useNavigate();
@@ -54,6 +61,34 @@ function CreateCourse() {
 
   const getThumbnail = (title) => {
     const text = title.toLowerCase();
+
+    if (text.includes("shopify") || text.includes("dropshipping") || text.includes("drop shipping")) {
+      return shopifyDropshippingImg;
+    }
+
+    if (text.includes("full stack") || text.includes("full-stack") || text.includes("software engineering")) {
+      return fullStackImg;
+    }
+
+    if (text.includes("data analytics") || text.includes("applied ai")) {
+      return dataAnalyticsImg;
+    }
+
+    if (text.includes("data science") || text.includes("data scientist")) {
+      return dataScienceImgUpdated;
+    }
+
+    if (text.includes("cyber") || text.includes("security") || text.includes("infosec")) {
+      return cyberSecurityImg;
+    }
+
+    if (text.includes("cloud") || text.includes("aws") || text.includes("azure") || text.includes("gcp")) {
+      return cloudComputingImg;
+    }
+
+    if (text.includes("mobile") || text.includes("app development") || text.includes("android") || text.includes("ios")) {
+      return mobileAppImg;
+    }
 
     if (text.includes("html")) {
       return courseImages.html;
@@ -143,7 +178,7 @@ function CreateCourse() {
 
     if (!selectedThumbnail) {
       alert(
-        "Please use a course title containing HTML, CSS, JavaScript, React, Python, MongoDB, AI, Data Science, Prompt or UI/UX."
+        "Use a supported course title such as Cyber Security, Cloud Computing, Mobile App Development, HTML, CSS, JavaScript, React, Python, MongoDB, AI, Data Science, Prompt or UI/UX."
       );
       return;
     }

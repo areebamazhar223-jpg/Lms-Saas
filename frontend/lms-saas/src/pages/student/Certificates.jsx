@@ -1,289 +1,143 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Award, Download, LockKeyhole } from "lucide-react";
 import api from "../../services/api";
+import Navbar from "../../components/Navbar/Navbar";
+import Footer from "../../components/Footer/Footer";
 import "./Certificates.css";
 
 function Certificates() {
-
+  const navigate = useNavigate();
   const [certificates, setCertificates] = useState([]);
   const [loading, setLoading] = useState(true);
-
-
-  // ===============================
-  // Fetch Certificates
-  // ===============================
-  const fetchCertificates = async () => {
-
-    try {
-
-      const { data } = await api.get("/student/certificates");
-
-      console.log("Certificates:", data);
-
-
-      // Handle different backend responses
-      if (data.certificates) {
-
-        setCertificates(data.certificates);
-
-      } 
-      else if (data.certificate) {
-
-        setCertificates([data.certificate]);
-
-      } 
-      else {
-
-        setCertificates([]);
-
-      }
-
-
-    } catch (error) {
-
-      console.log(
-        error.response?.data || error.message
-      );
-
-    } finally {
-
-      setLoading(false);
-
-    }
-
-  };
-
+  const [error, setError] = useState("");
+  const [processingId, setProcessingId] = useState("");
 
   useEffect(() => {
-
-    fetchCertificates();
-
+    let active = true;
+    api.get("/student/certificates")
+      .then(({ data }) => {
+        if (active) setCertificates(data.certificates || []);
+      })
+      .catch((requestError) => {
+        if (active) setError(requestError.response?.data?.message || "Could not load certificates.");
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+    return () => { active = false; };
   }, []);
 
-
-
-  // ===============================
-  // Download Certificate
-  // ===============================
   const downloadCertificate = async (id) => {
-
     try {
-
-      const response = await api.get(
-        `/student/certificate/${id}`,
-        {
-          responseType: "blob",
-        }
-      );
-
-
-      const file = new Blob(
-        [response.data],
-        {
-          type: "application/pdf",
-        }
-      );
-
-
-      const url = window.URL.createObjectURL(file);
-
-
+      const response = await api.get(`/student/certificate/${id}`, { responseType: "blob" });
+      const url = window.URL.createObjectURL(new Blob([response.data], { type: "application/pdf" }));
       const link = document.createElement("a");
-
       link.href = url;
-
-      link.download = "Certificate.pdf";
-
-
+      link.download = "LearnSmart-Certificate.pdf";
       document.body.appendChild(link);
-
       link.click();
-
-
       link.remove();
-
       window.URL.revokeObjectURL(url);
-
-
-
-    } catch (error) {
-
-      alert(
-        error.response?.data?.message ||
-        "Certificate download failed"
-      );
-
+    } catch (requestError) {
+      alert(requestError.response?.data?.message || "Certificate download failed.");
     }
-
   };
 
+  const claimCertificate = async (enrollment) => {
+    if (enrollment.certificatePricing?.certificateFree) {
+      try {
+        setProcessingId(enrollment._id);
+        await api.post(`/payment/certificate/${enrollment._id}`);
+        setCertificates((items) => items.map((item) => item._id === enrollment._id
+          ? { ...item, certificateIssued: true }
+          : item));
+      } catch (requestError) {
+        setError(requestError.response?.data?.message || "Certificate could not be issued.");
+      } finally {
+        setProcessingId("");
+      }
+      return;
+    }
 
+    navigate("/checkout", {
+      state: {
+        purchaseType: "certificate",
+        enrollmentId: enrollment._id,
+        course: enrollment.course,
+        certificatePricing: enrollment.certificatePricing,
+      },
+    });
+  };
 
   if (loading) {
-
-    return <h2>Loading Certificates...</h2>;
-
+    return <><Navbar /><main className="certificates-page"><div className="certificate-loading">Loading your certificates...</div></main><Footer /></>;
   }
 
-
-
   return (
+    <>
+    <Navbar />
+    <main className="certificates-page">
+      <header className="certificate-header">
+        <div>
+          <span className="certificate-eyebrow">YOUR ACHIEVEMENTS</span>
+          <h1>Certificates</h1>
+          <p>Finish a course, then claim your certificate here.</p>
+        </div>
+        <div className="certificate-total"><Award size={20} /> {certificates.filter((item) => item.certificateIssued).length} issued</div>
+      </header>
 
-    <div className="certificates-page">
+      {error && <p className="certificate-error" role="alert">{error}</p>}
 
-
-      <div className="certificate-header">
-
-        <h1>
-          My Certificates
-        </h1>
-
-
-        <p>
-          Total Certificates: {certificates.length}
-        </p>
-
-
-      </div>
-
-
-
-
-      <table className="certificate-table">
-
-
-        <thead>
-
-          <tr>
-
-            <th>#</th>
-
-            <th>Course</th>
-
-            <th>Completion Date</th>
-
-            <th>Status</th>
-
-            <th>Action</th>
-
-          </tr>
-
-        </thead>
-
-
-
-
-        <tbody>
-
-
-        {
-          certificates.length > 0 ? (
-
-            certificates.map((item,index)=>(
-
-
-              <tr key={item._id}>
-
-
-                <td>
-                  {index + 1}
-                </td>
-
-
-
-                <td>
-                  {
-                    item.course?.title ||
-                    "Course Name"
-                  }
-                </td>
-
-
-
-
-                <td>
-
-                  {
-                    new Date(
-                      item.completionDate ||
-                      item.updatedAt
-                    ).toLocaleDateString()
-
-                  }
-
-                </td>
-
-
-
-
-                <td>
-
-                  <span className="issued-status">
-
-                    🏆 Certificate Issued
-
-                  </span>
-
-                </td>
-
-
-
-
-                <td>
-
-                  <button
-
-                    className="download-btn"
-
-                    onClick={() =>
-                      downloadCertificate(item._id)
-                    }
-
-                  >
-
-                    📄 Download PDF
-
+      {certificates.length === 0 ? (
+        <section className="certificate-empty">
+          <Award size={38} />
+          <h2>Your certificates will appear here</h2>
+          <p>Complete an enrolled course to unlock its certificate.</p>
+        </section>
+      ) : (
+        <div className="certificate-grid">
+          {certificates.map((item) => {
+            const pricing = item.certificatePricing || {};
+            return (
+              <article className="certificate-card" key={item._id}>
+                <div className="certificate-card-icon"><Award size={24} /></div>
+                <span className={item.certificateIssued ? "certificate-status is-issued" : "certificate-status"}>
+                  {item.certificateIssued ? "Certificate ready" : "Course completed"}
+                </span>
+                <h2>{item.course?.title || "Course"}</h2>
+                <p className="certificate-completed-date">
+                  Completed {new Date(item.updatedAt).toLocaleDateString()}
+                </p>
+                <div className="certificate-price">
+                  {pricing.certificateFree ? (
+                    <strong>Certificate included</strong>
+                  ) : (
+                    <>
+                      <strong>Rs {Number(pricing.certificateCurrentPrice || 0).toLocaleString()}</strong>
+                      {pricing.certificateDiscountAmount > 0 && <del>Rs {Number(pricing.certificateOriginalPrice).toLocaleString()}</del>}
+                    </>
+                  )}
+                </div>
+                {item.certificateIssued ? (
+                  <button type="button" className="certificate-action" onClick={() => downloadCertificate(item._id)}>
+                    <Download size={17} /> Download certificate
                   </button>
-
-                </td>
-
-
-
-              </tr>
-
-
-            ))
-
-
-          ) : (
-
-
-            <tr>
-
-              <td colSpan="5">
-
-                No Certificates Found
-
-              </td>
-
-            </tr>
-
-
-          )
-
-        }
-
-
-        </tbody>
-
-
-      </table>
-
-
-    </div>
-
+                ) : (
+                  <button type="button" className="certificate-action" disabled={processingId === item._id} onClick={() => claimCertificate(item)}>
+                    {pricing.certificateFree ? <Award size={17} /> : <LockKeyhole size={16} />}
+                    {processingId === item._id ? "Processing..." : pricing.certificateFree ? "Claim free certificate" : "Get certificate"}
+                  </button>
+                )}
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </main>
+    <Footer />
+    </>
   );
-
 }
-
 
 export default Certificates;

@@ -1,423 +1,262 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
+import api from "../services/api";
+import { getCourseImageUrl } from "../services/media";
+import { getCourseDescription, getCourseFallbackImage, getCourseTopicImage } from "../services/courseArtwork";
+import { Search } from "lucide-react";
+import Navbar from "../components/Navbar/Navbar";
+import Footer from "../components/Footer/Footer";
 import "./AllCourse.css";
 
-// ===============================
-// Web Development
-// ===============================
-
-import html from "../assets/courses/html.jpg";
-import css from "../assets/courses/css.jpg";
-import MongoDB from "../assets/courses/MongoDB.jpg";
-import javascript from "../assets/courses/js.jpg";
-import wordpress from "../assets/courses/wordpress.jpg";
-import react from "../assets/courses/react.jpg";
-
-// ===============================
-// Artificial Intelligence
-// ===============================
-
-import ai from "../assets/courses/ai.jpg";
-import prompt from "../assets/courses/prompt.jpg";
-import generativeAI from "../assets/courses/generativeai.jpg";
-
-// ===============================
-// Designing
-// ===============================
-
-import uiux from "../assets/courses/uiux.jpg";
-import figma from "../assets/courses/figma-uiux.jpg";
-
-// ===============================
-// Short Courses
-// ===============================
-
-import excel from "../assets/courses/excel-data-analysis.jpg";
-import digitalMarketing from "../assets/courses/digital-marketing.jpg";
-import chatgpt from "../assets/courses/chatgpt-productivity.jpg";
-import canva from "../assets/courses/canva.jpg";
-
-// ===============================
-// Programming
-// ===============================
-
-import python from "../assets/courses/python.jpg";
-
-
-// =====================================================
-// COURSES DATA
-// =====================================================
-
-const courseSections = [
-
-  // ===============================
-  // WEB DEVELOPMENT
-  // ===============================
-
-  {
-    id: "web-development",
-    title: "Web Development",
-    description:
-      "Learn the skills you need to build modern websites and web applications.",
-
-    courses: [
-      {
-        id: 1,
-        title: "HTML",
-        image: html,
-        category: "Web Development",
-        description:
-          "Learn HTML fundamentals and build the structure of modern websites.",
-      },
-
-      {
-        id: 2,
-        title: "CSS",
-        image: css,
-        category: "Web Development",
-        description:
-          "Create beautiful and responsive websites using CSS.",
-      },
-
-      {
-        id: 3,
-        title: "MongoDB",
-        image: MongoDB,
-        category: "Web Development",
-        description:
-          "Learn MongoDB and understand modern NoSQL databases.",
-      },
-
-      {
-        id: 4,
-        title: "JavaScript",
-        image: javascript,
-        category: "Web Development",
-        description:
-          "Learn JavaScript and create interactive websites.",
-      },
-
-      {
-        id: 5,
-        title: "WordPress",
-        image: wordpress,
-        category: "Web Development",
-        description:
-          "Learn how to create professional websites using WordPress.",
-      },
-
-      {
-        id: 6,
-        title: "React JS",
-        image: react,
-        category: "Web Development",
-        description:
-          "Build modern and interactive user interfaces with React JS.",
-      },
-    ],
-  },
-
-
-  // ===============================
-  // ARTIFICIAL INTELLIGENCE
-  // ===============================
-
-  {
-    id: "artificial-intelligence",
-    title: "Artificial Intelligence",
-    description:
-      "Explore AI, Prompt Engineering and Generative AI.",
-
-    courses: [
-      {
-        id: 7,
-        title: "Artificial Intelligence",
-        image: ai,
-        category: "AI",
-        description:
-          "Understand the fundamentals of Artificial Intelligence.",
-      },
-
-      {
-        id: 8,
-        title: "Prompt Engineering",
-        image: prompt,
-        category: "AI",
-        description:
-          "Learn how to create effective prompts for AI tools.",
-      },
-
-      {
-        id: 9,
-        title: "Generative AI",
-        image: generativeAI,
-        category: "AI",
-        description:
-          "Explore modern Generative AI tools and technologies.",
-      },
-    ],
-  },
-
-
-  // ===============================
-  // DESIGNING
-  // ===============================
-
-  {
-    id: "designing",
-    title: "Designing",
-    description:
-      "Learn modern design skills and create professional interfaces.",
-
-    courses: [
-      {
-        id: 10,
-        title: "UI/UX Design",
-        image: uiux,
-        category: "Designing",
-        description:
-          "Learn the fundamentals of UI/UX design.",
-      },
-
-      {
-        id: 11,
-        title: "Figma UI/UX",
-        image: figma,
-        category: "Designing",
-        description:
-          "Design professional interfaces using Figma.",
-      },
-    ],
-  },
-
-
-  // ===============================
-  // SHORT COURSES
-  // ===============================
-
-  {
-    id: "short-courses",
-    title: "Short Courses",
-    description:
-      "Quick and practical courses to learn useful digital skills.",
-
-    courses: [
-      {
-        id: 12,
-        title: "UI/UX Basics",
-        image: uiux,
-        category: "Short Course",
-        description:
-          "Learn the basic principles of UI/UX design.",
-      },
-
-      {
-        id: 13,
-        title: "Figma Basics",
-        image: figma,
-        category: "Short Course",
-        description:
-          "Learn the essential tools and features of Figma.",
-      },
-
-      {
-        id: 14,
-        title: "Excel Data Analysis",
-        image: excel,
-        category: "Short Course",
-        description:
-          "Learn practical Excel skills for data analysis.",
-      },
-
-      {
-        id: 15,
-        title: "Digital Marketing",
-        image: digitalMarketing,
-        category: "Short Course",
-        description:
-          "Learn the fundamentals of digital marketing.",
-      },
-
-      {
-        id: 16,
-        title: "ChatGPT for Productivity",
-        image: chatgpt,
-        category: "Short Course",
-        description:
-          "Use ChatGPT to improve your productivity and workflow.",
-      },
-
-      {
-        id: 17,
-        title: "Canva for Beginners",
-        image: canva,
-        category: "Short Course",
-        description:
-          "Create attractive designs easily using Canva.",
-      },
-    ],
-  },
-
-
-  // ===============================
-  // PROGRAMMING
-  // ===============================
-
-  {
-    id: "programming",
-    title: "Programming",
-    description:
-      "Learn programming fundamentals and start building real-world applications.",
-
-    courses: [
-      {
-        id: 18,
-        title: "Python Programming",
-        image: python,
-        category: "Programming",
-        description:
-          "Learn Python programming from basics to practical projects.",
-      },
-    ],
-  },
-
-];
-
-
-// =====================================================
-// ALL COURSE PAGE
-// =====================================================
-
 const AllCourse = () => {
+  const navigate = useNavigate();
+  const routeParams = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [courses, setCourses] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(() => searchParams.get("search") || "");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+  const [enrollingId, setEnrollingId] = useState("");
+
+  const getCatalogCourseImage = (course) => {
+    const topicImage = getCourseTopicImage(course);
+    return topicImage || (course.thumbnail ? getCourseImageUrl(course.thumbnail) : getCourseFallbackImage(course));
+  };
+
+  useEffect(() => {
+    let active = true;
+
+    api.get("/courses")
+      .then(({ data }) => {
+        if (active) setCourses(data.courses || []);
+      })
+      .catch((requestError) => {
+        if (active) {
+          setError(requestError.response?.data?.message || "Could not load courses.");
+        }
+      })
+      .finally(() => {
+        if (active) setLoading(false);
+      });
+
+    return () => { active = false; };
+  }, []);
+
+  const handleEnroll = async (course) => {
+    const token = localStorage.getItem("token");
+    const savedUser = localStorage.getItem("user");
+    let user = null;
+
+    try {
+      user = savedUser ? JSON.parse(savedUser) : null;
+    } catch {
+      localStorage.removeItem("user");
+    }
+
+    if (course.pricing?.currentPrice > 0) {
+      navigate("/checkout", { state: { course } });
+      return;
+    }
+
+    if (!token || !user) {
+      navigate("/login", {
+        state: { from: { pathname: `/courses/${course._id}` } },
+      });
+      return;
+    }
+
+    if (user.role?.toLowerCase() !== "student") {
+      setError("Please sign in with a student account to enroll.");
+      return;
+    }
+
+    try {
+      setEnrollingId(course._id);
+      await api.post("/enrollment", { courseId: course._id });
+      navigate("/student/my-courses");
+    } catch (enrollError) {
+      setError(enrollError.response?.data?.message || "Enrollment failed. Please try again.");
+    } finally {
+      setEnrollingId("");
+    }
+  };
+
+  const categoryFilter = searchParams.get("category") || routeParams.category || "";
+  const normalize = (value) => String(value || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+  // Improved search - matches as you type, prioritizes starts-with matches
+  const searchLower = searchQuery.toLowerCase().trim();
+  const visibleCourses = courses.filter((course) => {
+    const categoryText = `${course.category || ""} ${course.title || ""} ${getCourseDescription(course.description)}`;
+    const normalizedCategory = normalize(categoryText);
+    const normalizedFilter = normalize(categoryFilter);
+    const aliases = {
+      artificialintelligence: /\bai\b|artificial intelligence|machine learning|generative ai|prompt/i,
+      shortcourses: /short|quick/i,
+      webdevelopment: /web|wordpress|html|css|javascript|react/i,
+      programming: /programming|python|javascript|react/i,
+      graphicdesign: /graphic|design|photoshop|illustrator|canva|ui\s*\/?\s*ux|figma/i,
+      microsoftoffice: /microsoft office|ms word|\bexcel\b|powerpoint|\baccess\b|office management/i,
+      wordpress: /wordpress|woocommerce|elementor/i,
+      digitalmarketing: /digital marketing|social media|seo|marketing|content strategy/i,
+      professional: /professional|diploma|bootcamp|mern|full.?stack|advanced/i,
+    };
+    const isShortCourse = Boolean(course.pricing?.isShortCourse);
+    const categoryMatch = !categoryFilter
+      || (normalizedFilter === "shortcourses" ? isShortCourse : (
+        normalizedCategory.includes(normalizedFilter)
+        || normalizedFilter.includes(normalize(course.category))
+        || Boolean(aliases[normalizedFilter]?.test(categoryText))
+      ));
+
+    // Enhanced search: matches any part of title, category, or description
+    const title = (course.title || "").toLowerCase();
+    const description = getCourseDescription(course.description).toLowerCase();
+    const category = (course.category || "").toLowerCase();
+
+    // If no search query, show all courses (filtered by category)
+    if (!searchLower) return categoryMatch;
+
+    // Match if search text appears anywhere in title, description, or category
+    const matchesSearch = title.includes(searchLower)
+      || description.includes(searchLower)
+      || category.includes(searchLower);
+
+    return categoryMatch && matchesSearch;
+  }).sort((a, b) => {
+    // Sort results: title starts-with search query comes first
+    const aTitle = (a.title || "").toLowerCase();
+    const bTitle = (b.title || "").toLowerCase();
+    const aStartsWith = aTitle.startsWith(searchLower);
+    const bStartsWith = bTitle.startsWith(searchLower);
+
+    if (aStartsWith && !bStartsWith) return -1;
+    if (!aStartsWith && bStartsWith) return 1;
+    return 0;
+  });
+
+  const sections = [...visibleCourses.reduce((groups, course) => {
+    const title = course.category?.trim() || (course.pricing?.isShortCourse ? "Short Courses" : "More Courses");
+    if (!groups.has(title)) groups.set(title, []);
+    groups.get(title).push(course);
+    return groups;
+  }, new Map())].map(([title, categoryCourses]) => ({ title, courses: categoryCourses }));
+
   return (
+    <div className="catalog-shell">
+    <Navbar />
     <div className="all-course-page">
-
-      {/* ===============================
-          HERO
-      =============================== */}
-
       <section className="courses-hero">
-
         <div className="courses-hero-content">
-
-          <span className="courses-tag">
-            EXPLORE COURSES
-          </span>
-
-          <h1>
-            Explore All <span>Courses</span>
-          </h1>
-
-          <p>
-            Explore our complete collection of courses and
-            learn valuable skills for your career and future.
-          </p>
-
-          <Link to="/" className="back-home-btn">
-            ← Back to Home
-          </Link>
-
+          <span className="courses-tag">EXPLORE COURSES</span>
+          <h1>Explore All <span>Courses</span></h1>
+          <p>Learn at your pace, compare course and certificate prices, and enroll with confidence.</p>
+          <form className="catalog-search" onSubmit={(event) => event.preventDefault()}>
+            <div className="search-input-wrapper">
+              <Search size={20} className="search-icon" aria-hidden="true" />
+              <input
+                aria-label="Search courses"
+                type="text"
+                value={searchQuery}
+                onChange={(event) => setSearchQuery(event.target.value)}
+                placeholder="Search by name, category, or topic..."
+                autoFocus
+              />
+              {searchQuery && (
+                <button
+                  className="search-clear-btn"
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  aria-label="Clear search"
+                >
+                  ✕
+                </button>
+              )}
+            </div>
+            <div className="search-info">
+              {searchQuery && (
+                <span className="search-results-count">
+                  {visibleCourses.length} {visibleCourses.length === 1 ? 'course' : 'courses'} found
+                </span>
+              )}
+            </div>
+          </form>
+          <div className="catalog-trust-row">
+            <span>✓ Learn online, on your schedule</span>
+            <span>✓ Free short courses</span>
+            <span>✓ Clear certificate pricing</span>
+          </div>
         </div>
-
       </section>
 
-
-      {/* ===============================
-          COURSE SECTIONS
-      =============================== */}
-
       <main className="all-courses-container">
-
-        {courseSections.map((section) => (
-
-          <section
-            className="course-section"
-            key={section.id}
-            id={section.id}
-          >
-
-            {/* Section Heading */}
-
+        {error && <p className="courses-error" role="alert">{error}</p>}
+        {loading ? (
+          <div className="courses-empty-state">Loading courses...</div>
+        ) : visibleCourses.length === 0 ? (
+          <div className="courses-empty-state">{courses.length ? "No courses match your search or filter." : "No courses are available yet."}</div>
+        ) : sections.map(({ title, courses: categoryCourses }) => (
+          <section className="course-section" key={title}>
             <div className="course-section-header">
-
               <span className="section-number">
-                {section.courses.length}{" "}
-                {section.courses.length === 1
-                  ? "Course"
-                  : "Courses"}
+                {categoryCourses.length} {categoryCourses.length === 1 ? "Course" : "Courses"}
               </span>
-
-              <h2>
-                {section.title}
-              </h2>
-
-              <p>
-                {section.description}
-              </p>
-
+              <h2>{title}</h2>
             </div>
-
-
-            {/* Course Cards */}
 
             <div className="courses-grid">
-
-              {section.courses.map((course) => (
-
-                <div
-                  className="all-course-card"
-                  key={course.id}
-                >
-
-                  {/* Course Image */}
-
-                  <div className="all-course-image">
-
+              {categoryCourses.map((course, courseIndex) => (
+                <article className="all-course-card" key={course._id} style={{ "--course-index": courseIndex }}>
+                  <Link className="all-course-image" to={`/courses/${course._id}`} aria-label={`Explore ${course.title}`}>
                     <img
-                      src={course.image}
+                      src={getCatalogCourseImage(course)}
                       alt={course.title}
+                      loading="lazy"
+                      decoding="async"
+                      onError={(event) => {
+                        event.currentTarget.onerror = null;
+                        event.currentTarget.src = getCourseFallbackImage(course);
+                      }}
                     />
-
-                  </div>
-
-
-                  {/* Course Content */}
-
+                  </Link>
                   <div className="all-course-content">
-
-                    <span className="course-category">
-                      {course.category}
-                    </span>
-
-                    <h3>
-                      {course.title}
-                    </h3>
-
-                    <p>
-                      {course.description}
-                    </p>
-
-                    <button
-                      type="button"
-                      className="view-course-btn"
-                    >
-                      View Course →
-                    </button>
-
+                    <span className="course-category">{course.category || "Course"}</span>
+                    <h3>{course.title}</h3>
+                    <p>{getCourseDescription(course.description)}</p>
+                    <div className="course-card-meta">
+                      <div>
+                        {course.pricing?.currentPrice > 0 ? (
+                          <>
+                            <strong>Rs {Number(course.pricing.currentPrice).toLocaleString()}</strong>
+                            {course.pricing.discountAmount > 0 && <del>Rs {Number(course.pricing.originalPrice).toLocaleString()}</del>}
+                          </>
+                        ) : <strong>Free</strong>}
+                      </div>
+                      {course.pricing?.certificateFree
+                        ? <span>Certificate included</span>
+                        : <span>Certificate Rs {Number(course.pricing?.certificateCurrentPrice || 0).toLocaleString()}</span>}
+                      {course.instructor?.name && <span>By {course.instructor.name}</span>}
+                    </div>
+                    <div className="course-card-actions">
+                      <Link to={`/courses/${course._id}`} className="view-course-btn">Explore</Link>
+                      <button
+                        type="button"
+                        className="enroll-course-btn"
+                        onClick={() => handleEnroll(course)}
+                        disabled={enrollingId === course._id}
+                      >
+                        {enrollingId === course._id ? "Enrolling..." : course.pricing?.currentPrice > 0 ? "Enroll Now" : "Enroll Free"}
+                      </button>
+                    </div>
                   </div>
-
-                </div>
-
+                </article>
               ))}
-
             </div>
-
           </section>
-
         ))}
-
       </main>
-
+    </div>
+    <Footer />
     </div>
   );
 };

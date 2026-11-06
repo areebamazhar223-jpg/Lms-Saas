@@ -42,7 +42,7 @@
 
     background: #eef2ff;
 
-    color: #5b4bff;
+    color: #30684a;
 
     font-size: 13px;
 
@@ -60,7 +60,7 @@
 
     font-size: 42px;
 
-    color: #111827;
+    color: #1d3124;
 
     margin-bottom: 15px;
 
@@ -70,7 +70,7 @@
 
 .faq__header h2 span {
 
-    color: #5b4bff;
+    color: #30684a;
 
 }
 
@@ -78,7 +78,7 @@
 
 .faq__header p {
 
-    color: #64748b;
+    color: #30684a;
 
     font-size: 17px;
 
@@ -130,9 +130,9 @@
 
 .faq__item:hover {
 
-    border-color: #c7d2fe;
+    border-color: #e5efe6;
 
-    box-shadow: 0 15px 35px rgba(91, 75, 255, .08);
+    box-shadow: 0 15px 35px rgba(48, 104, 74, .08);
 
 }
 
@@ -166,7 +166,7 @@
 
     font-weight: 700;
 
-    color: #1f2937;
+    color: #1d3124;
 
     text-align: left;
 
@@ -176,7 +176,7 @@
 
 .faq__question svg {
 
-    color: #5b4bff;
+    color: #30684a;
 
     flex-shrink: 0;
 
@@ -203,7 +203,7 @@
 
 .faq__answer p {
 
-    color: #64748b;
+    color: #30684a;
 
     line-height: 1.8;
 

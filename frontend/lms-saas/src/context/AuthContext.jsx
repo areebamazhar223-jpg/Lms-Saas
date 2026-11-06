@@ -42,11 +42,13 @@ checkAuth();
 // LOGIN
 // ======================================
 
-const login = async (email, password) => {
+const login = async (email, password, captchaId, captchaAnswer) => {
 try {
 const response = await api.post("/auth/login", {
 email,
 password,
+captchaId,
+captchaAnswer,
 });
 
   const data = response.data;
@@ -73,10 +75,26 @@ password,
   throw new Error(
     error.response?.data?.message ||
       error.message ||
-      "Login failed."
+      "Login failed.",
+    { cause: error }
   );
 }
 
+};
+
+const googleLogin = async (credential, captchaId, captchaAnswer, purpose, role) => {
+try {
+const response = await api.post("/auth/google", { credential, captchaId, captchaAnswer, purpose, role });
+const data = response.data;
+
+  if (!data.success) throw new Error(data.message || "Google sign-in failed.");
+  localStorage.setItem("token", data.token);
+  localStorage.setItem("user", JSON.stringify(data.user));
+  setUser(data.user);
+  return data;
+} catch (error) {
+  throw new Error(error.response?.data?.message || error.message || "Google sign-in failed.", { cause: error });
+}
 };
 
 // ======================================
@@ -86,7 +104,10 @@ password,
 const register = async (
 name,
 email,
-password
+password,
+role,
+captchaId,
+captchaAnswer
 ) => {
 try {
 const response = await api.post(
@@ -95,6 +116,9 @@ const response = await api.post(
 name,
 email,
 password,
+role,
+captchaId,
+captchaAnswer,
 }
 );
 
@@ -107,6 +131,12 @@ password,
     );
   }
 
+  // Registration does not create a login session. Clear any prior account
+  // so subsequent course actions cannot accidentally use its token.
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  setUser(null);
+
   return data;
 } catch (error) {
   console.error(
@@ -117,7 +147,8 @@ password,
   throw new Error(
     error.response?.data?.message ||
       error.message ||
-      "Registration failed."
+      "Registration failed.",
+    { cause: error }
   );
 }
 
@@ -145,6 +176,7 @@ value={{
 user,
 loading,
 login,
+googleLogin,
 register,
 logout,
 }}

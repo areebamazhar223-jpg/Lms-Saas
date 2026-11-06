@@ -20,7 +20,7 @@ BACK BUTTON
     gap: 8px;
     border: none;
     background: transparent;
-    color: #475569;
+    color: #30684a;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -30,7 +30,7 @@ BACK BUTTON
 }
 
 .assignment-detail-back:hover {
-    color: #2563eb;
+    color: #30684a;
     transform: translateX(-3px);
 }
 
@@ -47,7 +47,7 @@ HEADER
     border-radius: 18px;
     padding: 28px;
     margin-bottom: 25px;
-    box-shadow: 0 8px 25px rgba(15, 23, 42, 0.05);
+    box-shadow: 0 8px 25px rgba(29, 49, 36, 0.05);
 }
 
 .assignment-detail-icon {
@@ -59,12 +59,12 @@ HEADER
     justify-content: center;
     border-radius: 16px;
     background: #eff6ff;
-    color: #2563eb;
+    color: #30684a;
 }
 
 .assignment-label {
     display: inline-block;
-    color: #2563eb;
+    color: #30684a;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -74,7 +74,7 @@ HEADER
 
 .assignment-detail-header h1 {
     margin: 0;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 32px;
     line-height: 1.2;
     font-weight: 750;
@@ -82,12 +82,12 @@ HEADER
 
 .assignment-detail-header p {
     margin: 9px 0 0;
-    color: #64748b;
+    color: #30684a;
     font-size: 15px;
 }
 
 .assignment-detail-header strong {
-    color: #334155;
+    color: #30684a;
 }
 
 /* ======================================
@@ -109,7 +109,7 @@ STATS
     border: 1px solid #e5e7eb;
     border-radius: 16px;
     padding: 20px;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 6px 20px rgba(29, 49, 36, 0.04);
 }
 
 .stat-icon {
@@ -121,19 +121,19 @@ STATS
     justify-content: center;
     border-radius: 12px;
     background: #eff6ff;
-    color: #2563eb;
+    color: #30684a;
 }
 
 .assignment-stat-card span {
     display: block;
-    color: #64748b;
+    color: #30684a;
     font-size: 13px;
     margin-bottom: 5px;
 }
 
 .assignment-stat-card strong {
     display: block;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 15px;
     line-height: 1.4;
 }
@@ -156,19 +156,19 @@ DETAIL CARDS
     border-radius: 18px;
     padding: 28px;
     margin-bottom: 20px;
-    box-shadow: 0 6px 20px rgba(15, 23, 42, 0.04);
+    box-shadow: 0 6px 20px rgba(29, 49, 36, 0.04);
 }
 
 .assignment-detail-card h2 {
     margin: 0 0 15px;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 20px;
     font-weight: 700;
 }
 
 .assignment-description {
     margin: 0;
-    color: #64748b;
+    color: #30684a;
     font-size: 15px;
     line-height: 1.8;
     white-space: pre-wrap;
@@ -176,14 +176,14 @@ DETAIL CARDS
 
 .assignment-instructions {
     background: #f8fafc;
-    border-left: 4px solid #2563eb;
+    border-left: 4px solid #30684a;
     border-radius: 8px;
     padding: 16px 18px;
 }
 
 .assignment-instructions p {
     margin: 0;
-    color: #475569;
+    color: #30684a;
     font-size: 15px;
     line-height: 1.8;
     white-space: pre-wrap;
@@ -203,18 +203,18 @@ SUBMIT CARD
     border-radius: 18px;
     padding: 28px;
     margin-top: 25px;
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08);
+    box-shadow: 0 8px 25px rgba(48, 104, 74, 0.08);
 }
 
 .assignment-submit-card h2 {
     margin: 0 0 8px;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 21px;
 }
 
 .assignment-submit-card p {
     margin: 0;
-    color: #64748b;
+    color: #30684a;
     font-size: 14px;
     line-height: 1.6;
 }
@@ -227,7 +227,7 @@ SUBMIT CARD
     padding: 13px 22px;
     border: none;
     border-radius: 10px;
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     font-size: 14px;
     font-weight: 700;
@@ -237,9 +237,9 @@ SUBMIT CARD
 }
 
 .assignment-submit-btn:hover:not(:disabled) {
-    background: #1d4ed8;
+    background: #30684a;
     transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 8px 18px rgba(48, 104, 74, 0.25);
 }
 
 .assignment-submit-btn:active:not(:disabled) {
@@ -247,7 +247,7 @@ SUBMIT CARD
 }
 
 .assignment-submit-btn:disabled {
-    background: #94a3b8;
+    background: #96ae97;
     color: #f8fafc;
     cursor: not-allowed;
 }
@@ -268,7 +268,7 @@ LOADING
 
 .assignment-detail-loading h2 {
     margin: 18px 0 0;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 22px;
 }
 
@@ -276,7 +276,7 @@ LOADING
     width: 45px;
     height: 45px;
     border: 4px solid #dbeafe;
-    border-top-color: #2563eb;
+    border-top-color: #30684a;
     border-radius: 50%;
     animation: assignmentDetailSpin 0.8s linear infinite;
 }
@@ -304,14 +304,14 @@ ERROR
 
 .assignment-detail-error h2 {
     margin: 0 0 10px;
-    color: #0f172a;
+    color: #1d3124;
     font-size: 24px;
 }
 
 .assignment-detail-error p {
     max-width: 500px;
     margin: 0 0 20px;
-    color: #64748b;
+    color: #30684a;
     line-height: 1.6;
 }
 
@@ -322,7 +322,7 @@ ERROR
     padding: 11px 22px;
     border: none;
     border-radius: 9px;
-    background: #2563eb;
+    background: #30684a;
     color: #ffffff;
     font-size: 14px;
     font-weight: 700;
@@ -331,7 +331,7 @@ ERROR
 }
 
 .assignment-detail-error button:hover {
-    background: #1d4ed8;
+    background: #30684a;
 }
 
 /* ======================================

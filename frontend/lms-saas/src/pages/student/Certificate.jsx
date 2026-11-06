@@ -1,376 +1,52 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Award, ArrowLeft, Printer } from "lucide-react";
+import { Link } from "react-router-dom";
 import api from "../../services/api";
 import "./Certificate.css";
 
-
 function Certificate() {
-
-
   const { id } = useParams();
-
-
   const [certificate, setCertificate] = useState(null);
-
   const [loading, setLoading] = useState(true);
 
-
-
-
-
   useEffect(() => {
-
-
-    fetchCertificate();
-
-
+    let active = true;
+    api.get(`/student/certificate/${id}`)
+      .then(({ data }) => { if (active) setCertificate(data.certificate || null); })
+      .catch(() => { if (active) setCertificate(null); })
+      .finally(() => { if (active) setLoading(false); });
+    return () => { active = false; };
   }, [id]);
 
+  if (loading) return <main className="certificate-page"><p className="certificate-state">Preparing your certificate…</p></main>;
+  if (!certificate) return <main className="certificate-page"><p className="certificate-state">Certificate not found.</p><Link to="/student/certificates">Back to certificates</Link></main>;
 
-
-
-
-
-
-  const fetchCertificate = async () => {
-
-
-    try {
-
-
-      const { data } = await api.get(
-        `/student/certificate/${id}`
-      );
-
-
-
-      console.log(
-        "Certificate API:",
-        data
-      );
-
-
-
-      if(data.success){
-
-        setCertificate(
-          data.certificate
-        );
-
-      }
-      else if(data.certificate){
-
-        setCertificate(
-          data.certificate
-        );
-
-      }
-
-
-
-    } catch(error){
-
-
-      console.log(
-        "Certificate Error:",
-        error.response?.data ||
-        error.message
-      );
-
-
-
-    } finally {
-
-
-      setLoading(false);
-
-
-    }
-
-
-  };
-
-
-
-
-
-
-
-
-  if(loading){
-
-
-    return (
-
-      <h2 className="loading">
-
-        Loading Certificate...
-
-      </h2>
-
-    );
-
-  }
-
-
-
-
-
-
-
-  if(!certificate){
-
-
-    return (
-
-      <h2 className="loading">
-
-        Certificate Not Found
-
-      </h2>
-
-    );
-
-  }
-
-
-
-
-
-
-
+  const date = certificate.updatedAt ? new Date(certificate.updatedAt).toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" }) : "";
   return (
-
-
-    <div className="certificate-page">
-
-
-      <div className="certificate-card">
-
-
+    <main className="certificate-page">
+      <div className="certificate-toolbar"><Link to="/student/certificates"><ArrowLeft size={17} /> My certificates</Link><button type="button" onClick={() => window.print()}><Printer size={17} /> Print / Save PDF</button></div>
+      <article className="certificate-card" aria-label="Certificate of completion">
         <div className="certificate-border">
-
-
-
-          <h3 className="top-title">
-
-            🏆 LMS-SAAS
-
-          </h3>
-
-
-
-
-
-          <h1>
-
-            Certificate of Completion
-
-          </h1>
-
-
-
-
-
-          <p className="sub-title">
-
-            This Certificate is Proudly Presented To
-
-          </p>
-
-
-
-
-
-          <h2 className="student-name">
-
-            {
-              certificate.student?.name ||
-              "Student Name"
-            }
-
-          </h2>
-
-
-
-
-
-          <p className="course-text">
-
-            For Successfully Completing
-
-          </p>
-
-
-
-
-
-          <h2 className="course-name">
-
-            {
-              certificate.course?.title ||
-              "Course Name"
-            }
-
-          </h2>
-
-
-
-
-
-
-
-
-          <div className="certificate-info">
-
-
-            <div>
-
-              <h4>
-                Instructor
-              </h4>
-
-
-              <p>
-
-                {
-                  certificate.course?.instructor?.name ||
-                  "Instructor"
-                }
-
-              </p>
-
-
-            </div>
-
-
-
-
-
-            <div>
-
-
-              <h4>
-                Completion Date
-              </h4>
-
-
-              <p>
-
-
-                {
-                  certificate.updatedAt
-
-                  ?
-
-                  new Date(
-                    certificate.updatedAt
-                  ).toLocaleDateString()
-
-                  :
-
-                  "N/A"
-                }
-
-
-              </p>
-
-
-            </div>
-
-
+          <div className="certificate-brand"><span className="certificate-brand-mark"><Award size={20} /></span> LEARNSMART <i>ACADEMY</i></div>
+          <div className="certificate-rule"><span /></div>
+          <p className="certificate-kicker">CERTIFICATE OF COMPLETION</p>
+          <h1>Achievement<br />unlocked.</h1>
+          <p className="certificate-presented">This certificate is proudly presented to</p>
+          <h2 className="student-name">{certificate.student?.name || "Learner"}</h2>
+          <p className="certificate-course-copy">for successfully completing the course</p>
+          <h3 className="course-name">{certificate.course?.title || "Course"}</h3>
+          <div className="certificate-bottom">
+            <div><span>INSTRUCTOR</span><strong>{certificate.course?.instructor?.name || "LearnSmart Academy"}</strong></div>
+            <div className="certificate-seal"><Award size={23} /><span>VERIFIED<br />ACHIEVEMENT</span></div>
+            <div className="certificate-date"><span>DATE AWARDED</span><strong>{date}</strong></div>
           </div>
-
-
-
-
-
-
-
-
-          <div className="certificate-footer">
-
-
-            <div>
-
-              <h4>
-                Certificate ID
-              </h4>
-
-
-              <p>
-
-                {
-                  certificate._id
-                }
-
-              </p>
-
-
-            </div>
-
-
-
-
-
-
-
-            <div>
-
-              <h4>
-                Authorized Signature
-              </h4>
-
-
-              <p>
-                LMS-SAAS Team
-              </p>
-
-
-            </div>
-
-
-
-          </div>
-
-
-
-
-
-
-
-
-          <button
-
-            className="download-btn"
-
-            onClick={() => window.print()}
-
-          >
-
-            📄 Download Certificate
-
-
-          </button>
-
-
-
-
-
-
+          <div className="certificate-id">CERTIFICATE ID&nbsp; · &nbsp;{certificate._id}</div>
         </div>
-
-
-      </div>
-
-
-    </div>
-
-
+      </article>
+      <p className="certificate-note">Your achievement is ready to print or save as a PDF.</p>
+    </main>
   );
-
-
 }
-
 
 export default Certificate;

@@ -1,180 +1,327 @@
 /* =====================================
-   LEARNAXIS - CLEAN KURSZ STYLE NAVBAR
-===================================== */
+   NAVBAR - MATCHING DTLMS REFERENCE
+   ===================================== */
 
 .navbar {
-  width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
-
-  padding: 13px 0;
-
-  background: rgba(255, 255, 255, 0.96);
-
-  border-bottom: 1px solid #edf2e9;
-
-  box-shadow: 0 2px 12px rgba(20, 70, 20, 0.035);
+  background: #858e47;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 12px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* CONTAINER */
-
 .navbar-container {
-  width: min(100% - 64px, 1240px);
+  max-width: 1200px;
   margin: 0 auto;
-
+  padding: 0 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
 }
 
-/* LOGO */
-
+/* Logo */
 .navbar-logo {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.logo-icon {
-  width: 30px;
-  height: 30px;
-
   display: flex;
   align-items: center;
+  text-decoration: none;
+}
+
+.logo-stamp {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Desktop Navigation */
+.navbar-desktop {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: 1;
   justify-content: center;
-
-  background: #087b13;
-  border-radius: 6px;
-
-  font-size: 18px;
 }
 
-.logo-text {
-  color: #142017;
-
-  font-size: 22px;
-  font-weight: 750;
-  letter-spacing: -0.7px;
+.navbar-desktop .nav-link {
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
 }
 
-.navbar-logo:hover .logo-text {
-  color: #087b13;
+.navbar-desktop .nav-link:hover,
+.navbar-desktop .nav-link.active {
+  color: #fff;
+  border-bottom-color: #ffffff;
 }
 
-/* AUTH BUTTONS */
-
+/* Auth Section */
 .navbar-auth {
   display: flex;
   align-items: center;
-  gap: 13px;
+  gap: 16px;
+  color: #ffffff;
+  font-size: 14px;
 }
 
-/* LOGIN */
-
-.navbar-login {
-  display: inline-flex;
+.navbar-user-icon {
+  display: flex;
   align-items: center;
-  justify-content: center;
+}
 
-  padding: 9px 19px;
-
-  color: #18251a;
-
-  font-size: 13px;
-  font-weight: 600;
-
+.navbar-auth-link {
+  color: #ffffff;
   text-decoration: none;
-  border-radius: 30px;
-
-  transition: all 0.25s ease;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
 }
 
-.navbar-login:hover {
-  color: #087b13;
-  background: #f0f8ed;
+.navbar-auth-link:hover {
+  opacity: 0.8;
 }
 
-/* SIGNUP */
+.navbar-auth-divider {
+  color: rgba(255, 255, 255, 0.5);
+}
 
-.navbar-signup {
-  display: inline-flex;
+.navbar-cart {
+  display: flex;
   align-items: center;
-  justify-content: center;
+  color: #ffffff;
+  margin-left: 8px;
+  transition: opacity 0.3s ease;
+}
 
-  min-width: 90px;
-  padding: 10px 21px;
+.navbar-cart:hover {
+  opacity: 0.8;
+}
 
-  background: #087b13;
-  color: #fff;
-
+.navbar-logout {
+  background: none;
   border: none;
-  border-radius: 30px;
-
-  font-family: inherit;
-  font-size: 13px;
-  font-weight: 700;
-
-  text-decoration: none;
   cursor: pointer;
-
-  transition: all 0.25s ease;
+  padding: 0;
 }
 
-.navbar-signup:hover {
-  background: #05630e;
-  color: #fff;
-
-  transform: translateY(-2px);
-
-  box-shadow: 0 4px 12px rgba(8, 123, 19, 0.18);
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-/* TABLET */
+.mobile-menu-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
 
-@media (max-width: 768px) {
-  .navbar-container {
-    width: calc(100% - 40px);
+/* Mobile Menu - Full Screen Slide Out */
+.navbar-mobile {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 320px;
+  height: 100vh;
+  background: #ffffff;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  flex-direction: column;
+  animation: slideInRight 0.3s ease-out;
+  overflow-y: auto;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
   }
 
-  .navbar {
-    padding: 12px 0;
+  to {
+    transform: translateX(0);
   }
 }
 
-/* MOBILE */
+.navbar-mobile .nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px solid #e8e8e8;
+  transition: background 0.3s ease;
+}
 
-@media (max-width: 480px) {
-  .navbar-container {
-    width: calc(100% - 28px);
+.navbar-mobile .nav-link:first-child {
+  background: #858e47;
+  color: #ffffff;
+  border-bottom: none;
+}
+
+.navbar-mobile .nav-link:hover {
+  background: #f5f5f5;
+}
+
+.navbar-mobile .nav-link::after {
+  content: '›';
+  font-size: 24px;
+  font-weight: 300;
+  color: #999;
+}
+
+.navbar-mobile .nav-link:first-child::after {
+  color: #ffffff;
+}
+
+.mobile-auth {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto;
+  padding: 24px;
+  border-top: 1px solid #e8e8e8;
+}
+
+.mobile-auth .btn {
+  width: 100%;
+  padding: 14px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.mobile-auth .btn-primary {
+  background: #858e47;
+  color: #ffffff;
+  border: none;
+}
+
+.mobile-auth .btn-primary:hover {
+  background: #6d7639;
+}
+
+.mobile-auth .btn-outline {
+  background: transparent;
+  color: #858e47;
+  border: 2px solid #858e47;
+}
+
+.mobile-auth .btn-outline:hover {
+  background: #858e47;
+  color: #ffffff;
+}
+
+/* Mobile Overlay */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
 
-  .logo-text {
-    font-size: 19px;
+  to {
+    opacity: 1;
   }
+}
 
-  .logo-icon {
-    width: 27px;
-    height: 27px;
-    font-size: 16px;
+/* Close Button in Mobile Menu */
+.mobile-menu-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 24px;
+  z-index: 10001;
+}
+
+.navbar-mobile .nav-link:first-child~.mobile-menu-close {
+  color: #ffffff;
+}
+
+/* =====================================
+   RESPONSIVE BREAKPOINTS
+   ===================================== */
+
+@media (max-width: 1024px) {
+  .navbar-desktop {
+    display: none;
   }
 
   .navbar-auth {
-    gap: 5px;
+    display: none;
   }
 
-  .navbar-login {
-    padding: 8px 11px;
-    font-size: 12px;
+  .mobile-menu-toggle {
+    display: flex;
   }
 
-  .navbar-signup {
-    min-width: auto;
-    padding: 9px 15px;
-    font-size: 12px;
+  .navbar-mobile {
+    display: flex;
+  }
+
+  .mobile-menu-overlay {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 0;
+  }
+
+  .navbar-container {
+    padding: 0 16px;
+  }
+
+  .logo-stamp {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-mobile {
+    max-width: 100%;
+  }
+
+  .logo-stamp {
+    width: 45px;
+    height: 45px;
   }
 }

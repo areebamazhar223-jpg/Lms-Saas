@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { BookOpen, Award, ArrowRight, Compass, ClipboardList, HelpCircle } from "lucide-react";
+import { BookOpen, Award, ArrowRight, Compass, ClipboardList, HelpCircle, Play } from "lucide-react";
 import api from "../../services/api";
+import { useAuth } from "../../context/AuthContext";
 import DashboardLayout from "../../components/DashboardLayout/DashboardLayout";
-import CourseCard from "../../components/CourseCard/CourseCard";
 import { getCourseFallbackImage } from "../../services/courseArtwork";
 import { getCourseImageUrl } from "../../services/media";
 import learnerImage from "../../assets/hero-learner.png";
@@ -12,40 +12,10 @@ import "./StudentDashboard.css";
 
 export default function StudentDashboard() {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [enrollments, setEnrollments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  // Mock courses data
-  const mockCourses = [
-    {
-      _id: '1',
-      courseId: {
-        _id: '1',
-        title: 'Advanced React Development',
-        thumbnail: 'https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=400&h=250&fit=crop',
-        instructor: { name: 'John Developer' }
-      }
-    },
-    {
-      _id: '2',
-      courseId: {
-        _id: '2',
-        title: 'UI/UX Design Masterclass',
-        thumbnail: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=250&fit=crop',
-        instructor: { name: 'Sarah Designer' }
-      }
-    },
-    {
-      _id: '3',
-      courseId: {
-        _id: '3',
-        title: 'Web Development Fundamentals',
-        thumbnail: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop',
-        instructor: { name: 'Mike Expert' }
-      }
-    }
-  ];
-
   useEffect(() => {
     const fetchMyCourses = async () => {
       try {
@@ -53,13 +23,15 @@ export default function StudentDashboard() {
         setError("");
         const response = await api.get("/enrollment/my-courses");
         if (response.data?.success) {
-          setEnrollments(response.data.enrollments || response.data.data || mockCourses);
+          setEnrollments(response.data.enrollments || response.data.data || []);
         } else {
-          setEnrollments(mockCourses);
+          setEnrollments([]);
+          setError(response.data?.message || "Your courses could not be loaded. Please try again.");
         }
       } catch (error) {
         console.error("My Courses Error:", error);
-        setEnrollments(mockCourses);
+        setEnrollments([]);
+        setError(error?.response?.data?.message || "Your courses could not be loaded. Please try again.");
       } finally {
         setLoading(false);
       }
@@ -81,7 +53,9 @@ export default function StudentDashboard() {
   const totalCourses = enrollments.length;
   const completedCourses = enrollments.filter((item) => item.completed || item.status === "completed").length;
   const inProgress = totalCourses - completedCourses;
-  const progress = totalCourses ? Math.round((completedCourses / totalCourses) * 100) : 0;
+  const progress = totalCourses
+    ? Math.round(enrollments.reduce((sum, item) => sum + Number(item.progress || item.progressPercentage || 0), 0) / totalCourses)
+    : 0;
 
   const getImageUrl = (thumbnail, course) => thumbnail ? getCourseImageUrl(thumbnail) : getCourseFallbackImage(course);
 
@@ -96,7 +70,7 @@ export default function StudentDashboard() {
               <div className="welcome-content">
                 <div className="welcome-copy">
                   <span className="welcome-kicker">YOUR LEARNING SPACE</span>
-                  <h1 className="welcome-title">Welcome back! <span aria-hidden="true">✦</span></h1>
+                  <h1 className="welcome-title">Welcome back{user?.name ? `, ${user.name.split(" ")[0]}` : ""}! <span aria-hidden="true">✦</span></h1>
                   <p className="welcome-subtitle">Keep building your skills one lesson at a time. You have {inProgress} course{inProgress === 1 ? "" : "s"} in progress.</p>
                   <div className="welcome-actions">
                     <button className="btn btn-primary" onClick={() => navigate("/student/my-courses")}>
@@ -124,7 +98,7 @@ export default function StudentDashboard() {
                 <div className="student-progress-ring" style={{ "--progress-value": `${progress}%` }}>
                   <span>{progress}%</span>
                 </div>
-                <div><span className="stat-label">Course progress</span><strong>{completedCourses} of {totalCourses} complete</strong></div>
+                <div><span className="stat-label">Average course progress</span><strong>{progress}% across {totalCourses} course{totalCourses === 1 ? "" : "s"}</strong></div>
               </div>
             </div>
 
@@ -147,23 +121,59 @@ export default function StudentDashboard() {
             </div>
           ) : (
             <div className="courses-grid">
-              {enrollments.slice(0, 6).map((enrollment) => (
-                <CourseCard
-                  key={enrollment._id}
-                  course={{
-                    _id: enrollment.courseId?._id,
-                    title: enrollment.courseId?.title,
-                    instructor: enrollment.courseId?.instructor?.name,
-                    image: getImageUrl(enrollment.courseId?.thumbnail, enrollment.courseId || {}),
-                    fallbackImage: getCourseFallbackImage(enrollment.courseId || {}),
-                    isEnrolled: true,
-                    progress: Number(enrollment.progress || enrollment.progressPercentage || 0),
-                    category: enrollment.courseId?.category || 'General',
-                    duration: enrollment.courseId?.duration || ''
-                  }}
-                  onEnroll={() => navigate(`/student/course/${enrollment.courseId?._id}`)}
-                />
-              ))}
+              {enrollments.slice(0, 6).map((enrollment) => {
+                    const course = enrollment.courseId || {};
+                    const thumbnail = getImageUrl(course.thumbnail, course);
+                    return (
+                      <div
+                        key={enrollment._id}
+                        className="dashboard-course-card"
+                        style={{ "--course-index": enrollment._id ? enrollment._id.slice(-4) : "0" }}
+                      >
+                        <div className="course-image-wrapper">
+                          <img
+                            src={thumbnail}
+                            alt={course.title}
+                            className="course-image"
+                            onError={(e) => {
+                              e.target.onerror = null;
+                              e.target.src = getCourseFallbackImage(course);
+                            }}
+                          />
+                          <button
+                            className="view-course-btn"
+                            onClick={(e) => { e.stopPropagation(); navigate(`/student/course/${course._id}`); }}
+                          >
+                            <Play size={18} />
+                            <span>View Course</span>
+                          </button>
+                        </div>
+                        <div className="course-card-content">
+                          <h3 className="course-title">{course.title || "Course"}</h3>
+                          <p className="course-instructor">{course.instructor?.name || "Expert Instructor"}</p>
+                          <div className="course-meta">
+                            <span>{course.category || "General"}</span>
+                            <span>{course.duration || ""}</span>
+                          </div>
+                          <div className="course-progress">
+                            <div className="progress-label">
+                              <span>Progress</span>
+                              <span>{Number(enrollment.progress || enrollment.progressPercentage || 0)}%</span>
+                            </div>
+                            <div className="progress-bar">
+                              <div
+                                className="progress-fill"
+                                style={{ width: `${Number(enrollment.progress || enrollment.progressPercentage || 0)}%` }}
+                              ></div>
+                            </div>
+                          </div>
+                          <button className="btn btn-primary course-btn" onClick={() => navigate(`/student/course/${course._id}`)}>
+                            Continue Learning <ArrowRight size={14} />
+                          </button>
+                        </div>
+                      </div>
+                    );
+                  })}
             </div>
           )}
             </section>
@@ -188,3 +198,4 @@ export default function StudentDashboard() {
     </DashboardLayout>
   );
 }
+

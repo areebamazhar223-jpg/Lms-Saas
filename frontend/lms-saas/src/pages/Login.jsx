@@ -1,37 +1,57 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Eye, EyeOff, ArrowRight, BookOpenCheck, Search, Menu } from "lucide-react";
+import { ArrowRight, Eye, EyeOff } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
+import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 import GoogleSignInButton from "../components/Auth/GoogleSignInButton";
 import MathCaptcha from "../components/Auth/MathCaptcha";
 import "./Login.css";
 
-const Login = () => {
+export default function Login() {
   const navigate = useNavigate();
   const location = useLocation();
   const { login, googleLogin } = useAuth();
-
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
-
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [menuOpen, setMenuOpen] = useState(false);
   const [captchaPayload, setCaptchaPayload] = useState(null);
   const [captchaResetKey, setCaptchaResetKey] = useState(0);
 
   const navigateAfterSignIn = (result) => {
     const role = result?.user?.role;
     const returnTo = location.state?.from;
-    if (returnTo?.pathname?.startsWith("/")) {
-      navigate(returnTo.pathname, { state: returnTo.state, replace: true });
-    } else if (role === "admin") navigate("/admin/dashboard");
+    if (returnTo?.pathname?.startsWith("/")) navigate(returnTo.pathname, { state: returnTo.state, replace: true });
+    else if (role === "admin") navigate("/admin/dashboard");
     else if (role === "instructor") navigate("/instructor/dashboard");
     else navigate("/student/dashboard");
+  };
+
+  const handleChange = (event) => {
+    setFormData((previous) => ({ ...previous, [event.target.name]: event.target.value }));
+    setError("");
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setError("");
+    const email = formData.email.trim();
+    if (!email || !formData.password) return setError("Please enter your email and password.");
+    if (!captchaPayload) return setError("Please complete the security check.");
+
+    try {
+      setLoading(true);
+      const result = await login(email, formData.password, captchaPayload.captchaId, captchaPayload.captchaAnswer);
+      if (result?.success === false) return setError(result.message || "Login failed.");
+      navigateAfterSignIn(result);
+    } catch (loginError) {
+      setError(loginError?.response?.data?.message || loginError?.message || "Invalid email or password.");
+      setCaptchaPayload(null);
+      setCaptchaResetKey((key) => key + 1);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleGoogleCredential = async (credential) => {
@@ -53,162 +73,39 @@ const Login = () => {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    setError("");
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-
-    const email = formData.email.trim();
-    const password = formData.password;
-
-    if (!email || !password) {
-      setError("Please enter your email and password.");
-      return;
-    }
-
-    if (!captchaPayload) {
-      setError("Please complete the security check.");
-      return;
-    }
-
-    try {
-      setLoading(true);
-      const result = await login(email, password, captchaPayload.captchaId, captchaPayload.captchaAnswer);
-
-      if (result?.success === false) {
-        setError(result.message || "Login failed.");
-        return;
-      }
-
-      navigateAfterSignIn(result);
-    } catch (err) {
-      console.error("Login Error:", err);
-      setError(
-        err?.response?.data?.message ||
-        err?.message ||
-        "Invalid email or password."
-      );
-      setCaptchaPayload(null);
-      setCaptchaResetKey((key) => key + 1);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <main className="lms-login-page">
-      <header className="login-site-header">
-        <Link to="/" className="login-brand" aria-label="LearnAxis home">
-          <span className="login-brand-icon"><BookOpenCheck size={32} /></span>
-          <span className="login-brand-name">Learn<span>Axis</span><small>LEARN. GROW. SUCCEED.</small></span>
-        </Link>
-        <div className="login-header-actions">
-          <Link className="login-search" to="/courses" aria-label="Browse courses"><Search size={22} /></Link>
-          <button className="login-menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded={menuOpen} onClick={() => setMenuOpen((open) => !open)}><Menu size={27} /></button>
-        </div>
-        {menuOpen && <nav className="login-mobile-menu"><Link to="/">Home</Link><Link to="/courses">Courses</Link><Link to="/signup">Sign up</Link></nav>}
-      </header>
-
-      <section className="login-page-hero" aria-labelledby="lms-login-title">
-        <div className="login-hero-art" aria-hidden="true">
-          <span className="login-hero-orbit login-hero-orbit--outer" />
-          <span className="login-hero-orbit login-hero-orbit--inner" />
-          <div className="login-book-scene">
-            <span className="login-book login-book--mint"><i /><b /></span>
-            <span className="login-book login-book--orange"><i /><b /></span>
-            <span className="login-book login-book--cream"><i /><b /></span>
+    <div className="login-page">
+      <Navbar />
+      <main>
+        <header className="login-title-banner">
+          <div className="login-title-inner">
+            <h1>Login</h1>
+            <nav aria-label="Breadcrumb"><Link to="/">Home</Link><span>/</span><span>Login</span></nav>
           </div>
-          <span className="login-learning-chip login-learning-chip--top">LEARN</span>
-          <span className="login-learning-chip login-learning-chip--bottom">GROW</span>
-          <span className="login-hero-spark login-hero-spark--one" />
-          <span className="login-hero-spark login-hero-spark--two" />
-        </div>
-        <h1 id="lms-login-title">Welcome Back</h1>
-        <div className="login-breadcrumb"><Link to="/">Home</Link><span aria-hidden="true">&gt;</span><span>Sign in</span></div>
-      </section>
+        </header>
 
-      <section className="lms-login-main">
-        <div className="lms-login-shell">
-          <div className="lms-login-content">
-          <span className="lms-login-eyebrow">YOUR LEARNING JOURNEY CONTINUES</span>
-          <h2>Sign in to LearnAxis</h2>
-          <p className="lms-login-intro">Please sign in with your LearnAxis account.</p>
-
-          {error && <div className="lms-login-error" role="alert">{error}</div>}
-
-          <form onSubmit={handleSubmit} className="lms-login-form">
-            <div className="lms-login-field">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Email Address"
-                aria-label="Email Address"
-                autoComplete="email"
-                disabled={loading}
-                required
-              />
+        <section className="login-main" aria-labelledby="login-form-title">
+          <div className="login-card">
+            <h2 id="login-form-title">Login Form</h2>
+            <p className="login-card-prompt"><strong>Already a Member?</strong> Log in here.</p>
+            {error && <div className="login-form-error" role="alert">{error}</div>}
+            <form className="login-form" onSubmit={handleSubmit}>
+              <label className="login-form-field"><span>Username or Email Address</span><input type="email" name="email" autoComplete="email" value={formData.email} onChange={handleChange} disabled={loading} required /></label>
+              <label className="login-form-field"><span>Password</span><div className="login-password-wrap"><input type={showPassword ? "text" : "password"} name="password" autoComplete="current-password" value={formData.password} onChange={handleChange} disabled={loading} required /><button type="button" aria-label={showPassword ? "Hide password" : "Show password"} onClick={() => setShowPassword((visible) => !visible)}>{showPassword ? <EyeOff size={18} /> : <Eye size={18} />}</button></div></label>
+              <MathCaptcha purpose="login" onVerified={(payload) => { setCaptchaPayload(payload); if (payload) setError(""); }} disabled={loading} resetKey={captchaResetKey} />
+              <label className="login-remember"><input type="checkbox" name="remember" /><span>Remember Me</span></label>
+              <button className="login-submit" type="submit" disabled={loading || !captchaPayload}>{loading ? "PLEASE WAIT..." : "LOG IN"}<ArrowRight size={17} aria-hidden="true" /></button>
+            </form>
+            <Link className="login-forgot-link" to="/forgot-password">Lost your password?</Link>
+            <div className="login-google-section">
+              <span>Or Login With</span>
+              <GoogleSignInButton onCredential={handleGoogleCredential} disabled={loading || !captchaPayload} />
             </div>
-
-            <MathCaptcha purpose="login" onVerified={(payload) => { setCaptchaPayload(payload); if (payload) setError(""); }} disabled={loading} resetKey={captchaResetKey} />
-
-            <div className="lms-login-field lms-login-password">
-              <input
-                id="password"
-                name="password"
-                type={showPassword ? "text" : "password"}
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Password"
-                aria-label="Password"
-                autoComplete="current-password"
-                disabled={loading}
-                required
-              />
-              <button
-                type="button"
-                className="password-toggle"
-                onClick={() => setShowPassword((prev) => !prev)}
-                aria-label={showPassword ? "Hide password" : "Show password"}
-              >
-                {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
-              </button>
-            </div>
-
-            <label className="lms-login-remember">
-              <input type="checkbox" name="remember" />
-              <span>Keep me logged in</span>
-            </label>
-
-            <button type="submit" className="lms-login-submit" disabled={loading || !captchaPayload}>
-              {loading ? "Signing In..." : "Sign In"}
-              {!loading && <ArrowRight size={20} />}
-            </button>
-          </form>
-
-          <div className="login-social-divider"><span>or continue with</span></div>
-          <GoogleSignInButton onCredential={handleGoogleCredential} disabled={loading || !captchaPayload} />
-
-          <nav className="lms-login-links" aria-label="Account help">
-            <Link to="/forgot-password">Forgot Password?</Link>
-            <Link to="/signup">Not Registered? Sign up</Link>
-          </nav>
+            <p className="login-register-prompt">Don’t have an account? <Link to="/signup">Register here</Link></p>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
       <Footer />
-    </main>
+    </div>
   );
-};
-
-export default Login;
+}

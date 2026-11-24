@@ -8,73 +8,73 @@ import './Blog.css';
 const BLOG_POSTS = [
   {
     id: 1,
-    title: 'Top 10 React Trends in 2026',
-    excerpt: 'Explore the React tools and practices developers are following in 2026, from modern rendering patterns to stronger performance and developer workflows.',
-    author: 'Sarah Dev',
-    date: 'Oct 20, 2026',
+    title: 'Learn Web Development: From HTML to Full-Stack',
+    excerpt: 'Master modern web development with our comprehensive guide. Learn HTML, CSS, JavaScript, React, Node.js, and MongoDB. Build real-world projects and launch your career as a full-stack developer.',
+    author: 'LearnSmart Team',
+    date: 'Dec 15, 2024',
     image: reactTrendsImage,
-    category: 'Programming',
-    readTime: '8 min read'
-  },
-  {
-    id: 2,
-    title: 'The Future of Web Design Trends',
-    excerpt: 'Discover the latest design trends and techniques that will dominate in 2025. From minimalism to interactive experiences, learn what\'s next.',
-    author: 'John Designer',
-    date: 'Dec 12, 2025',
-    image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop',
-    category: 'Design',
-    readTime: '6 min read'
-  },
-  {
-    id: 3,
-    title: 'Digital Marketing 2025–2026: Strategies That Work',
-    excerpt: 'A practical look at the shift from 2025 to 2026, covering search, social content, campaign measurement, and data-informed marketing decisions.',
-    author: 'Emma Marketing',
-    date: 'Oct 12, 2026',
-    image: digitalMarketingImage,
-    category: 'Marketing',
-    readTime: '10 min read'
-  },
-  {
-    id: 4,
-    title: 'Getting Started with Python for Data Science',
-    excerpt: 'A beginner\'s guide to Python programming for data science. Libraries, tools, and real-world examples included.',
-    author: 'Mike Data',
-    date: 'Dec 8, 2025',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
-    category: 'Programming',
+    category: 'Web Development',
     readTime: '12 min read'
   },
   {
-    id: 5,
-    title: 'UI/UX Design Principles Every Developer Should Know',
-    excerpt: 'Understand the fundamentals of UI/UX design to create better user experiences. Learn color theory, typography, spacing, and more.',
-    author: 'Lisa Design',
-    date: 'Dec 5, 2025',
-    image: uiuxDesignImage,
-    category: 'Design',
-    readTime: '7 min read'
+    id: 2,
+    title: 'Mobile App Development: iOS & Android Essentials',
+    excerpt: 'Discover how to build native and cross-platform mobile apps. Learn React Native, Flutter, Swift, and Kotlin. Create apps that work seamlessly on both iOS and Android devices.',
+    author: 'Mobile Dev Expert',
+    date: 'Dec 12, 2024',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop',
+    category: 'Mobile Development',
+    readTime: '10 min read'
   },
   {
-    id: 6,
-    title: 'Building Scalable Applications with Node.js',
-    excerpt: 'Learn how to architect and build scalable backend applications using Node.js and Express. Best practices and patterns included.',
-    author: 'Alex Backend',
-    date: 'Dec 1, 2025',
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop',
-    category: 'Programming',
+    id: 3,
+    title: 'UI/UX Design Principles for Modern Apps',
+    excerpt: 'Learn the fundamentals of creating beautiful, user-friendly interfaces. Master design thinking, wireframing, prototyping, and usability testing. Create experiences your users will love.',
+    author: 'Design Lead',
+    date: 'Dec 10, 2024',
+    image: uiuxDesignImage,
+    category: 'Design',
+    readTime: '8 min read'
+  },
+  {
+    id: 4,
+    title: 'Data Science & Machine Learning for Beginners',
+    excerpt: 'Start your journey into data science and AI. Learn Python, data analysis, visualization, and machine learning algorithms. Work with real datasets and build predictive models.',
+    author: 'Data Science Expert',
+    date: 'Dec 8, 2024',
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop',
+    category: 'Data Science',
+    readTime: '14 min read'
+  },
+  {
+    id: 5,
+    title: 'Digital Marketing in 2025: Strategies That Work',
+    excerpt: 'Master modern digital marketing techniques including SEO, content marketing, social media strategy, email campaigns, and analytics. Learn to drive traffic, engage audiences, and grow your business.',
+    author: 'Marketing Strategist',
+    date: 'Dec 5, 2024',
+    image: digitalMarketingImage,
+    category: 'Marketing',
     readTime: '11 min read'
   },
   {
+    id: 6,
+    title: 'Cloud Computing & DevOps: Deploy Like a Pro',
+    excerpt: 'Learn cloud platforms (AWS, Azure, GCP), containerization with Docker, Kubernetes orchestration, CI/CD pipelines, and infrastructure as code. Deploy and scale applications with confidence.',
+    author: 'DevOps Specialist',
+    date: 'Dec 1, 2024',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop',
+    category: 'DevOps',
+    readTime: '13 min read'
+  },
+  {
     id: 7,
-    title: 'How AI Is Changing the Modern Workplace',
-    excerpt: 'See how teams are using AI tools to analyze information, improve everyday workflows, and make better informed decisions.',
-    author: 'LearnAxis Team',
-    date: 'Oct 25, 2026',
+    title: 'AI & Automation: Transform Your Business',
+    excerpt: 'Explore how artificial intelligence and automation are reshaping industries. Learn AI applications, ChatGPT, prompt engineering, automation workflows, and how to leverage AI tools for productivity.',
+    author: 'LearnSmart Team',
+    date: 'Nov 28, 2024',
     image: aiWorkplaceImage,
     category: 'Artificial Intelligence',
-    readTime: '7 min read'
+    readTime: '9 min read'
   }
 ];
 

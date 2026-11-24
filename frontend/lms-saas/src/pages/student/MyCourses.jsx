@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Play } from "lucide-react";
 
 import api from "../../services/api";
 import "./MyCourses.css";
@@ -212,6 +213,7 @@ function MyCourses() {
 
 
 
+              <div className="course-image-wrapper">
               <img
 
                 src={
@@ -240,6 +242,11 @@ function MyCourses() {
 
 
               />
+              <button className="view-course-btn" onClick={(e)=>{ e.stopPropagation(); }}>
+                <Play size={18} />
+                <span>View Course</span>
+              </button>
+            </div>
 
 
 

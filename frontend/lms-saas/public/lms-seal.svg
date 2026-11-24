@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="LMS">
+  <circle cx="60" cy="60" r="57" fill="#fbf5e9"/>
+  <circle cx="60" cy="60" r="54" fill="none" stroke="#85827a" stroke-width="4" stroke-dasharray="1.1 1.25"/>
+  <circle cx="60" cy="60" r="48" fill="none" stroke="#b8b3a7" stroke-width="1"/>
+  <text x="60" y="67" text-anchor="middle" fill="#292825" font-family="Arial, sans-serif" font-size="31" font-weight="700" letter-spacing="-1">LMS</text>
+  <path d="M31 77h57" stroke="#292825" stroke-width="4" stroke-linecap="square"/>
+  <path d="M62 77h25" stroke="#858e47" stroke-width="4"/>
+  <path d="m88 74 8 3-8 3z" fill="#df8739"/>
+</svg>

@@ -10,7 +10,6 @@ import {
 } from "lucide-react";
 
 import { useAuth } from "../context/AuthContext";
-import GoogleSignInButton from "../components/Auth/GoogleSignInButton";
 import MathCaptcha from "../components/Auth/MathCaptcha";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
@@ -18,7 +17,7 @@ import "./Signup.css";
 
 const Signup = ({ defaultRole = "student" }) => {
   const navigate = useNavigate();
-  const { register, googleLogin } = useAuth();
+  const { register } = useAuth();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -36,82 +35,9 @@ const Signup = ({ defaultRole = "student" }) => {
 
   const [captchaPayload, setCaptchaPayload] = useState(null);
   const [captchaResetKey, setCaptchaResetKey] = useState(0);
-  const [pendingGoogleCredential, setPendingGoogleCredential] =
-    useState(null);
-
-  const completeGoogleSignup = async (credential, captcha) => {
-    try {
-      setLoading(true);
-      setError("");
-
-      const result = await googleLogin(
-        credential,
-        captcha.captchaId,
-        captcha.captchaAnswer,
-        "register",
-        defaultRole
-      );
-
-      setPendingGoogleCredential(null);
-
-      const role = result.user?.role;
-
-      navigate(
-        role === "admin"
-          ? "/admin/dashboard"
-          : role === "instructor"
-          ? "/instructor/dashboard"
-          : "/student/dashboard",
-        { replace: true }
-      );
-    } catch (err) {
-      setError(
-        err?.response?.data?.message ||
-          err?.message ||
-          "Google signup failed. Please try again."
-      );
-
-      setPendingGoogleCredential(null);
-      setCaptchaPayload(null);
-      setCaptchaResetKey((key) => key + 1);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleGoogleCredential = async (credential) => {
-    setError("");
-
-    if (!credential) {
-      setError("Google authentication failed. Please try again.");
-      return;
-    }
-
-    if (captchaPayload) {
-      await completeGoogleSignup(credential, captchaPayload);
-      return;
-    }
-
-    setPendingGoogleCredential(credential);
-
-    setSuccess(
-      "Google account selected successfully! Please complete the security verification below."
-    );
-  };
-
-  const handleCaptchaVerified = async (payload) => {
+  const handleCaptchaVerified = (payload) => {
     setCaptchaPayload(payload);
-
-    if (!payload) return;
-
-    setError("");
-
-    if (pendingGoogleCredential) {
-      await completeGoogleSignup(
-        pendingGoogleCredential,
-        payload
-      );
-    }
+    if (payload) setError("");
   };
 
   const handleChange = (e) => {
@@ -204,16 +130,12 @@ const Signup = ({ defaultRole = "student" }) => {
         className="signup-page-hero"
         aria-labelledby="signup-page-title"
       >
-        <h1 id="signup-page-title">
-          {defaultRole === "instructor"
-            ? "Instructor Sign up"
-            : "Student Sign up"}
-        </h1>
+        <h1 id="signup-page-title">Registration</h1>
 
         <div className="signup-breadcrumb">
           <Link to="/">Home</Link>
           <span aria-hidden="true">&gt;</span>
-          <span>Sign up</span>
+          <span>Registration</span>
         </div>
       </section>
 
@@ -224,11 +146,6 @@ const Signup = ({ defaultRole = "student" }) => {
               ? "Teach with LearnAxis"
               : "Join Now for Free"}
           </h2>
-
-          <p className="signup-existing">
-            Already have an account?{" "}
-            <Link to="/login">Sign in to LMS</Link>
-          </p>
 
           <h3>Create New Account</h3>
 
@@ -295,6 +212,22 @@ const Signup = ({ defaultRole = "student" }) => {
                   required
                 />
               </div>
+            </label>
+
+            <label className="signup-field signup-field--role" htmlFor="role">
+              <span>Role</span>
+              <select
+                id="role"
+                name="role"
+                className="signup-role-select"
+                value={formData.role}
+                onChange={handleChange}
+                disabled={loading}
+                required
+              >
+                <option value="student">Student</option>
+                <option value="instructor">Instructor</option>
+              </select>
             </label>
 
             <label
@@ -412,21 +345,6 @@ const Signup = ({ defaultRole = "student" }) => {
             </button>
           </form>
 
-          <div className="signup-social-divider">
-            <span>or continue with</span>
-          </div>
-
-          <GoogleSignInButton
-            onCredential={handleGoogleCredential}
-            disabled={loading}
-          />
-
-          {pendingGoogleCredential && (
-            <p className="signup-google-pending">
-              <Lock size={15} />
-              Google verified. Complete CAPTCHA to continue.
-            </p>
-          )}
         </div>
       </section>
 

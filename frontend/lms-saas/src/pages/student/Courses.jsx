@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Search } from "lucide-react";
+import { Search, Play } from "lucide-react";
 import api from "../../services/api";
 import "./Courses.css";
 
@@ -420,6 +420,7 @@ function Courses() {
 
 
 
+              <div className="course-image-wrapper">
             <img
 
               src={
@@ -447,6 +448,11 @@ function Courses() {
 
 
             />
+              <button className="view-course-btn" onClick={(e)=>{ e.stopPropagation(); handleEnroll(course); }}>
+                <Play size={18} />
+                <span>View Course</span>
+              </button>
+            </div>
 
 
 
@@ -673,3 +679,4 @@ function Courses() {
 
 
 export default Courses;
+

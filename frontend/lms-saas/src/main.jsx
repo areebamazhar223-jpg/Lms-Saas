@@ -6,10 +6,6 @@ import App from "./App.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 
 import "./index.css";
-import "./styles/global.css";
-import "./styles/lms-theme.css";
-import "./styles/responsive.css";
-import "./styles/motion.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

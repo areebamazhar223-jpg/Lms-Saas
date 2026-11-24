@@ -19,7 +19,7 @@
   padding: 10px 12px;
   border-radius: var(--ls-radius-sm);
   margin-bottom: 4px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .lms-sidebar__user-avatar {
@@ -103,9 +103,20 @@
   flex-shrink: 0;
 }
 
-.lms-activity-icon--quiz   { background: #ede9fe; color: #7c3aed; }
-.lms-activity-icon--assign { background: #fef3c7; color: #d97706; }
-.lms-activity-icon--live   { background: #dbeafe; color: #2563eb; }
+.lms-activity-icon--quiz {
+  background: #ede9fe;
+  color: #7c3aed;
+}
+
+.lms-activity-icon--assign {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.lms-activity-icon--live {
+  background: #dbeafe;
+  color: #2563eb;
+}
 
 .lms-activity-title {
   font-size: 13px;
@@ -245,53 +256,150 @@
   }
 }
 
-/* Student sidebar menu: keep the full menu reachable at every height. */
-.lms-shell--student { --ls-sidebar-width: 292px; }
+/* =====================================================
+   FULL HEIGHT SIDEBAR FOR ALL ROLES
+   ===================================================== */
+
+/* Common sidebar full-height setup */
+.lms-shell--student,
+.lms-shell--instructor,
+.lms-shell--admin {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.lms-shell--student .lms-sidebar,
+.lms-shell--instructor .lms-sidebar,
+.lms-shell--admin .lms-sidebar {
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: var(--ls-sidebar-width) !important;
+  height: 100% !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  z-index: 300 !important;
+}
+
+.lms-shell--student .lms-sidebar__logo,
+.lms-shell--instructor .lms-sidebar__logo,
+.lms-shell--admin .lms-sidebar__logo {
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+}
+
+.lms-shell--student .lms-sidebar__nav,
+.lms-shell--instructor .lms-sidebar__nav,
+.lms-shell--admin .lms-sidebar__nav {
+  min-height: 0 !important;
+  flex: 1 1 auto !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  overscroll-behavior: contain !important;
+  scrollbar-width: thin !important;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent !important;
+}
+
+.lms-shell--student .lms-sidebar__nav::-webkit-scrollbar,
+.lms-shell--instructor .lms-sidebar__nav::-webkit-scrollbar,
+.lms-shell--admin .lms-sidebar__nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.lms-shell--student .lms-sidebar__nav::-webkit-scrollbar-track,
+.lms-shell--instructor .lms-sidebar__nav::-webkit-scrollbar-track,
+.lms-shell--admin .lms-sidebar__nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.lms-shell--student .lms-sidebar__nav::-webkit-scrollbar-thumb,
+.lms-shell--instructor .lms-sidebar__nav::-webkit-scrollbar-thumb,
+.lms-shell--admin .lms-sidebar__nav::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+.lms-shell--student .lms-sidebar__nav::-webkit-scrollbar-thumb:hover,
+.lms-shell--instructor .lms-sidebar__nav::-webkit-scrollbar-thumb:hover,
+.lms-shell--admin .lms-sidebar__nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.lms-shell--student .lms-sidebar__footer,
+.lms-shell--instructor .lms-sidebar__footer,
+.lms-shell--admin .lms-sidebar__footer {
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  margin-top: auto !important;
+}
+
+.lms-shell--student .lms-main,
+.lms-shell--instructor .lms-main,
+.lms-shell--admin .lms-main {
+  margin-left: var(--ls-sidebar-width) !important;
+  width: calc(100% - var(--ls-sidebar-width)) !important;
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+}
+
+/* =====================================================
+   STUDENT SIDEBAR SPECIFIC STYLES
+   ===================================================== */
+.lms-shell--student {
+  background: #f7faf6;
+}
 
 .lms-shell--student .lms-sidebar {
-  top: 0;
-  height: 100vh;
-  height: 100dvh;
-  overflow: hidden;
-  border-radius: 0 18px 18px 0;
-  background: linear-gradient(180deg, #ffffff 0%, #f8fbf9 100%);
-  border-right: 1px solid #e4ece7;
-  box-shadow: 4px 0 22px rgba(20, 53, 36, .035);
+  background: #f3faf1;
+  border-right: 1px solid #e1ebdf;
+  box-shadow: 2px 0 16px rgba(16, 40, 20, .035);
 }
 
 .lms-shell--student .lms-sidebar__logo {
-  min-height: var(--ls-header-height, 68px);
-  border-bottom-color: #e8efeb;
+  min-height: 76px;
+  padding: 0 22px;
+  background: #fff;
+  border-bottom: 1px solid #e8ece8;
 }
 
-.lms-shell--student .lms-sidebar__logo-icon { background: #08734f; }
-.lms-shell--student .lms-sidebar__logo-name { color: #17231e; }
-.lms-shell--student .lms-sidebar__logo-sub { color: #7b8981; }
+.lms-shell--student .lms-sidebar__logo-icon {
+  background: #16820b;
+}
+
+.lms-shell--student .lms-sidebar__logo-name {
+  color: #17221a;
+}
+
+.lms-shell--student .lms-sidebar__logo-sub {
+  color: #778178;
+}
 
 .lms-shell--student .lms-sidebar__nav {
-  min-height: 0;
-  padding: 22px 15px 16px;
-  overflow-x: hidden;
-  overflow-y: auto;
-  overscroll-behavior: contain;
-  scrollbar-gutter: stable;
+  padding: 22px 14px 16px;
 }
 
 .lms-shell--student .lms-sidebar__section-label {
   margin: 4px 0 7px;
   padding: 7px 10px 5px;
-  color: #829088;
+  color: #758371;
   font-size: 10px;
   letter-spacing: 1.15px;
+  text-transform: uppercase;
 }
 
-.lms-shell--student .lms-sidebar__group { display: grid; gap: 2px; }
-.lms-shell--student .lms-sidebar__group + .lms-sidebar__group { margin-top: 12px; }
-.lms-shell--student .lms-sidebar__nav > .lms-sidebar__section-label { margin-top: 4px; }
-.lms-shell--student .lms-topbar__search { max-width: 540px; border-color: #e6ece8; background: #f7faf8; }
-.lms-shell--student .lms-topbar__search input { min-width: 0; outline: none; }
-.lms-shell--student .lms-topbar__search-submit { padding: 5px 10px; border: 0; border-radius: 999px; background: #16820b; color: #fff; font: inherit; font-size: 11px; font-weight: 650; cursor: pointer; }
-.lms-shell--student .lms-topbar__search-submit:hover { background: #116d09; }
+.lms-shell--student .lms-sidebar__group {
+  display: grid;
+  gap: 2px;
+}
+
+.lms-shell--student .lms-sidebar__group+.lms-sidebar__group {
+  margin-top: 12px;
+}
 
 .lms-shell--student .lms-sidebar__link {
   min-height: 46px;
@@ -299,96 +407,167 @@
   padding: 11px 14px;
   border: 1px solid transparent;
   border-radius: 10px;
-  color: #53645b;
+  color: #425248;
   font-size: 13px;
-  transition: background-color .18s ease, color .18s ease, border-color .18s ease;
+  transition: all 0.18s ease;
 }
 
 .lms-shell--student .lms-sidebar__link:hover {
-  border-color: #e2eee7;
-  background: #f0f8f3;
-  color: #075b46;
+  border-color: #dcebd8;
+  background: #eaf5e7;
+  color: #16820b;
 }
 
 .lms-shell--student .lms-sidebar__link.active {
-  border-color: #cce8d8;
-  background: #e8f5ed;
-  color: #075b46;
-  box-shadow: inset 3px 0 #138b68;
+  border-color: #d8ead2;
+  background: #e4f3df;
+  color: #126d0a;
+  box-shadow: inset 3px 0 #16820b;
   font-weight: 700;
 }
 
-.lms-shell--student .lms-sidebar__link:focus-visible,
-.lms-shell--student .lms-sidebar__logout:focus-visible {
-  outline: 2px solid #138b68;
-  outline-offset: 2px;
+.lms-shell--student .lms-sidebar__divider {
+  margin: 14px 4px 8px;
+  background: #e2ebe5;
 }
 
-.lms-shell--student .lms-sidebar__icon { width: 20px; height: 20px; }
-.lms-shell--student .lms-sidebar__divider { margin: 14px 4px 8px; background: #e2ebe5; }
-.lms-shell--student .lms-sidebar__footer { padding: 12px; border-top-color: #e4ece7; background: #fff; }
-.lms-shell--student .lms-sidebar__user { min-width: 0; padding: 10px; background: #f2f7f4; }
-.lms-shell--student .lms-sidebar__user-avatar { background: #08734f; }
-.lms-shell--student .lms-sidebar__user-name { color: #17231e; }
-.lms-shell--student .lms-sidebar__user-role { color: #7b8981; }
-.lms-shell--student .lms-sidebar__user-info { overflow: hidden; }
-.lms-shell--student .lms-sidebar__logout { min-height: 42px; border-radius: 10px; color: #b54747; }
-.lms-shell--student .lms-sidebar__logout:hover { background: #fff1f0; }
+.lms-shell--student .lms-sidebar__footer {
+  padding: 12px;
+  border-top: 1px solid #e4ece7;
+  background: #fff;
+}
 
+.lms-shell--student .lms-sidebar__user {
+  padding: 10px;
+  background: #f2f7f4;
+}
+
+.lms-shell--student .lms-sidebar__user-avatar {
+  background: #16820b;
+}
+
+.lms-shell--student .lms-sidebar__user-name {
+  color: #17231e;
+}
+
+.lms-shell--student .lms-sidebar__user-role {
+  color: #7b8981;
+}
+
+.lms-shell--student .lms-sidebar__logout {
+  min-height: 42px;
+  border-radius: 10px;
+  color: #b54747;
+}
+
+.lms-shell--student .lms-sidebar__logout:hover {
+  background: #fff1f0;
+}
+
+/* =====================================================
+   ADMIN & INSTRUCTOR SIDEBAR SPECIFIC STYLES
+   ===================================================== */
+.lms-shell--admin .lms-sidebar,
+.lms-shell--instructor .lms-sidebar {
+  background: var(--ls-sidebar-bg);
+  border-right: 1px solid var(--ls-sidebar-border);
+}
+
+.lms-shell--admin .lms-sidebar__logo,
+.lms-shell--instructor .lms-sidebar__logo {
+  min-height: var(--ls-header-height);
+  border-bottom: 1px solid var(--ls-sidebar-border);
+}
+
+.lms-shell--admin .lms-sidebar__nav,
+.lms-shell--instructor .lms-sidebar__nav {
+  padding: 16px 12px;
+}
+
+.lms-shell--admin .lms-content,
+.lms-shell--instructor .lms-content {
+  min-height: calc(100vh - var(--ls-header-height));
+}
+
+/* =====================================================
+   MOBILE RESPONSIVENESS
+   ===================================================== */
 @media (max-width: 1024px) {
-  .lms-shell--student .lms-sidebar { width: min(292px, calc(100vw - 48px)); }
-  .lms-shell--student .lms-sidebar-overlay { z-index: 250; }
-  .lms-shell--student .lms-sidebar.open { z-index: 300; box-shadow: 18px 0 48px rgba(4, 20, 17, .16); }
+
+  .lms-shell--student .lms-sidebar,
+  .lms-shell--instructor .lms-sidebar,
+  .lms-shell--admin .lms-sidebar {
+    left: -100% !important;
+    transition: left 0.3s ease !important;
+    box-shadow: none !important;
+  }
+
+  .lms-shell--student .lms-sidebar.open,
+  .lms-shell--instructor .lms-sidebar.open,
+  .lms-shell--admin .lms-sidebar.open {
+    left: 0 !important;
+    box-shadow: 18px 0 48px rgba(4, 20, 17, .16) !important;
+  }
+
+  .lms-shell--student .lms-main,
+  .lms-shell--instructor .lms-main,
+  .lms-shell--admin .lms-main {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+
+  .lms-sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 250;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .lms-sidebar-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 
 @media (max-width: 480px) {
-  .lms-shell--student .lms-sidebar { top: 0; width: min(290px, calc(100vw - 40px)); height: 100vh; height: 100dvh; }
-  .lms-shell--student .lms-sidebar__nav { padding: 14px 10px; }
-  .lms-shell--student .lms-sidebar__link { min-height: 46px; }
+
+  .lms-shell--student .lms-sidebar,
+  .lms-shell--instructor .lms-sidebar,
+  .lms-shell--admin .lms-sidebar {
+    width: min(290px, calc(100vw - 40px)) !important;
+  }
 }
 
 @media (max-height: 820px) {
-  .lms-shell--student .lms-sidebar__logo { min-height: 62px; }
-  .lms-shell--student .lms-sidebar__nav { padding-top: 12px; padding-bottom: 10px; }
-  .lms-shell--student .lms-sidebar__section-label { margin: 2px 0 4px; padding-top: 5px; padding-bottom: 3px; }
-  .lms-shell--student .lms-sidebar__link { min-height: 40px; padding-top: 8px; padding-bottom: 8px; }
-  .lms-shell--student .lms-sidebar__divider { margin-top: 8px; margin-bottom: 4px; }
-  .lms-shell--student .lms-sidebar__footer { padding: 8px 12px; }
-  .lms-shell--student .lms-sidebar__user { padding: 7px 9px; }
-  .lms-shell--student .lms-sidebar__logout { min-height: 36px; }
+  .lms-shell--student .lms-sidebar__logo {
+    min-height: 62px;
+  }
+
+  .lms-shell--student .lms-sidebar__nav {
+    padding-top: 12px;
+    padding-bottom: 10px;
+  }
+
+  .lms-shell--student .lms-sidebar__link {
+    min-height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .lms-shell--student .lms-sidebar__footer {
+    padding: 8px 12px;
+  }
 }
-
-/* Student dashboard colors follow the green LearnSmart home-page palette. */
-.lms-shell--student { --ls-sidebar-width: 320px; background: #f7faf6; }
-.lms-shell--student .lms-sidebar { top: 0; bottom: 0; border-radius: 0; background: #f3faf1; box-shadow: 1px 0 0 #e1ebdf; }
-.lms-shell--student .lms-sidebar__logo { min-height: 76px; padding-inline: 22px; background: #fff; }
-.lms-shell--student .lms-sidebar__logo-icon { background: #16820b; }
-.lms-shell--student .lms-sidebar__nav { padding: 22px 14px; }
-.lms-shell--student .lms-sidebar__section-label { color: #758371; letter-spacing: .45px; font-size: 10px; text-transform: uppercase; }
-.lms-shell--student .lms-sidebar__link { color: #425248; }
-.lms-shell--student .lms-sidebar__link:hover { background: #eaf5e7; border-color: #dcebd8; color: #16820b; }
-.lms-shell--student .lms-sidebar__link.active { background: #e4f3df; border-color: #d8ead2; box-shadow: inset 3px 0 #16820b; color: #126d0a; }
-.lms-shell--student .lms-sidebar__footer { background: #fff; }
-.lms-shell--student .lms-sidebar__user { background: #f3faf1; }
-.lms-shell--student .lms-sidebar__user-avatar { background: #16820b; }
-.lms-shell--student .lms-sidebar__logout { color: #a34545; }
-.lms-shell--student .lms-topbar { background: #fff; }
-.lms-shell--student .lms-topbar__search { background: #f7faf6; border-color: #e4ece2; }
-.lms-shell--student .lms-content { min-height: calc(100vh - var(--ls-header-height)); background: #f7faf6; }
-.lms-shell--student { min-height: 100vh; min-height: 100dvh; align-items: stretch; }
-.lms-shell--student .lms-sidebar { inset: 0 auto 0 0; height: 100vh; height: 100dvh; min-height: 100vh; min-height: 100dvh; border-radius: 0; }
-.lms-shell--student .lms-sidebar__nav { min-height: 0; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; }
-.lms-shell--student .lms-sidebar__footer { flex: 0 0 auto; }
-.lms-shell--student .lms-sidebar__footer { margin-top: auto; }
-
-@media (min-width: 1025px) {
-  .lms-shell--student { position: relative; }
-  .lms-shell--student .lms-sidebar { position: absolute; inset: 0 auto 0 0; width: var(--ls-sidebar-width); height: auto; min-height: 100%; }
-  .lms-shell--student .lms-main { margin-left: var(--ls-sidebar-width); width: calc(100% - var(--ls-sidebar-width)); }
-
-  .lms-shell--admin { position: relative; align-items: stretch; }
-  .lms-shell--admin .lms-sidebar { position: absolute; inset: 0 auto 0 0; width: var(--ls-sidebar-width); height: auto; min-height: 100%; }
-  .lms-shell--admin .lms-sidebar__nav { min-height: 0; flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; }
-  .lms-shell--admin .lms-sidebar__footer { flex: 0 0 auto; margin-top: auto; }
-  .lms-shell--admin .lms-main { margin-left: var(--ls-sidebar-width); width: calc(100% - var(--ls-sidebar-width)); }
+/* Mobile sidebar should be fixed on small screens */
+@media (max-width: 1024px) {
+  .lms-shell--student .lms-sidebar,
+  .lms-shell--instructor .lms-sidebar,
+  .lms-shell--admin .lms-sidebar {
+    position: fixed !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+  }
 }

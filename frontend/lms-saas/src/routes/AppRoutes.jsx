@@ -11,6 +11,10 @@ import Signup from "../pages/Signup";
 import ResetPassword from "../pages/ResetPassword";
 import ForgotPassword from "../pages/ForgotPassword";
 import About from "../pages/About";
+import Pages from "../pages/Pages";
+import BlogPage from "../pages/BlogPage";
+import GalleryPage from "../pages/GalleryPage";
+import EventsPage from "../pages/EventsPage";
 import HowItWorks from "../pages/HowItWorks";
 import Features from "../pages/Features";
 import Contact from "../pages/Contact";
@@ -108,6 +112,10 @@ return ( <Routes>
   <Route path="/reset-password" element={<ResetPassword />} />
   <Route path="/forgot-password" element={<ForgotPassword />} />
   <Route path="/about" element={<About />} />
+  <Route path="/pages" element={<Pages />} />
+  <Route path="/blog" element={<BlogPage />} />
+  <Route path="/gallery" element={<GalleryPage />} />
+  <Route path="/events" element={<EventsPage />} />
   <Route path="/how-it-works" element={<HowItWorks />} />
   <Route path="/features" element={<Features />} />
   <Route path="/contact" element={<Contact />} />

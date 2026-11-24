@@ -1,13 +1,12 @@
 import Navbar from "../components/Navbar/Navbar";
 import Hero from "../components/Hero/Hero";
-import Features from "../components/Features/Features";
+import AboutCourses from "../components/AboutCourses/AboutCourses";
 import PopularCourses from "../components/PopularCourses/PopularCourses";
-import Testimonials from "../components/Testimonials/Testimonials";
-import CTA from "../components/CTA/CTA";
-import FAQ from "../components/FAQ/FAQ";
+import BlogSection from "../components/BlogSection/BlogSection";
+import FAQSection from "../components/FAQSection/FAQSection";
+import UpcomingEvents from "../components/UpcomingEvents/UpcomingEvents";
+import ProcessSteps from "../components/ProcessSteps/ProcessSteps";
 import Footer from "../components/Footer/Footer";
-import Pricing from "../components/Pricing/Pricing";
-import TrustedCompanies from "../components/TrustedCompanies/TrustedCompanies";
 import "./Home.css";
 
 function Home() {
@@ -15,21 +14,14 @@ function Home() {
     <div className="learnsmart-home">
       <Navbar />
       <Hero />
-      <TrustedCompanies />
-      <Features />
+      <AboutCourses />
       <section id="courses">
         <PopularCourses />
       </section>
-      <section id="pricing">
-        <Pricing />
-      </section>
-      <section id="testimonials">
-        <Testimonials />
-      </section>
-      <CTA />
-      <section id="faq">
-        <FAQ />
-      </section>
+      <BlogSection />
+      <FAQSection />
+      <UpcomingEvents />
+      <ProcessSteps />
       <Footer />
     </div>
   );

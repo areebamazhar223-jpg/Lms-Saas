@@ -1,316 +1,167 @@
-/* ===============================
-   About Section
-================================ */
+/* =====================================
+   ABOUT PAGE - RESPONSIVE DESIGN
+   ===================================== */
 
 .about {
-
-    padding: 100px 6%;
-
-    background: #ffffff;
-
+    min-height: 100vh;
+    background: var(--bg);
+    padding: var(--space-16) 0;
 }
-
-
 
 .about-container {
-
     max-width: 1200px;
-
-    margin: auto;
-
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 70px;
-
-    align-items: center;
-
+    margin: 0 auto;
+    padding: 0 var(--space-6);
 }
 
-
-
-
-
-/* ===============================
-   Content
-================================ */
-
+.about-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto var(--space-12);
+}
 
 .about-content h1 {
-
-    font-size: 44px;
-
-    font-weight: 700;
-
-    color: #1d3124;
-
-    margin-bottom: 20px;
-
+    font-size: clamp(32px, 5vw, 48px);
+    margin-bottom: var(--space-4);
+    color: var(--ink);
 }
-
-
-
-.about-content h1::after {
-
-    content: "";
-
-    display: block;
-
-    width: 70px;
-
-    height: 4px;
-
-    background: #30684a;
-
-    margin-top: 15px;
-
-    border-radius: 10px;
-
-}
-
-
 
 .about-content p {
-
-    color: #30684a;
-
-    font-size: 17px;
-
+    font-size: var(--text-lg);
+    color: var(--text-muted);
     line-height: 1.8;
-
-    margin-bottom: 18px;
-
+    margin-bottom: var(--space-4);
 }
 
+.about-content p:last-of-type {
+    margin-bottom: 0;
+}
 
-
-
-
-/* ===============================
-   Cards
-================================ */
-
-
+/* Feature Cards */
 .about-cards {
-
     display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 22px;
-
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
 }
-
-
-
-
 
 .about-card {
-
-
-    background: #f8fafc;
-
-
-    padding: 25px;
-
-
-    border-radius: 18px;
-
-
-    border: 1px solid #e5e7eb;
-
-
-    transition: .3s ease;
-
-
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8) var(--space-6);
+    text-align: center;
+    transition: all 0.3s ease;
 }
-
-
-
 
 .about-card:hover {
-
-
-    transform: translateY(-6px);
-
-
-    background: white;
-
-
-    box-shadow:
-        0 15px 35px rgba(0, 0, 0, .08);
-
-
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
 }
-
-
-
-
-
-
-
-/* ===============================
-   Icon
-================================ */
-
 
 .about-icon {
-
-
-    width: 55px;
-
-
-    height: 55px;
-
-
-    border-radius: 15px;
-
-
-    background: #dbeafe;
-
-
-    color: #30684a;
-
-
-    display: flex;
-
-
-    align-items: center;
-
-
-    justify-content: center;
-
-
-    margin-bottom: 18px;
-
-
+    width: 64px;
+    height: 64px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto var(--space-5);
+    background: var(--bg-muted);
+    border-radius: var(--radius-full);
+    color: var(--primary);
 }
-
-
-
-.about-icon svg {
-
-    width: 28px;
-
-    height: 28px;
-
-}
-
-
-
-
-
-
-
-/* ===============================
-   Card Text
-================================ */
-
 
 .about-card h3 {
-
-
-    font-size: 21px;
-
-
-    color: #1d3124;
-
-
-    margin-bottom: 10px;
-
-
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+    color: var(--ink);
 }
-
-
 
 .about-card p {
-
-
-    color: #30684a;
-
-
+    font-size: var(--text-base);
+    color: var(--text-muted);
+    margin: 0;
     line-height: 1.7;
-
-
-    font-size: 15px;
-
-
 }
 
+/* =====================================
+   RESPONSIVE BREAKPOINTS
+   ===================================== */
 
+/* Desktop */
+@media (max-width: 1024px) {
+    .about {
+        padding: var(--space-12) 0;
+    }
 
+    .about-cards {
+        gap: var(--space-5);
+    }
 
+    .about-card {
+        padding: var(--space-6);
+    }
+}
 
-
-
-/* ===============================
-   Responsive
-================================ */
-
-
-@media(max-width:900px) {
-
+/* Tablet */
+@media (max-width: 768px) {
+    .about {
+        padding: var(--space-10) 0;
+    }
 
     .about-container {
-
-
-        grid-template-columns: 1fr;
-
-
-        gap: 40px;
-
-
+        padding: 0 var(--space-4);
     }
-
-
 
     .about-content {
-
-
-        text-align: center;
-
-
+        margin-bottom: var(--space-10);
     }
-
-
-
-    .about-content h1::after {
-
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-
-    }
-
-
-}
-
-
-
-@media(max-width:500px) {
-
-
-    .about {
-
-
-        padding: 70px 20px;
-
-
-    }
-
-
 
     .about-content h1 {
-
-
         font-size: 32px;
-
-
     }
 
+    .about-content p {
+        font-size: var(--text-base);
+    }
 
+    .about-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+    }
+}
 
-}.about{position:relative;isolation:isolate;min-height:calc(100vh - 100px);padding:clamp(72px,10vw,132px) 6%;overflow:hidden;background:radial-gradient(ellipse at 80% 18%,#1d3124 0%,transparent 38%),radial-gradient(ellipse at 12% 90%,#1d3124 0%,transparent 36%),#1d3124;color:#f5f7ff}.about:before{position:absolute;z-index:-1;inset:0;background-image:linear-gradient(#ffffff06 1px,transparent 1px),linear-gradient(90deg,#ffffff06 1px,transparent 1px);background-size:52px 52px;mask-image:linear-gradient(to bottom,black,transparent 85%);content:""}.about-container{width:min(1160px,100%);grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:clamp(38px,7vw,90px)}.about-content{position:relative}.about-content:before{display:inline-block;margin-bottom:18px;padding:8px 12px;border:1px solid #96ae9755;border-radius:999px;background:#30684a18;color:#e5efe6;content:"THE LEARNSMART DIFFERENCE";font-size:10px;font-weight:800;letter-spacing:1.5px}.about-content h1{max-width:580px;margin:0 0 24px;color:#f7f8ff;font-size:clamp(42px,5.5vw,66px);font-weight:800;line-height:1.06;letter-spacing:-2.5px}.about-content h1:after{width:88px;height:4px;margin-top:20px;background:linear-gradient(90deg,#30684a,#96ae97)}.about-content p{max-width:580px;color:#e5efe6;font-size:16px;line-height:1.85}.about-cards{gap:15px}.about-card{position:relative;padding:23px 24px 22px 86px;border:1px solid #ffffff17;border-radius:15px;background:linear-gradient(115deg,#1d3124,#1d3124);box-shadow:0 18px 40px #1d312444;transition:transform .22s,border-color .22s,background .22s}.about-card:hover{transform:translateY(-3px);border-color:#30684a77;background:linear-gradient(115deg,#1d3124,#1d3124);box-shadow:0 20px 42px #1d312480}.about-icon{position:absolute;top:22px;left:22px;width:46px;height:46px;margin:0;border:1px solid #96ae9735;border-radius:13px;background:linear-gradient(145deg,#1d3124,#1d3124);color:#e5efe6}.about-icon svg{width:22px;height:22px}.about-card h3{margin:0 0 7px;color:#f4f6ff;font-size:17px}.about-card p{margin:0;color:#e5efe6;font-size:13px;line-height:1.65}@media(max-width:900px){.about-container{grid-template-columns:1fr;gap:34px}.about-content{text-align:left}.about-content h1:after{margin-left:0;margin-right:0}}@media(max-width:500px){.about{padding:68px 20px}.about-content h1{font-size:40px;letter-spacing:-1.5px}.about-content p{font-size:14px}.about-card{padding:20px 18px 20px 76px}.about-icon{top:20px;left:17px;width:42px;height:42px}}
+/* Mobile */
+@media (max-width: 480px) {
+    .about {
+        padding: var(--space-8) 0;
+    }
+
+    .about-content {
+        margin-bottom: var(--space-8);
+    }
+
+    .about-content h1 {
+        font-size: 28px;
+    }
+
+    .about-cards {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .about-card {
+        padding: var(--space-5);
+    }
+
+    .about-icon {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Very small mobile */
+@media (max-width: 360px) {
+    .about-content h1 {
+        font-size: 24px;
+    }
+}

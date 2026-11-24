@@ -1,0 +1,96 @@
+.pages-landing { min-height: 100vh; background: #fbf5e9; color: #302e2b; }
+.pages-landing > .navbar {
+  position: relative;
+  top: auto;
+  padding: 2px 0;
+  background: #fbf5e9;
+  border: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+.pages-landing > .navbar .navbar-container { width: min(1240px, calc(100% - 48px)); max-width: 1240px; min-height: 96px; gap: 20px; }
+.pages-landing > .navbar .navbar-logo { flex: 0 0 96px; color: #282725; }
+.pages-landing > .navbar .logo-stamp { width: 88px; height: 88px; }
+.pages-landing > .navbar .navbar-desktop { gap: 3px; justify-content: flex-end; }
+.pages-landing > .navbar .nav-link { padding: 13px 15px; border: 1px solid transparent; border-radius: 3px; color: #242321; font-size: 14px; font-weight: 500; text-transform: uppercase; }
+.pages-landing > .navbar .nav-link:hover,
+.pages-landing > .navbar .nav-link.active { border-color: #302d29; background: transparent; color: #242321; }
+.pages-landing > .navbar .navbar-auth { flex: 0 0 auto; gap: 11px; color: #302d29; }
+.pages-landing > .navbar .navbar-user-icon { width: 40px; height: 40px; display: grid; place-items: center; border: 2px solid #302d29; border-radius: 3px; color: #302d29; }
+.pages-landing > .navbar .navbar-auth-link,
+.pages-landing > .navbar .navbar-cart { color: #242321; font-size: 14px; font-weight: 500; text-decoration: none; }
+.pages-landing > .navbar .navbar-auth-divider { color: #77716c; }
+.pages-landing > .navbar .mobile-menu-toggle { color: #302d29; }
+.pages-landing > .navbar .navbar-mobile { background: #f5e9d2; }
+.pages-landing > .navbar .navbar-mobile .nav-link { color: #302d29; }
+
+.pages-title-banner { background: #df8739; color: #fff; }
+.pages-title-inner { width: min(1228px, calc(100% - 48px)); margin: 0 auto; padding: 28px 0 31px; }
+.pages-title-inner h1 { margin: 0 0 8px; color: #fff; font-size: 40px; font-weight: 600; line-height: 1.15; }
+.pages-title-inner nav { display: flex; align-items: center; gap: 12px; color: #fff; font-size: 14px; }
+.pages-title-inner nav a { color: inherit; text-decoration: none; }
+.pages-title-inner nav a:hover { text-decoration: underline; }
+.pages-title-inner nav span:nth-child(2) { opacity: .7; }
+
+.pages-features { min-height: 445px; padding: 68px 24px 58px; background: #fbf5e9; }
+.pages-features-heading { margin: 0 auto 39px; text-align: center; }
+.pages-features-heading h2 { margin: 0; color: #302e2b; font-size: clamp(25px, 3vw, 30px); font-weight: 600; line-height: 1.25; }
+.pages-features-heading > span { display: block; width: 40px; height: 4px; margin: 10px auto 22px; background: #858f48; }
+.pages-features-heading p { margin: 0; color: #85817c; font-size: 14px; }
+.pages-features-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; width: min(1228px, 100%); margin: 0 auto; }
+.pages-feature { display: flex; align-items: center; flex-direction: column; text-align: center; }
+.pages-feature-icon { display: grid; width: 90px; height: 90px; place-items: center; margin-bottom: 11px; border-radius: 50%; color: #fff; }
+.pages-feature-icon.green { background: #22b573; }
+.pages-feature-icon.blue { background: #328bc2; }
+.pages-feature-icon.yellow { background: #f6a00c; }
+.pages-feature-icon.orange { background: #db5500; }
+.pages-feature h3 { margin: 0 0 17px; color: #4b4946; font-size: 19px; font-weight: 400; }
+.pages-feature p { max-width: 280px; margin: 0; color: #85817c; font-size: 14px; line-height: 1.65; }
+
+@media (max-width: 1200px) {
+  .pages-landing > .navbar .navbar-desktop { gap: 0; }
+  .pages-landing > .navbar .nav-link { padding: 12px 10px; font-size: 12px; }
+  .pages-landing > .navbar .navbar-container { gap: 12px; }
+}
+@media (max-width: 1024px) {
+  .pages-landing > .navbar { padding: 5px 0; }
+  .pages-landing > .navbar .navbar-container { min-height: 80px; }
+  .pages-landing > .navbar .navbar-logo { flex-basis: 78px; }
+  .pages-landing > .navbar .logo-stamp { width: 76px; height: 76px; }
+}
+@media (max-width: 760px) {
+  .pages-title-inner { padding: 24px 0; }
+  .pages-title-inner h1 { font-size: 34px; }
+  .pages-features { padding: 52px 20px; }
+  .pages-features-heading p { max-width: 560px; margin: 0 auto; line-height: 1.6; }
+  .pages-features-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 34px; }
+}
+@media (max-width: 480px) {
+  .pages-title-inner { width: calc(100% - 36px); }
+  .pages-features-grid { grid-template-columns: 1fr; }
+  .pages-features-heading h2 { font-size: 24px; }
+}
+
+.pages-welcome { padding: 0 24px 72px; background: #fbf5e9; }
+.pages-welcome-inner { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: 22px; align-items: start; width: min(1228px, 100%); margin: 0 auto; }
+.pages-welcome-slider { position: relative; height: 300px; overflow: hidden; background: #eee4d2; }
+.pages-welcome-slider > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.pages-slider-arrow { position: absolute; top: 50%; display: grid; width: 40px; height: 40px; place-items: center; transform: translateY(-50%); border: 1px solid rgba(255,255,255,.8); background: rgba(39,39,35,.35); color: #fff; cursor: pointer; transition: background .2s ease; }
+.pages-slider-arrow:hover { background: rgba(39,39,35,.72); }
+.pages-slider-arrow.previous { left: 20px; }
+.pages-slider-arrow.next { right: 20px; }
+.pages-slider-dots { position: absolute; right: 0; bottom: 17px; left: 0; display: flex; justify-content: center; gap: 9px; }
+.pages-slider-dots button { width: 16px; height: 16px; padding: 0; border: 1px solid #fff; border-radius: 0; background: rgba(48,46,43,.35); cursor: pointer; }
+.pages-slider-dots button.active { background: #fff; box-shadow: inset 0 0 0 3px rgba(48,46,43,.35); }
+.pages-welcome-copy h2 { margin: 0; color: #302e2b; font-size: clamp(25px, 3vw, 30px); font-weight: 600; line-height: 1.25; }
+.pages-welcome-underline { display: block; width: 50px; height: 4px; margin: 20px 0 22px; background: #858f48; }
+.pages-welcome-copy > p { margin: 0 0 20px; color: #85817c; font-size: 14px; line-height: 1.75; }
+.pages-welcome-copy ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+.pages-welcome-copy li { display: flex; align-items: center; gap: 10px; color: #85817c; font-size: 14px; }
+.pages-welcome-copy li svg { flex: 0 0 auto; color: #85817c; }
+@media (max-width: 760px) {
+  .pages-welcome { padding: 0 20px 54px; }
+  .pages-welcome-inner { grid-template-columns: 1fr; gap: 26px; max-width: 620px; }
+  .pages-welcome-slider { height: auto; aspect-ratio: 1.72 / 1; }
+  .pages-welcome-copy h2 { font-size: 26px; }
+}

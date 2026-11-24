@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="SQL database course artwork">
+  <rect width="800" height="520" fill="#e9e3d2"/><ellipse cx="400" cy="135" rx="150" ry="55" fill="#df8739"/><path d="M250 135v210c0 31 67 56 150 56s150-25 150-56V135" fill="#8b9854"/><path d="M250 205c0 31 67 56 150 56s150-25 150-56M250 275c0 31 67 56 150 56s150-25 150-56" fill="none" stroke="#f9f2e4" stroke-width="9" opacity=".85"/><ellipse cx="400" cy="135" rx="150" ry="55" fill="none" stroke="#f9f2e4" stroke-width="9"/>
+  <text x="400" y="475" text-anchor="middle" fill="#394a3c" font-family="Arial,sans-serif" font-size="32" font-weight="700" letter-spacing="6">SQL DATABASE</text>
+</svg>

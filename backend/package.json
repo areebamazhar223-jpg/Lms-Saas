@@ -2,11 +2,14 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "LMS SaaS Backend",
-  "main": "server.js",
+  "main": "api/index.js",
   "type": "module",
   "scripts": {
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node api/index.js",
+    "build": "echo 'Build complete'",
+    "deploy": "vercel --prod",
+    "seed:admin": "node seeders/createAdmin.js"
   },
   "keywords": [
     "lms",
@@ -32,5 +35,8 @@
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
+  },
+  "engines": {
+    "node": ">=18.0.0"
   }
 }

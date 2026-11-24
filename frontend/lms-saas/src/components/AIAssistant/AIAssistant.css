@@ -1,44 +1,77 @@
 /* =========================================
-   AI ASSISTANT - FLOATING BUTTON
+   AI ASSISTANT - MODERN DESIGN (DTLMS STYLE)
 ========================================= */
 
+/* Floating Button */
 .ai-floating-button {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-    width: 60px;
-    height: 60px;
-    border: none;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #30684a, #30684a);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(48, 104, 74, 0.35);
-    z-index: 9999;
-    transition: all 0.25s ease;
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 56px;
+  height: 56px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #075b46 0%, #138b68 100%);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 40px rgba(7, 91, 70, 0.35);
+  z-index: 10000;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ai-floating-button:hover {
-    transform: translateY(-4px) scale(1.04);
-    box-shadow: 0 14px 35px rgba(48, 104, 74, 0.45);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 16px 48px rgba(7, 91, 70, 0.45);
 }
 
 .ai-floating-button:active {
-    transform: scale(0.96);
+  transform: scale(0.95);
 }
 
 .ai-online-dot {
-    position: absolute;
-    right: 4px;
-    top: 4px;
-    width: 13px;
-    height: 13px;
-    border-radius: 50%;
-    background: #22c55e;
-    border: 2px solid #ffffff;
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #22c55e;
+  border: 2.5px solid #ffffff;
+}
+
+.ai-floating-button::after {
+  position: absolute;
+  right: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  background: #ffffff;
+  color: #075b46;
+  content: "Need help?";
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) translateX(8px);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ai-floating-button:hover::after,
+.ai-floating-button:focus-visible::after {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.ai-floating-button:focus-visible {
+  outline: 3px solid rgba(255, 193, 7, 0.4);
+  outline-offset: 3px;
 }
 
 

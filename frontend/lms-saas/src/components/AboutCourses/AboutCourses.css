@@ -1,0 +1,129 @@
+.dtlms-about-section {
+  padding: 36px 24px 18px;
+  background: #fbf5e9;
+}
+
+.dtlms-about-container {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+}
+
+.dtlms-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
+}
+
+.dtlms-benefit {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInUp 0.6s ease-out forwards;
+  transition: transform 0.5s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.dtlms-benefit:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.dtlms-benefit:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dtlms-benefit:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.dtlms-benefit:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dtlms-benefit:hover {
+  transform: translateY(-15px) rotateX(10deg) scale(1.05);
+}
+
+.dtlms-benefit-icon {
+  display: grid;
+  width: 142px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: #f4e8d0;
+  color: #df8739;
+  transition: all 0.5s ease;
+  transform-style: preserve-3d;
+  box-shadow: 0 10px 30px rgba(223, 135, 57, 0.1);
+}
+
+.dtlms-benefit:hover .dtlms-benefit-icon {
+  background: #df8739;
+  color: #ffffff;
+  transform: rotateY(360deg) translateZ(30px);
+  box-shadow: 0 20px 50px rgba(223, 135, 57, 0.4);
+}
+
+.dtlms-benefit h2 {
+  margin: 0;
+  color: #292929;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
+  transition: color 0.3s ease;
+}
+
+.dtlms-benefit:hover h2 {
+  color: #df8739;
+}
+
+@media (max-width: 760px) {
+  .dtlms-benefits-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 16px;
+  }
+
+  .dtlms-benefit-icon {
+    width: 112px;
+  }
+
+  .dtlms-benefit h2 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 420px) {
+  .dtlms-about-section {
+    padding: 20px 18px 4px;
+  }
+
+  .dtlms-benefit-icon {
+    width: 88px;
+  }
+
+  .dtlms-benefit-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dtlms-benefit h2 {
+    font-size: 13px;
+  }
+}

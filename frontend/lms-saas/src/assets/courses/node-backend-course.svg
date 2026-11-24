@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Node.js backend course artwork">
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#193d34"/><stop offset="1" stop-color="#4e8264"/></linearGradient></defs><rect width="800" height="520" fill="url(#bg)"/>
+  <g transform="translate(260 110)"><rect width="280" height="86" rx="15" fill="#fff7e8"/><rect y="108" width="280" height="86" rx="15" fill="#f1dfbd"/><rect y="216" width="280" height="86" rx="15" fill="#fff7e8"/><g fill="#df8739"><circle cx="34" cy="43" r="10"/><circle cx="34" cy="151" r="10"/><circle cx="34" cy="259" r="10"/></g><g stroke="#65815b" stroke-width="11" stroke-linecap="round"><path d="M72 43h164M72 151h164M72 259h164"/></g></g>
+  <text x="400" y="480" text-anchor="middle" fill="#fff7e8" font-family="Arial,sans-serif" font-size="27" font-weight="700" letter-spacing="4">NODE.JS BACKEND</text>
+</svg>

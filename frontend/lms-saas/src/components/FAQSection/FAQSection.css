@@ -1,0 +1,107 @@
+.dtlms-faq-section {
+  padding: 76px 24px 84px;
+  background: #fbf5e9;
+}
+
+.dtlms-faq-container {
+  width: min(100%, 900px);
+  margin: 0 auto;
+}
+
+.dtlms-faq-eyebrow {
+  margin: 0 0 9px;
+  color: #858e47;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-align: center;
+}
+
+.dtlms-faq-container h2 {
+  margin: 0;
+  color: #302e2b;
+  font-size: clamp(26px, 3vw, 32px);
+  font-weight: 600;
+  text-align: center;
+}
+
+.dtlms-faq-heading-rule {
+  width: 42px;
+  height: 4px;
+  display: block;
+  margin: 12px auto 14px;
+  background: #858e47;
+}
+
+.dtlms-faq-intro {
+  margin: 0 0 34px;
+  color: #85817c;
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.dtlms-faq-list {
+  overflow: hidden;
+  border: 1px solid #e2d9c7;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.dtlms-faq-item + .dtlms-faq-item { border-top: 1px solid #e2d9c7; }
+
+.dtlms-faq-item summary {
+  min-height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 17px 22px;
+  color: #37342f;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.45;
+  list-style: none;
+}
+
+.dtlms-faq-item summary::-webkit-details-marker { display: none; }
+.dtlms-faq-item summary:focus-visible { outline: 2px solid #858e47; outline-offset: -3px; }
+
+.dtlms-faq-toggle {
+  width: 28px;
+  height: 28px;
+  position: relative;
+  flex: 0 0 28px;
+  border: 1px solid #858e47;
+  border-radius: 50%;
+}
+
+.dtlms-faq-toggle::before,
+.dtlms-faq-toggle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  transform: translate(-50%, -50%);
+  background: #858e47;
+}
+
+.dtlms-faq-toggle::after { transform: translate(-50%, -50%) rotate(90deg); transition: transform .18s ease; }
+.dtlms-faq-item[open] .dtlms-faq-toggle::after { transform: translate(-50%, -50%) rotate(0); }
+
+.dtlms-faq-item > p {
+  margin: -2px 68px 21px 22px;
+  color: #77736c;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+@media (max-width: 600px) {
+  .dtlms-faq-section { padding: 52px 18px 60px; }
+  .dtlms-faq-intro { margin-bottom: 25px; }
+  .dtlms-faq-item summary { min-height: 60px; padding: 14px 15px; font-size: 15px; }
+  .dtlms-faq-item > p { margin: 0 56px 18px 15px; font-size: 14px; }
+}

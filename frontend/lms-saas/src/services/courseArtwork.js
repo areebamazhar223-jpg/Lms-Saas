@@ -14,6 +14,28 @@ const localCourseAssets = import.meta.glob("../assets/courses/*.{jpg,jpeg,png,we
 });
 
 const imageKeywords = [
+  ["agenticaicourse", "agentic-ai-course"],
+  ["msoffice", "office-productivity-course"],
+  ["nodejsbackenddevelopment", "node-backend-course"],
+  ["sqldatabasefundamentals", "sql-database-course"],
+  ["deeplearningcourse", "deep-learning-course"],
+  ["powerbidatavisualization", "power-bi-course"],
+  ["advancedexcelcourse", "advanced-excel-course"],
+  ["powerpointpresentationskills", "powerpoint-course"],
+  ["promptengineeringcourse", "prompt"],
+  ["appdevelopmentcourse", "mobile-app-development-course"],
+  ["graphicdesignfundamentals", "canva"],
+  ["uiuxdesigncourse", "uiux"],
+  ["dataanalysiscourse", "Datasciences"],
+  ["machinelearningcourse", "data-science-course"],
+  ["dataanalyticscourse", "data-analytics-applied-ai-course"],
+  ["datasciencecourse", "excel-data-analysis"],
+  ["llmcourse", "llm-course"],
+  ["largelanguagemodel", "chatgpt-productivity"],
+  ["chatgptforproductivity", "chatgpt-productivity"],
+  ["mern", "full-stack-software-engineering-course"],
+  ["reactcourse", "react"],
+  ["wordpressshortcourse", "wordpress"],
   ["3dmodeling", "3d-modeling-course"],
   ["blender", "3d-modeling-course"],
   ["shopifydropshipping", "shopify-dropshipping-course"],
@@ -33,7 +55,6 @@ const imageKeywords = [
   ["iosdevelopment", "mobile-app-development-course"],
   ["softwaredevelopment", "react"],
   ["fullstack", "full-stack-software-engineering-course"],
-  ["mern", "react"],
   ["aiapps", "ai"],
   ["machinelearning", "datasciences"],
   ["largelanguagemodel", "chatgpt-productivity"],
@@ -77,9 +98,17 @@ const categoryImageRules = [
   [/python|programming|coding|developer|web|mern|react|javascript|mobile app|game development/i, "react"],
 ];
 
-const findLocalCourseAsset = (assetName) => Object.entries(localCourseAssets).find(([file]) =>
-  file.toLowerCase().replace(/[^a-z0-9]/g, "").includes(assetName.replace(/[^a-z0-9]/g, "")),
-)?.[1];
+const findLocalCourseAsset = (assetName) => {
+  const wanted = assetName.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const entries = Object.entries(localCourseAssets);
+  const exactMatch = entries.find(([file]) => {
+    const basename = file.split("/").at(-1).replace(/\.[^.]+$/, "").toLowerCase().replace(/[^a-z0-9]/g, "");
+    return basename === wanted;
+  });
+  return (exactMatch || entries.find(([file]) =>
+    file.toLowerCase().replace(/[^a-z0-9]/g, "").includes(wanted),
+  ))?.[1];
+};
 
 export const getCourseTopicImage = (course = {}) => {
   const courseText = `${course.title || ""} ${course.category || ""}`
